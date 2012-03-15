@@ -9,9 +9,14 @@ Newsandmore::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  match '/index' => 'pages#index'
+  match '/main' => 'pages#main'
+  match '/about' => 'pages#about'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+
 
   # Sample resource route with options:
   #   resources :products do
@@ -48,7 +53,7 @@ Newsandmore::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'pages#index'
 
   # See how all your routes lay out with "rake routes"
 
