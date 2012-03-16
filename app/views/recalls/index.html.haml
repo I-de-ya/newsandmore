@@ -1,0 +1,15 @@
+.left_column
+  .recalls
+    = render 'layouts/menu'
+    - @recalls.each do |recall|
+      %p
+        %b= recall.created_at.to_date
+        %hr
+        = recall.name
+        %br
+        =recall.body
+.right_column
+  = image_tag("rails.png")
+  Подпись
+  .recall_form
+    =render 'form'

@@ -1,0 +1,31 @@
+%h3 Отзывы
+
+%hr
+= form_for @recall do |f|
+  -if @recall.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@recall.errors.count, "error")} prohibited this recall from being saved:"
+      %ul
+        - @recall.errors.full_messages.each do |msg|
+          %li= msg
+
+  %table
+    %tr
+      %td= f.label :name, "Имя*"
+      %td.input= f.text_field :name
+    %tr
+      %td= f.label :email, "E-mail"
+      %td.input= f.email_field :email
+    %tr
+      %td
+      %td
+        = f.radio_button 'positivity', 'Положительный' 
+        Положительный
+        = f.radio_button 'positivity', 'Отрицательный'
+        Отрицательный
+    %tr
+      %td= f.label :body, "Ваш отзыв*"
+      %td= f.text_area :body, :cols => 35, :rows => 5
+  * Поля обязательные к заполнению
+  .actions
+    = f.submit 'Отправить сообщение'

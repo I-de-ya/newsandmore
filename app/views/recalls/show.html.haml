@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @recall.name
+%p
+  %b Email:
+  = @recall.email
+%p
+  %b Positivity:
+  = @recall.positivity
+%p
+  %b Body:
+  = @recall.body
+
+= link_to 'Edit', edit_recall_path(@recall)
+\|
+= link_to 'Back', recalls_path

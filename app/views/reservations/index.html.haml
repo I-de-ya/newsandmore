@@ -1,0 +1,27 @@
+%h1 Listing reservations
+
+%table
+  %tr
+    %th Firstname
+    %th Lastname
+    %th Email
+    %th Persons
+    %th Comment
+    %th
+    %th
+    %th
+
+  - @reservations.each do |reservation|
+    %tr
+      %td= reservation.firstname
+      %td= reservation.lastname
+      %td= reservation.email
+      %td= reservation.persons
+      %td= reservation.comment
+      %td= link_to 'Show', reservation
+      %td= link_to 'Edit', edit_reservation_path(reservation)
+      %td= link_to 'Destroy', reservation, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Reservation', new_reservation_path

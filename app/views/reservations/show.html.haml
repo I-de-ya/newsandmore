@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Firstname:
+  = @reservation.firstname
+%p
+  %b Lastname:
+  = @reservation.lastname
+%p
+  %b Email:
+  = @reservation.email
+%p
+  %b Persons:
+  = @reservation.persons
+%p
+  %b Comment:
+  = @reservation.comment
+
+= link_to 'Edit', edit_reservation_path(@reservation)
+\|
+= link_to 'Back', reservations_path

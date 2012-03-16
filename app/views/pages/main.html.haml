@@ -1,0 +1,73 @@
+.left_column
+
+	.about
+		%h3 О РЕСТОРАНЕ
+		%hr
+		= truncate("text", :length => 25)
+	.main_menu
+		%ul
+			%li
+				%h3= link_to "ОСНОВНЫЕ БЛЮДА", '#'
+			%hr
+			%li
+				%h3= link_to "ЗАВТРАКИ", '#'
+			%hr	
+			%li
+				%h3= link_to "БАРНАЯ КАРТА", '#'
+			%hr	
+			%li
+				%h3= link_to "БАНКЕТЫ", '#'
+			%hr
+			%li
+				%h3= link_to "ДЕТСКОЕ МЕНЮ", '#'
+	.news
+		%h3 НОВОСТИ & СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
+		%hr
+		%ul
+			%li
+				.post
+					= image_tag("rails.png")
+					%br
+					= link_to "Дата", "#"
+					%hr
+					= link_to "Новость", "#"
+			%li
+				.post
+					= image_tag("rails.png")
+					%br
+					= link_to "Дата", "#"
+					%hr
+					= link_to "Новость", "#"
+			%li
+				.post
+					= image_tag("rails.png")
+					%br
+					= link_to "Дата", "#"
+					%hr
+					= link_to "Новость", "#"
+
+.right_column
+	.events
+		%h3 МЕРОПРИЯТИЯ
+		%hr
+		%ul
+			- @events.each do |event|
+				%li= link_to event.title, event_path(event)
+			
+	.sport
+		%h3 СПОРТИВНЫЕ ТРАНСЛЯЦИИ
+		%hr
+		%ul
+			%li Трансляция
+			%li Трансляция
+	.movies
+		%h3 АФИША КИНО
+		%hr
+		%ul
+			%li Киношка
+			%li Киношка
+				
+
+
+
+			

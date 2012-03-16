@@ -1,0 +1,6 @@
+.archive
+	%h3 Архив мероприятий
+	%hr
+	%ul
+		- @archive.each do |event| 
+			%li= link_to event.title, event_path(event)

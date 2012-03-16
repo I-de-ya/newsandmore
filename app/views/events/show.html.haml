@@ -1,0 +1,14 @@
+.left_column
+	.event
+		%h3 МЕРОПРИЯТИЯ ФОТОГАЛЕРЕЯ
+		%hr
+		= link_to 'Назад в главное меню', main_path
+
+		%p
+			%b= @event.date
+		%p= @event.title
+		%p= @event.body
+.right_column
+	= image_tag("rails.png")
+	Подпись
+	= render "archive"
