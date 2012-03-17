@@ -25,28 +25,14 @@
 		%h3 НОВОСТИ & СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
 		%hr
 		%ul
-			%li
-				.post
-					= image_tag("rails.png")
-					%br
-					= link_to "Дата", "#"
-					%hr
-					= link_to "Новость", "#"
-			%li
-				.post
-					= image_tag("rails.png")
-					%br
-					= link_to "Дата", "#"
-					%hr
-					= link_to "Новость", "#"
-			%li
-				.post
-					= image_tag("rails.png")
-					%br
-					= link_to "Дата", "#"
-					%hr
-					= link_to "Новость", "#"
-
+			-@posts.each do |post|
+				%li
+					.post
+						= image_tag("rails.png")
+						%br
+						= link_to post.date.strftime("%d/%m/%Y"), "#"
+						%hr
+						= link_to post.title, post_path(post)
 .right_column
 	.events
 		%h3 МЕРОПРИЯТИЯ

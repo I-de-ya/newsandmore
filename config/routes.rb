@@ -1,5 +1,7 @@
 Newsandmore::Application.routes.draw do
 
+  resources :posts
+
   resources :menu_types
 
   resources :dish_categories
@@ -17,7 +19,9 @@ Newsandmore::Application.routes.draw do
   match '/index' => 'pages#index'
   match '/main' => 'pages#main'
   match '/about' => 'pages#about'
+  match '/main_dishes' => 'pages#main_dishes'
   match '/banquet' => 'pages#banquet'
+
   match '/reservation' => 'reservations#new'
 
 

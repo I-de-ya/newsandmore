@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:post_date] = "%d %m %Y"
