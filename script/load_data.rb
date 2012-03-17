@@ -1,8 +1,10 @@
+# coding:utf-8
 require 'faker'
 
 DishCategory.delete_all
 Dish.delete_all
 Post.delete_all
+Movie.delete_all
     
 10.times do |n|
 	name = Faker::Company.name

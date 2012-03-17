@@ -45,13 +45,6 @@ ActiveRecord::Schema.define(:version => 20120317173544) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.date     "date"
-end
   create_table "messages", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -75,7 +68,14 @@ end
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.datetime "showtime"
+  end
 
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.date     "date"
   end
 
   create_table "recalls", :force => true do |t|
