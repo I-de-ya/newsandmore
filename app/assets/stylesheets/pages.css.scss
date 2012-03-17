@@ -99,7 +99,18 @@ h3 {
 		background:$background;
 		border-radius: $radius;	
 	}
-
+	.contacts{
+		padding: $padding;
+		margin-bottom:$margin;
+		background:$background;
+		border-radius: $radius;		
+	}
+	.movie {
+		padding: $padding;
+		margin-bottom:$margin;
+		background:$background;
+		border-radius: $radius;	
+	}
 }
 .right_column {
 	width:415px;
@@ -126,7 +137,24 @@ h3 {
 		margin-bottom:$margin;
 		background:$background;
 		border-radius: $radius;
+		.right {
+			float:right;
+			img {
+				float:right;
+				width:60px;
+				height:60px;
+				margin-left:5px;
+			}
+			.day_of_week {
+				text-align:right;
+			}
+		}
+		.left {
+		
+		}
 	}
+
+
 	img{
 		width:415px;
 /*убрать эту высоту
@@ -163,5 +191,23 @@ h3 {
 			}
 		}
 	}
+	.messages_form{
+		padding: $padding;
+		margin-top:$margin;
+		background:$background;
+		border-radius: $radius;
+				
+		.actions {
+			float:right;
+		}
+		table {
+			td {
+				width:85px;
+			}
+			td.input input {
+				width:150px;
+			}
+		}
+	}	
 
 }

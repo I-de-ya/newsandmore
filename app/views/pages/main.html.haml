@@ -57,17 +57,34 @@
 			
 	.sport
 		%h3 СПОРТИВНЫЕ ТРАНСЛЯЦИИ
-		%hr
-		%ul
-			%li Трансляция
-			%li Трансляция
+
+
 	.movies
-		%h3 АФИША КИНО
-		%hr
-		%ul
-			%li Киношка
-			%li Киношка
-				
+		%h3 АФИША КИНО НА НЕДЕЛЮ
+		- @movies.each do |movie|
+			.movie_main
+				%hr
+				.right
+					= image_tag("rails.png")
+					= movie.showtime.strftime("%d %B / %H:%M")
+					%br
+					.day_of_week
+						= movie.showtime.strftime("%A")
+						%p
+							= movie.description.nil? ? "" : (link_to "Подробнее", movie_path(movie))
+					
+					
+				.left
+					
+					%h3= movie.title
+					%p
+						= movie.director
+						%br
+							= movie.origin
+							= ","
+							= movie.genre
+							= ","
+							= movie.year				
 
 
 

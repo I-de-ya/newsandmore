@@ -1,5 +1,10 @@
-%h3 Отзывы
-
+%h3 
+  Отзывы
+  +
+  = @positive
+  = "/"
+  = '-'
+  = @negative
 %hr
 = form_for @recall do |f|
   -if @recall.errors.any?

@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 	def main
 		@title = "News&More"
 		@events = Event.all
+		@movies = Movie.all
 	end
 
 	def about

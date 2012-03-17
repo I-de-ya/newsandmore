@@ -1,5 +1,9 @@
 Newsandmore::Application.routes.draw do
 
+  resources :movies
+
+  resources :messages
+
   resources :menu_types
 
   resources :dish_categories
@@ -19,9 +23,7 @@ Newsandmore::Application.routes.draw do
   match '/about' => 'pages#about'
   match '/banquet' => 'pages#banquet'
   match '/reservation' => 'reservations#new'
-
-
-
+  match '/contacts' => 'messages#new'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
