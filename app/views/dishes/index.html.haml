@@ -1,0 +1,27 @@
+%h1 Listing dishes
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Price
+    %th Category
+    %th Portion
+    %th
+    %th
+    %th
+
+  - @dishes.each do |dish|
+    %tr
+      %td= dish.name
+      %td= truncate(dish.description, :length => 25)
+      %td= dish.price
+      %td= dish.dish_category_id.nil? ? '-' : dish.dish_category.name
+      %td= dish.portion
+      %td= link_to 'Show', dish
+      %td= link_to 'Edit', edit_dish_path(dish)
+      %td= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Dish', new_dish_path

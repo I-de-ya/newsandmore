@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @dish_category.name
+
+= link_to 'Edit', edit_dish_category_path(@dish_category)
+\|
+= link_to 'Back', dish_categories_path

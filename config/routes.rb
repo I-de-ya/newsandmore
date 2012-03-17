@@ -1,9 +1,8 @@
 Newsandmore::Application.routes.draw do
-  resources :recalls
 
-  resources :events
+  resources :menu_types
 
-  resources :reservations
+  resources :dish_categories
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -18,12 +17,20 @@ Newsandmore::Application.routes.draw do
   match '/index' => 'pages#index'
   match '/main' => 'pages#main'
   match '/about' => 'pages#about'
+  match '/banquet' => 'pages#banquet'
+  match '/reservation' => 'reservations#new'
+
+
+
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-
-
+  resources :reservations
+  resources :recalls
+  resources :events
+  resources :dishes
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do

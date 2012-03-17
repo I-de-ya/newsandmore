@@ -4,6 +4,7 @@
 		%h3 О РЕСТОРАНЕ
 		%hr
 		= truncate("text", :length => 25)
+		%p= link_to "Подробнее", '/about'
 	.main_menu
 		%ul
 			%li
@@ -16,7 +17,7 @@
 				%h3= link_to "БАРНАЯ КАРТА", '#'
 			%hr	
 			%li
-				%h3= link_to "БАНКЕТЫ", '#'
+				%h3= link_to "БАНКЕТЫ", banquet_path
 			%hr
 			%li
 				%h3= link_to "ДЕТСКОЕ МЕНЮ", '#'
