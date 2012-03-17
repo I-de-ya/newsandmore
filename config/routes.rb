@@ -19,9 +19,13 @@ Newsandmore::Application.routes.draw do
   match '/index' => 'pages#index'
   match '/main' => 'pages#main'
   match '/about' => 'pages#about'
+  
   match '/main_dishes' => 'pages#main_dishes'
+  match '/breakfasts' => 'pages#breakfasts'
+  match '/kids_menu' => 'pages#kids_menu'
+  match '/bar_list' => 'pages#bar_list'
+  
   match '/banquet' => 'pages#banquet'
-
   match '/reservation' => 'reservations#new'
 
 

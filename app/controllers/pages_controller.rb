@@ -19,4 +19,16 @@ class PagesController < ApplicationController
 	def main_dishes
 		@main_dishes = Dish.main_dishes
 	end
+
+	def breakfasts
+		@breakfasts = Dish.breakfasts
+	end
+	
+	def kids_menu
+		@kids_menu = Dish.kids_menu
+	end
+	
+	def bar_list
+		@bar_list = Dish.bar_list
+	end
 end

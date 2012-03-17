@@ -1,0 +1,16 @@
+.left_column
+	.reservation
+		= render 'layouts/menu'
+
+		-@breakfasts.each do |dish|
+			%p
+				= dish.name
+			%p
+				= number_to_human(dish.portion, :units => {:unit => "г"}, :precision => 0)
+				\..............................................................
+				= number_to_currency(dish.price, :unit => "€")
+
+.right_column
+	= image_tag("rails.png")
+	Подпись
+	=render 'shared/banquet_info'
