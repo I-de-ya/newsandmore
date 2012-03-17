@@ -6,6 +6,7 @@
     %th Description
     %th Price
     %th Category
+    %th Menu Type
     %th Portion
     %th
     %th
@@ -17,6 +18,7 @@
       %td= truncate(dish.description, :length => 25)
       %td= dish.price
       %td= dish.dish_category_id.nil? ? '-' : dish.dish_category.name
+      %td= dish.menu_type_id.nil? ? '-' : dish.menu_type.name
       %td= dish.portion
       %td= link_to 'Show', dish
       %td= link_to 'Edit', edit_dish_path(dish)
