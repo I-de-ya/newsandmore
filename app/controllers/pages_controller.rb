@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 		@title = "News&More"
 		@events = Event.all
 		@posts = Post.all[1..3]
+		@movies = Movie.all
 	end
 
 	def about

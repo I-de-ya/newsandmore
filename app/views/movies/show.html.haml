@@ -1,0 +1,36 @@
+.left_column
+	.movie
+		= render "layouts/menu"
+		%p 
+			%h3= @movie.title
+		%p
+			= @movie.origin
+			,
+			= @movie.genre
+			,
+			= @movie.year
+		%p
+			= @movie.description
+		%br
+			Оригинальное название:	
+			= @movie.original_title
+		%br
+			Режиссер:
+			= @movie.director
+		%br
+			В ролях:
+			= @movie.starring
+		%br
+			Страна:
+			= @movie.country
+		%br
+			Премьера:
+			= @movie.premiere.strftime("%d.%m.%Y")
+		%br
+			Продолжительность:
+			= @movie.duration.strftime("%H:%M")
+
+.right_column
+	= image_tag("rails.png")
+	Подпись
+	= render "events/archive"

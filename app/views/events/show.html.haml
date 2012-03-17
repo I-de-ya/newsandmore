@@ -2,8 +2,7 @@
 	.event
 		%h3 МЕРОПРИЯТИЯ ФОТОГАЛЕРЕЯ
 		%hr
-		= link_to 'Назад в главное меню', main_path
-
+		= render "layouts/menu"
 		%p
 			%b= @event.date
 		%p= @event.title

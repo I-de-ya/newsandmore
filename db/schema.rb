@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120317165946) do
+ActiveRecord::Schema.define(:version => 20120317173544) do
 
   create_table "dish_categories", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,31 @@ ActiveRecord::Schema.define(:version => 20120317165946) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "date"
+end
+  create_table "messages", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "movies", :force => true do |t|
+    t.string   "title"
+    t.string   "origin"
+    t.string   "genre"
+    t.integer  "year"
+    t.text     "description"
+    t.string   "original_title"
+    t.string   "director"
+    t.string   "starring"
+    t.string   "country"
+    t.date     "premiere"
+    t.time     "duration"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.datetime "showtime"
+
   end
 
   create_table "recalls", :force => true do |t|
