@@ -9,7 +9,13 @@ $margin:1em;
 $height:125px;
 $textsize:14px;
 
-h3 {
+@mixin main-style {
+	padding: $padding;
+	background:$background;
+	border-radius: $radius;
+}
+
+h4, h3, h2 {
 	padding:0;
 	margin:0;
 }
@@ -64,10 +70,8 @@ h3 {
 				padding:0.2em;
 				background:grey;}}}
 	.reservation {
-		padding: $padding;
+		@include main-style;
 		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;
 
 		.left_form_part{
 			width:285px;
@@ -87,29 +91,21 @@ h3 {
 		}
 	}
 	.event {
-		padding: $padding;
+		@include main-style;
 		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;
 	}
 
 	.recalls {
-		padding: $padding;
+		@include main-style;
 		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;	
 	}
 	.contacts{
-		padding: $padding;
-		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;		
+		@include main-style;
+		margin-bottom:$margin;		
 	}
 	.movie {
-		padding: $padding;
-		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;	
+		@include main-style;
+		margin-bottom:$margin;	
 	}
 }
 .right_column {
@@ -117,26 +113,20 @@ h3 {
 	float:left;
 	margin-left:$margin;
 	.events{
-		padding: $padding;
+		@include main-style;
 		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;
 		a {
 			font-size:$textsize;
 			text-decoration:underline;
 		}
 	}
 	.sport {
-		padding: $padding;
+		@include main-style;
 		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;
 	}
 	.movies {
-		padding: $padding;
+		@include main-style;
 		margin-bottom:$margin;
-		background:$background;
-		border-radius: $radius;
 		.right {
 			float:right;
 			img {
@@ -162,23 +152,16 @@ h3 {
 		height:300px;
 	}
 	.banquets {
-		padding: $padding;
+		@include main-style;
 		margin-top:$margin;
-		background:$background;
-		border-radius: $radius;	
 	}
 	.archive{
-		padding: $padding;
+		@include main-style;
 		margin-top:$margin;
-		background:$background;
-		border-radius: $radius;
 	}
 	.recall_form{
-		padding: $padding;
-		margin-top:$margin;
-		background:$background;
-		border-radius: $radius;
-				
+		@include main-style;
+		margin-top:$margin;	
 		.actions {
 			float:right;
 		}
@@ -192,11 +175,9 @@ h3 {
 		}
 	}
 	.messages_form{
-		padding: $padding;
+		@include main-style;
 		margin-top:$margin;
-		background:$background;
-		border-radius: $radius;
-				
+
 		.actions {
 			float:right;
 		}

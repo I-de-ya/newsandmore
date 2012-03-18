@@ -22,7 +22,7 @@
         %td= f.email_field :email   
       %tr
         %td= f.label :persons, "Персон"
-        %td= f.number_field :persons
+        %td= f.number_field :persons, :min => 1
   .right_form_part
     = f.label :comment, "Ваши пожелания"
     = f.text_area :comment, :cols => 29, :rows => 7
