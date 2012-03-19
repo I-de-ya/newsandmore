@@ -33,6 +33,6 @@
 			= @movie.duration.strftime("%H:%M")
 
 .right_column
-	= image_tag("rails.png")
+	= image_tag @movie.image_url if @movie.image?
 	Подпись
 	= render "events/archive"

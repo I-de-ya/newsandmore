@@ -28,7 +28,7 @@
 			-@posts.each do |post|
 				%li
 					.post
-						= image_tag("rails.png")
+						= image_tag post.image_url(:thumb) if post.image?
 						%br
 						= link_to post.date.strftime("%d/%m/%Y"), "#"
 						%hr
@@ -51,7 +51,7 @@
 			.movie_main
 				%hr
 				.right
-					= image_tag("rails.png")
+					= image_tag movie.image_url(:small_movie) if movie.image?
 					= movie.showtime.strftime("%d %B / %H:%M")
 					%br
 					.day_of_week
