@@ -1,3 +1,4 @@
+# coding: utf-8
 class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json

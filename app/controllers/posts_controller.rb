@@ -1,9 +1,9 @@
+# coding: utf-8
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   def show
     @archive = Event.all
     @post = Post.find(params[:id])
+    @title = "#{@post.title} "
 
     respond_to do |format|
       format.html # show.html.erb

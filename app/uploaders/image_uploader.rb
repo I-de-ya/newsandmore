@@ -16,8 +16,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_limit => [415, 415]
-#  process :convert_and_scale
+    process :resize_to_fill => [415, 300]
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -29,7 +29,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :small_movie do
-    process :resize_to_fill => [60, 60]
+    process :resize_to_fill => [60, 60] 
   end
 
   # Process files as they are uploaded:

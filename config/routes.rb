@@ -1,6 +1,10 @@
 Newsandmore::Application.routes.draw do
 
 
+  resources :sports
+
+  resources :broadcasts
+
   resources :posts
 
   resources :movies

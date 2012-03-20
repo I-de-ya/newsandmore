@@ -21,33 +21,27 @@ h4, h3, h2 {
 }
 
 .left_column {
-	padding:0;
 	float:left;
+	padding:0;
 	width:570px;
 	.about {
 		width:330px;
 		float:left;
 		margin-right:$margin;
-		padding: $padding;
-		background:$background;
-		border-radius: $radius;
+		@include main-style;
 		height:$height;
 	}
 	.main_menu{
 		width:169px;
-		float:left;
-		padding: $padding;
-		background:$background;
-		border-radius: $radius;
+		float:right;
+		@include main-style;
 		height:$height;
 	}
 	.news {
 		width:540px;
 		margin-top:$margin;
 		float:left;
-		padding: $padding;
-		background:$background;
-		border-radius: $radius;
+		@include main-style;
 
 		.post {
 			float:left;
@@ -123,6 +117,10 @@ h4, h3, h2 {
 	.sport {
 		@include main-style;
 		margin-bottom:$margin;
+		a {
+			font-size:$textsize;
+			text-decoration:underline;
+		}
 	}
 	.movies {
 		@include main-style;
@@ -147,10 +145,10 @@ h4, h3, h2 {
 
 	img{
 
-		width:415px;
+//		width:415px;
 //убрать эту высоту
 	
-		height:300px;
+//		height:300px;
 	}
 	.banquets {
 		@include main-style;

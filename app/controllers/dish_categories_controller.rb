@@ -14,7 +14,7 @@ class DishCategoriesController < ApplicationController
   # GET /dish_categories/1.json
   def show
     @dish_category = DishCategory.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @dish_category }

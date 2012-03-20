@@ -16,17 +16,19 @@
 
 html {
 	background:#fff;
-	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	 line-height: 105%;
 }
 
 body {
 	width:1000px;
 	margin:0 auto;
 	font-size:11px;
+	padding:1em;
 }
 
 header {
-	margin-top:1em;
+	background:white;
 	img{
 		padding:0;
 		marging:0;

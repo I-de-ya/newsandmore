@@ -1,0 +1,15 @@
+.left_column
+	.movie
+		%h3= "Трансляции. #{@sport.title}"
+		%hr
+		= render "layouts/menu"
+
+		%p
+			- @sport.broadcasts.each do |broadcast|
+				= broadcast.showtime.strftime("%d %B / %H:%M")
+				= broadcast.title
+
+.right_column
+	= image_tag("rails.png")
+	Подпись
+	= render "events/archive"

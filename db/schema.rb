@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319192528) do
+ActiveRecord::Schema.define(:version => 20120320183326) do
+
+  create_table "broadcasts", :force => true do |t|
+    t.string   "title"
+    t.datetime "showtime"
+    t.integer  "sport_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "dish_categories", :force => true do |t|
     t.string   "name"
@@ -95,6 +103,12 @@ ActiveRecord::Schema.define(:version => 20120319192528) do
     t.string   "email"
     t.integer  "persons"
     t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sports", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

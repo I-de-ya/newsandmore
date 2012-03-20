@@ -1,3 +1,4 @@
+# coding: utf-8
 class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
@@ -24,6 +25,7 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   # GET /reservations/new.json
   def new
+    @title = "On-Line бронирование"
     @reservation = Reservation.new
 
     respond_to do |format|

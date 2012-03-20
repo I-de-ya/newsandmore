@@ -1,7 +1,9 @@
+# coding: utf-8
 class RecallsController < ApplicationController
   # GET /recalls
   # GET /recalls.json
   def index
+    @title = "Отзывы"
     @recalls = Recall.all
     @positive = Recall.positive.length
     @negative = Recall.negative.length

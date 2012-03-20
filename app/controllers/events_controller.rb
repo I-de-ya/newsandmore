@@ -1,3 +1,4 @@
+# coding: utf-8
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
@@ -13,9 +14,10 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+
     @archive = Event.all
     @event = Event.find(params[:id])
-
+    @title = "#{@event.title}"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }

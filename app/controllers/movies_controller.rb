@@ -1,3 +1,4 @@
+# coding: utf-8
 class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
@@ -13,8 +14,10 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
-    @movie = Movie.find(params[:id])
+
+  @movie = Movie.find(params[:id])
 	@archive = Event.all
+  @title = "#{@movie.title}"
 
     respond_to do |format|
       format.html # show.html.erb
