@@ -1,12 +1,12 @@
 .left_column
 	.event
-		%h3 МЕРОПРИЯТИЯ ФОТОГАЛЕРЕЯ
+		%h3#dark_text МЕРОПРИЯТИЯ ФОТОГАЛЕРЕЯ
 		%hr
 		= render "layouts/menu"
 		%p
-			%b= @event.date
-		%p= @event.title
-		%p= @event.body
+			#dark_text= @event.date.strftime("%d/%m/%Y")
+			#light_text= @event.title
+			= @event.body
 .right_column
 	= image_tag("rails.png")
 	Подпись

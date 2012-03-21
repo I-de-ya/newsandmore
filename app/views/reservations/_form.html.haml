@@ -9,22 +9,22 @@
   .left_form_part
     %table
       %tr
-        %td Ресторан
-        %td News&More
+        %td#light_text Ресторан
+        %td#dark_text News&More
       %tr
-        %td= f.label :firstname, "Имя"
+        %td#light_text= f.label :firstname, "Имя"
         %td= f.text_field :firstname      
       %tr
-        %td= f.label :lastname, "Фамилия"
+        %td#light_text= f.label :lastname, "Фамилия"
         %td= f.text_field :lastname   
       %tr
-        %td= f.label :email, "Почта"
+        %td#light_text= f.label :email, "Почта"
         %td= f.email_field :email   
       %tr
-        %td= f.label :persons, "Персон"
+        %td#light_text= f.label :persons, "Персон"
         %td= f.number_field :persons, :min => 1
   .right_form_part
-    = f.label :comment, "Ваши пожелания"
-    = f.text_area :comment, :cols => 29, :rows => 7
+    #light_text= f.label :comment, "Ваши пожелания"
+    %p= f.text_area :comment, :cols => 29, :rows => 7
   .actions
     = f.submit "Забронировать столик"

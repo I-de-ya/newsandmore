@@ -1,13 +1,14 @@
 .left_column
 	.movie
-		%h3= "Трансляции. #{@sport.title}"
+		%h3#dark_text= "Трансляции. #{@sport.title}"
 		%hr
 		= render "layouts/menu"
-
-		%p
+		%table
 			- @sport.broadcasts.each do |broadcast|
-				= broadcast.showtime.strftime("%d %B / %H:%M")
-				= broadcast.title
+				%tr
+					%td#dark_text= broadcast.showtime.strftime("%d/%m/%Y")
+					%td#light_text= broadcast.title
+			
 
 .right_column
 	= image_tag("rails.png")

@@ -1,14 +1,13 @@
 .left_column
 	.recalls
-		%h3 О РЕСТОРАНЕ
+		%h3#dark_text О РЕСТОРАНЕ
 		%hr
 		= render 'layouts/menu'
 		- @recalls.each do |recall|
 			%p
-				%b= recall.created_at.to_date
+				#dark_text= recall.created_at.strftime("%d/%m/%Y")
 				%hr
-				= recall.name
-				%br
+				#light_text= recall.name
 				=recall.body
 .right_column
 	= image_tag("rails.png")

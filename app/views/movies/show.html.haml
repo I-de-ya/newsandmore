@@ -1,36 +1,34 @@
 .left_column
 	.movie
-		%h3 АФИША КИНО НА НЕДЕЛЮ
+		%h3#dark_text АФИША КИНО НА НЕДЕЛЮ
 		%hr
 		= render "layouts/menu"
 		%p 
-			%h3= @movie.title
-		%p
+			%h3#dark_text= @movie.title
+		#light_text
 			= @movie.origin
 			,
 			= @movie.genre
 			,
 			= @movie.year
-		%p
-			= @movie.description
+		%p= @movie.description
+		Оригинальное название:	
+		= @movie.original_title
 		%br
-			Оригинальное название:	
-			= @movie.original_title
+		Режиссер:
+		= @movie.director
 		%br
-			Режиссер:
-			= @movie.director
+		В ролях:
+		= @movie.starring
 		%br
-			В ролях:
-			= @movie.starring
+		Страна:
+		= @movie.country
 		%br
-			Страна:
-			= @movie.country
+		Премьера:
+		= @movie.premiere.strftime("%d.%m.%Y")
 		%br
-			Премьера:
-			= @movie.premiere.strftime("%d.%m.%Y")
-		%br
-			Продолжительность:
-			= @movie.duration.strftime("%H:%M")
+		Продолжительность:
+		= @movie.duration.strftime("%H:%M")
 
 .right_column
 	= image_tag @movie.image_url if @movie.image?

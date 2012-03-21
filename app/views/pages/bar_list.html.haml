@@ -1,16 +1,15 @@
 .left_column
 	.reservation
-		%h3 О РЕСТОРАНЕ
+		%h3#dark_text О РЕСТОРАНЕ
 		%hr		
 		= render 'layouts/menu'
 
 		-@bar_list.each do |dish|
 			%p
-				= dish.name
-			%p
+				#light_text
+					= "#{dish.name},"
+					= number_to_currency(dish.price, :unit => "€")
 				= number_to_human(dish.portion, :units => {:unit => "г"}, :precision => 0)
-				\..............................................................
-				= number_to_currency(dish.price, :unit => "€")
 
 .right_column
 	= image_tag("rails.png")

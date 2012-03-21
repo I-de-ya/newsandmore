@@ -2,12 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$darktext: #1E1E1E;
+$lighttext: #444444;
 $padding: 15px;
 $background:#A9A9A9;
 $radius:15px;
 $margin:1em;
 $height:125px;
 $textsize:14px;
+$menu_color:#282828;
 
 @mixin main-style {
 	padding: $padding;
@@ -30,6 +33,10 @@ h4, h3, h2 {
 		margin-right:$margin;
 		@include main-style;
 		height:$height;
+		a {
+			color:$lighttext;
+			text-decoration:underline;
+		}
 	}
 	.main_menu{
 		width:169px;
@@ -56,13 +63,18 @@ h4, h3, h2 {
 	}
 	.menu{
 		width:540px;
+		margin-bottom:1em;
+		a {
+			font-size:10px;
+			color:white;
+		}
 		ul {
-			li {	
+			li {
 				display: inline-block;
-				margin:auto 0.1em;
+				margin:auto;
+				padding:0 0.4em 0 0.4em;
 				margin-bottom:0.5em;
-				padding:0.2em;
-				background:grey;}}}
+				background:$menu_color;}}}
 	.reservation {
 		@include main-style;
 		margin-bottom:$margin;
@@ -125,6 +137,9 @@ h4, h3, h2 {
 	.movies {
 		@include main-style;
 		margin-bottom:$margin;
+		a {
+			color:$lighttext;
+		}
 		.right {
 			float:right;
 			img {
@@ -157,6 +172,9 @@ h4, h3, h2 {
 	.archive{
 		@include main-style;
 		margin-top:$margin;
+		a {
+			text-decoration:underline;
+		}
 	}
 	.recall_form{
 		@include main-style;

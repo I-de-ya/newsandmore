@@ -1,28 +1,23 @@
 .left_column
 
 	.about
-		%h3 О РЕСТОРАНЕ
+		%h3#dark_text О РЕСТОРАНЕ
 		%hr
 		= truncate("This box is horizontally centered by setting its right and left margin widths to auto. This is the preferred way to accomplish horizontal centering with CSS, and works very well in most browsers with CSS2 support. Unfortunately, IE5/Win does not respond to this method - a shortcoming of that browser, not the technique.	There is a simple workaround. (A pause while you fight back the nausea induced by that word.) Ready? IE5/Win incorrectly applies the CSS text-align attribute to block-level elements. Declaring text-align:center for the containing block-level element (often the BODY element) horizontally centers the box in IE5/Win. There is a side effect of this workaround: the CSS text-align attribute is inherited, centering inline content. It is often necessary to explicitly set the text-align attribute for the centered box, counteracting the effects of the IE5/Win workaround. The relevant CSS follows", :length => 300)
 		%p= link_to "Подробнее", '/about'
 	.main_menu
 		%ul
-			%li
-				%h3= link_to "ОСНОВНЫЕ БЛЮДА", main_dishes_path
+			%li#dark_text= link_to "ОСНОВНЫЕ БЛЮДА", main_dishes_path
 			%hr
-			%li
-				%h3= link_to "ЗАВТРАКИ", breakfasts_path
+			%li#dark_text= link_to "ЗАВТРАКИ", breakfasts_path
 			%hr	
-			%li
-				%h3= link_to "БАРНАЯ КАРТА", bar_list_path
+			%li#dark_text= link_to "БАРНАЯ КАРТА", bar_list_path
 			%hr	
-			%li
-				%h3= link_to "БАНКЕТЫ", banquet_path
+			%li#dark_text= link_to "БАНКЕТЫ", banquet_path
 			%hr
-			%li
-				%h3= link_to "ДЕТСКОЕ МЕНЮ", kids_menu_path
+			%li#dark_text= link_to "ДЕТСКОЕ МЕНЮ", kids_menu_path
 	.news
-		%h3 НОВОСТИ & СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
+		%h3#dark_text НОВОСТИ & СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
 		%hr
 		%ul
 			-@posts.each do |post|
@@ -30,19 +25,20 @@
 					.post
 						= image_tag post.image_url(:thumb) if post.image?
 						%br
-						= link_to post.date.strftime("%d/%m/%Y"), "#"
+						#dark_text= post.date.strftime("%d/%m/%Y")
 						%hr
-						= link_to post.title, post_path(post)
+						#light_text
+							= link_to post.title, post_path(post)
 .right_column
 	.events
-		%h3 МЕРОПРИЯТИЯ
+		%h3#dark_text МЕРОПРИЯТИЯ
 		%hr
 		%ul
 			- @events.each do |event|
 				%li= link_to event.title, event_path(event)
 			
 	.sport
-		%h3 СПОРТИВНЫЕ ТРАНСЛЯЦИИ
+		%h3#dark_text СПОРТИВНЫЕ ТРАНСЛЯЦИИ
 		%hr
 		%ul
 			- @sports.each do |sport|
@@ -50,7 +46,7 @@
 
 
 	.movies
-		%h3 АФИША КИНО НА НЕДЕЛЮ
+		%h3#dark_text АФИША КИНО НА НЕДЕЛЮ
 		- @movies.each do |movie|
 			.movie_main
 				%hr
@@ -66,7 +62,7 @@
 					
 				.left
 					
-					%h3= movie.title
+					%h3#light_text= movie.title
 					%p
 						= movie.director
 						%br

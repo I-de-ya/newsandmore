@@ -12,7 +12,8 @@
  *= require_tree .
 */
 
-
+$darktext: #1E1E1E;
+$lighttext: #444444;
 
 html {
 	background:#fff;
@@ -29,6 +30,9 @@ body {
 
 header {
 	background:white;
+	a {
+		color:$lighttext;
+	}
 	img{
 		padding:0;
 		marging:0;
@@ -57,4 +61,24 @@ li {
 ul{
 	padding:0;
 	margin:0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:$darktext;
+}
+
+#dark_text {
+	color:$darktext;
+	font-size: 15px;
+	font-weight: bold;
+		a {
+			color:$darktext;
+		}
+}
+#light_text {
+	color:$lighttext;
+	font-size: 15px;
+		a {
+			color:$lighttext;
+		}
 }
