@@ -26,10 +26,13 @@
 						- if post.image?
 							= link_to (image_tag post.image_url(:thumb)), post_path(post)
 						%br
-						#dark_text= link_to post.date.strftime("%d/%m/%Y"), post_path(post)
+						#dark_text= link_to (post.date.nil? ? "-" : post.date.strftime("%d/%m/%Y") ), post_path(post)
 						%hr
 						#light_text
 							= link_to post.title, post_path(post)
+		%p
+			Страницы: 
+			= paginate @posts
 	= render "shared/footer"
 .right_column
 	.events
