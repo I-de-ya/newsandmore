@@ -29,7 +29,7 @@
 		%br
 		Продолжительность:
 		= @movie.duration.strftime("%H:%M")
-
+	= render "shared/footer"
 .right_column
 	= image_tag @movie.image_url if @movie.image?
 	Подпись

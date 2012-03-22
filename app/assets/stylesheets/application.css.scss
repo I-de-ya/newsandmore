@@ -22,13 +22,11 @@ $height:125px;
 $textsize:14px;
 $menu_color:#9eaf19;
 
-hr {
-	height: 1px;
-	background: url(hr-line.png) scroll center;
-	clear:both;
-	border:0px none;
+@mixin main-style {
+	padding: $padding;
+	background:$background;
+	border-radius: $radius;
 }
-
 
 html {
 	background:#fff;
@@ -70,6 +68,12 @@ a {
 	text-decoration:none;
 	color:black;
 }
+hr {
+	height: 1px;
+	background: url(hr-line.png) scroll center;
+	clear:both;
+	border:0px none;
+}
 li {
 	list-style-type:none;
 }
@@ -97,13 +101,6 @@ h1, h2, h3, h4, h5, h6 {
 		a {
 			color:$lighttext;
 		}
-}
-
-
-@mixin main-style {
-	padding: $padding;
-	background:$background;
-	border-radius: $radius;
 }
 
 h4, h3, h2 {
@@ -147,9 +144,23 @@ h4, h3, h2 {
 				width:150px;
 				height:150px;
 			}
-			// Это временно
-			img:hover {
-				border:$menu_color solid 5px;
+		}
+	}
+	.footer{
+		color:$lighttext;
+		.logo_index{
+			margin-top:50px;
+			float:left;
+			img{
+				width:250px;
+			}
+		}
+		.logo_text{
+			float:right;
+			img{
+				width:305px;
+				margin-top:50px;
+				padding:30px 0 0 $padding;
 			}
 		}
 	}

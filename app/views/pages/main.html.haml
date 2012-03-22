@@ -29,6 +29,7 @@
 						%hr
 						#light_text
 							= link_to post.title, post_path(post)
+	= render "shared/footer"
 .right_column
 	.events
 		%h3#dark_text МЕРОПРИЯТИЯ
@@ -58,10 +59,8 @@
 						= movie.showtime.strftime("%A")
 						%p
 							= movie.description.nil? ? "" : (link_to "Подробнее", movie_path(movie))
-					
-					
+
 				.left
-					
 					%h3#light_text= movie.title
 					%p
 						= movie.director
