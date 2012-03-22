@@ -38,10 +38,12 @@ body {
 	width:1000px;
 	margin:0 auto;
 	font-size:11px;
-	padding:1em;
+	padding:0 1em 1em 1em;
 }
 
 header {
+	position:fixed;
+	padding:10px 0 0 0;
 	background:white;
 	a {
 		color:$lighttext;
@@ -109,6 +111,7 @@ h4, h3, h2 {
 }
 
 .left_column {
+	margin-top:50px;
 	float:left;
 	padding:0;
 	width:570px;
@@ -220,6 +223,7 @@ h4, h3, h2 {
 .right_column {
 	width:415px;
 	float:left;
+	margin-top:50px;
 	margin-left:$margin;
 	.events{
 		@include main-style;
