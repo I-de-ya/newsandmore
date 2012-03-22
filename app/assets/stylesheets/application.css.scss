@@ -15,12 +15,20 @@
 $darktext: #301310;
 $lighttext: #9c7f6f;
 $padding: 15px;
-$background:#e3d0ad;
+$background: url(background.png);
 $radius:15px;
 $margin:1em;
 $height:125px;
 $textsize:14px;
 $menu_color:#9eaf19;
+
+hr {
+	height: 1px;
+	background: url(hr-line.png) scroll center;
+	clear:both;
+	border:0px none;
+}
+
 
 html {
 	background:#fff;
@@ -41,9 +49,9 @@ header {
 		color:$lighttext;
 	}
 	img{
+		height:12px;
 		padding:0;
-		marging:0;
-		height:11px;
+		margin:0;
 	}
 		
 	ul {
@@ -139,6 +147,7 @@ h4, h3, h2 {
 				width:150px;
 				height:150px;
 			}
+			// Это временно
 			img:hover {
 				border:$menu_color solid 5px;
 			}
