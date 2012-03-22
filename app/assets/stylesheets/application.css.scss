@@ -42,6 +42,7 @@ body {
 }
 
 header {
+	width:1000px;
 	position:fixed;
 	padding:10px 0 0 0;
 	background:white;
@@ -137,15 +138,11 @@ h4, h3, h2 {
 		margin-top:$margin;
 		float:left;
 		@include main-style;
-
 		.post {
 			float:left;
-			width:150px;
-			margin-right:30px;
-			img:hover {
-				margin-right:27px;
-				width:150px;
-				height:150px;
+			margin-right:5px;
+			img {
+				border:solid 1px $lighttext;
 			}
 		}
 	}

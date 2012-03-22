@@ -23,9 +23,10 @@
 			-@posts.each do |post|
 				%li
 					.post
-						= image_tag post.image_url(:thumb) if post.image?
+						- if post.image?
+							= link_to (image_tag post.image_url(:thumb)), post_path(post)
 						%br
-						#dark_text= post.date.strftime("%d/%m/%Y")
+						#dark_text= link_to post.date.strftime("%d/%m/%Y"), post_path(post)
 						%hr
 						#light_text
 							= link_to post.title, post_path(post)
