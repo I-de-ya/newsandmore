@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 	def main
 		@title = "Главная"
 		@events = Event.all
-		@posts = Post.page(params[:page]).per(3)
+		@posts = Post.page(params[:page])
 		@movies = Movie.all
 		@sports = Sport.all
 		

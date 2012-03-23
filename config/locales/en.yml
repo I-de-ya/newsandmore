@@ -4,5 +4,8 @@
 en:
   hello: "Hello world"
   views:
-  pagination:
-    truncate: "..."
+    pagination:
+      truncate: "..."
+      previous: ""
+      next: ""
+      first: "1"
