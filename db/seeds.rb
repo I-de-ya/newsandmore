@@ -9,3 +9,4 @@
 
 menu_types = ["Основные блюда","Завтраки", "Детское меню", "Барная карта", "Обеды", "Ужины"]
 menu_types.map {|menu_type| MenuType.create(name:menu_type)}
+Admin.create!(:email => 'admin@example.com', :password => 'adminuser', :password_confirmation => 'adminuser')
