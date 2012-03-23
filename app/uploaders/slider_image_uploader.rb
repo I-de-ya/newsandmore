@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
+class SliderImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -16,21 +16,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fill => [415, 300]
-
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-
-  version :thumb do
-    process :resize_to_fill => [170, 170]
-  end
-
-  version :small_movie do
-    process :resize_to_fill => [60, 60] 
-  end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]

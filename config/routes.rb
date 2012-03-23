@@ -1,6 +1,8 @@
 Newsandmore::Application.routes.draw do
 
 
+  resources :sliders
+
   devise_for :admins
 
   devise_scope :admin do
