@@ -1,0 +1,22 @@
+= form_for @slider do |f|
+  -if @slider.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@slider.errors.count, "error")} prohibited this slider from being saved:"
+      %ul
+        - @slider.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :image
+    = f.text_field :image
+  .field
+    = f.label :position
+    = f.number_field :position, :min => 1
+  .field
+    = f.label :visible
+    = f.check_box :visible
+  .actions
+    = f.submit 'Save'

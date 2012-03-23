@@ -1,0 +1,25 @@
+%h1 Listing sliders
+
+%table
+  %tr
+    %th Title
+    %th Image
+    %th Position
+    %th Visible
+    %th
+    %th
+    %th
+
+  - @sliders.each do |slider|
+    %tr
+      %td= slider.title
+      %td= slider.image
+      %td= slider.position
+      %td= slider.visible
+      %td= link_to 'Show', slider
+      %td= link_to 'Edit', edit_slider_path(slider)
+      %td= link_to 'Destroy', slider, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Slider', new_slider_path
