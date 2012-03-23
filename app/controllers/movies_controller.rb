@@ -2,6 +2,7 @@
 class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
+  before_filter :authenticate_admin!, :except => ['show']
   def index
     @movies = Movie.all
 

@@ -1,6 +1,7 @@
 class SportsController < ApplicationController
   # GET /sports
   # GET /sports.json
+  before_filter :authenticate_admin!, :except => ['show']
   def index
     @sports = Sport.all
 

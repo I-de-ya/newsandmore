@@ -2,6 +2,7 @@
 class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
+  before_filter :authenticate_admin!
   def index
     @dishes = Dish.all
 

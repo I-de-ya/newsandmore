@@ -1,6 +1,7 @@
 class MenuTypesController < ApplicationController
   # GET /menu_types
   # GET /menu_types.json
+  before_filter :authenticate_admin!
   def index
     @menu_types = MenuType.all
 

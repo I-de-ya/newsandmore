@@ -2,6 +2,7 @@
 class RecallsController < ApplicationController
   # GET /recalls
   # GET /recalls.json
+  before_filter :authenticate_admin!, :except => ['index', 'create']
   def index
     @title = "Отзывы"
     @recalls = Recall.all

@@ -1,6 +1,7 @@
 class BroadcastsController < ApplicationController
   # GET /broadcasts
   # GET /broadcasts.json
+  before_filter :authenticate_admin!
   def index
     @broadcasts = Broadcast.all
 

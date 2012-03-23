@@ -2,6 +2,7 @@
 class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
+  before_filter :authenticate_admin!, :except => ['new', 'create']
   def index
     @reservations = Reservation.all
 

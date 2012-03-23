@@ -1,6 +1,7 @@
 class DishCategoriesController < ApplicationController
   # GET /dish_categories
   # GET /dish_categories.json
+  before_filter :authenticate_admin!
   def index
     @dish_categories = DishCategory.all
 

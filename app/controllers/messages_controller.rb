@@ -2,6 +2,7 @@
 class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
+  before_filter :authenticate_admin!, :except => ['new', 'create']
   def index
     @messages = Message.all
 
