@@ -42,6 +42,7 @@ body {
 }
 
 header {
+	font-size:10px;
 	width:1000px;
 	padding:10px 0 0 0;
 	background:white;
@@ -138,7 +139,6 @@ h4, h3, h2 {
 		@include main-style;
 		.post {
 			float:left;
-			margin-right:5px;
 			img {
 				border:solid 1px $lighttext;
 			}
