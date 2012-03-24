@@ -1,11 +1,9 @@
-
 = form_for @reservation do |f|
-  -if @reservation.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@reservation.errors.count, "error")} prohibited this reservation from being saved:"
-      %ul
-        - @reservation.errors.full_messages.each do |msg|
-          %li= msg
+  .right_form_part
+    #light_text= f.label :comment, "Ваши пожелания"
+    %p= f.text_area :comment, :cols => 29, :rows => 7
+    .actions
+      = f.submit "Забронировать столик"
   .left_form_part
     %table
       %tr
@@ -21,10 +19,18 @@
         %td#light_text= f.label :email, "Почта"
         %td= f.email_field :email   
       %tr
+        %td#light_text= f.label :datetime, "Время"
+        %td= f.time_select :datetime
+      %tr
+        %td#light_text= f.label :datetime, "Дата"
+        %td= f.date_select :datetime
+      %tr
         %td#light_text= f.label :persons, "Персон"
         %td= f.number_field :persons, :min => 1
-  .right_form_part
-    #light_text= f.label :comment, "Ваши пожелания"
-    %p= f.text_area :comment, :cols => 29, :rows => 7
-  .actions
-    = f.submit "Забронировать столик"
+      %tr
+        %td#light_text= f.label :smokers, "Курящие"
+        %td= f.number_field :smokers, :min => 0
+      %tr
+        %td#light_text= f.label :hall, "Зал"
+        %td= f.number_field :hall, :min => 1       
+

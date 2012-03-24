@@ -2,7 +2,7 @@
 class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
-  before_filter :authenticate_admin!, :except => ['new', 'create']
+#  before_filter :authenticate_admin!, :except => ['new', 'create']
   def index
     @reservations = Reservation.all
 
@@ -28,6 +28,7 @@ class ReservationsController < ApplicationController
   def new
     @title = "On-Line бронирование"
     @reservation = Reservation.new
+    @sliders = Slider.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,7 +51,7 @@ class ReservationsController < ApplicationController
         format.html { redirect_to new_reservation_path, notice: 'Reservation was successfully created.' }
         format.json { render json: @reservation, status: :created, location: @reservation }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_reservation_path }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end

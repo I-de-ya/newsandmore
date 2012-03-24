@@ -13,8 +13,17 @@
   %b Persons:
   = @reservation.persons
 %p
+  %b Дата:
+  = @reservation.datetime
+%p
   %b Comment:
   = @reservation.comment
+%p
+  %b Курящие:
+  = @reservation.smokers
+%p
+  %b Зал:
+  = @reservation.hall
 
 = link_to 'Edit', edit_reservation_path(@reservation)
 \|

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323163049) do
+ActiveRecord::Schema.define(:version => 20120324153849) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -123,15 +123,19 @@ ActiveRecord::Schema.define(:version => 20120323163049) do
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.datetime "datetime"
+    t.string   "phone"
+    t.integer  "smokers"
+    t.integer  "hall"
   end
 
   create_table "sliders", :force => true do |t|
-    t.string   "title"
-    t.string   "image"
+    t.text     "title",        :limit => 255
     t.integer  "position"
     t.boolean  "visible"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "slider_image"
   end
 
   create_table "sports", :force => true do |t|

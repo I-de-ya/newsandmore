@@ -182,7 +182,6 @@ h4, h3, h2 {
 
 		.left_form_part{
 			width:285px;
-			float:left;
 			table {
 				td {
 					width:85px;
@@ -193,8 +192,9 @@ h4, h3, h2 {
 			}
 		}
 		.right_form_part{
-			float:left;
+			float:right;
 			width:250px;
+			margin-right:10px;
 		}
 	}
 	.event {

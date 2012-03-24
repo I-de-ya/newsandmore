@@ -3,7 +3,6 @@
 %table
   %tr
     %th Title
-    %th Image
     %th Position
     %th Visible
     %th
@@ -13,7 +12,6 @@
   - @sliders.each do |slider|
     %tr
       %td= slider.title
-      %td= slider.image
       %td= slider.position
       %td= slider.visible
       %td= link_to 'Show', slider

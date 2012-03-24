@@ -5,7 +5,7 @@
   = @slider.title
 %p
   %b Image:
-  = @slider.image
+  = image_tag @slider.slider_image_url(:thumb) if @slider.slider_image?
 %p
   %b Position:
   = @slider.position
