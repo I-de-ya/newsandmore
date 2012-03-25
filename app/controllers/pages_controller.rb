@@ -9,8 +9,7 @@ class PagesController < ApplicationController
 		@events = Event.all
 		@posts = Post.page(params[:page])
 		@movies = Movie.all
-		@sports = Sport.all
-		
+		@sports = Sport.all	
 	end
 
 	def about
@@ -22,21 +21,21 @@ class PagesController < ApplicationController
 
 	def main_dishes
 		@title = "Основные блюда"
-		@main_dishes = Dish.main_dishes
+		@categories = DishCategory.main_dishes
 	end
 
 	def breakfasts
 		@title = "Завтраки"
-		@breakfasts = Dish.breakfasts
+		@categories = DishCategory.breakfasts
 	end
 	
 	def kids_menu
 		@title = "Детское меню"
-		@kids_menu = Dish.kids_menu
+		@categories = DishCategory.kids_menu
 	end
 	
 	def bar_list
 		@title = "Барная карта"
-		@bar_list = Dish.bar_list
+		@categories = DishCategory.bar_list
 	end
 end

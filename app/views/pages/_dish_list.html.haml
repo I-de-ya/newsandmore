@@ -1,0 +1,9 @@
+-@categories.each do |category|
+	%p
+		#dark_text= category.name
+	-category.dishes.each do |dish|
+		%p
+			#light_text
+				= "#{dish.name},"
+				= number_to_currency(dish.price, :unit => "€")
+			= number_to_human(dish.portion, :units => {:unit => "г"}, :precision => 0)

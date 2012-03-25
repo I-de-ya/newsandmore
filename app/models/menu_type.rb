@@ -1,3 +1,4 @@
 class MenuType < ActiveRecord::Base
-	has_many :dishes
+	has_many :dish_categories
+	has_many :dishes, :through => :dish_categories
 end
