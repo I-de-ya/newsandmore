@@ -49,6 +49,7 @@ header {
 	a {
 		color:$lighttext;
 	}
+
 	img{
 		height:12px;
 		padding:0;
@@ -169,6 +170,9 @@ h4, h3, h2 {
 			font-size:10px;
 			color:white;
 		}
+		.current{
+				background:$darktext;
+			}
 		ul {
 			li {
 				display: inline-block;

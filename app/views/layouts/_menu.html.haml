@@ -2,21 +2,21 @@
   %ul
     %li
       %b= link_to "Назад в главное меню", main_path
-    %li
+    %li{:class => current_path(about_path)}
       %b= link_to "Концепция и интерьер", about_path
-    %li
+    %li{:class => current_path(main_dishes_path)}
       %b= link_to "Основные блюда", main_dishes_path
-    %li
+    %li{:class => current_path(breakfasts_path)}
       %b= link_to "Завтраки", breakfasts_path
-    %li
+    %li{:class => current_path(kids_menu_path)}
       %b= link_to "Детcкое меню", kids_menu_path
-    %li
+    %li{:class => current_path(bar_list_path)}
       %b= link_to "Барная карта", bar_list_path
-    %li
+    %li{:class => current_path(banquet_path)}
       %b= link_to "Банкетное предложение", banquet_path
-    %li
+    %li{:class => current_path(reservation_path)}
       %b= link_to "Online-бронирование", reservation_path
-    %li
+    %li{:class => current_path(recalls_path)}
       %b= link_to "Отзывы", recalls_path
-    %li
+    %li{:class => current_path(contacts_path)}
       %b= link_to "Контакты и обратная связь", contacts_path

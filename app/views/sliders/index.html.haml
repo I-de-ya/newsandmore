@@ -5,6 +5,7 @@
     %th Title
     %th Position
     %th Visible
+    %th Image
     %th
     %th
     %th
@@ -14,6 +15,7 @@
       %td= slider.title
       %td= slider.position
       %td= slider.visible
+      %td= image_tag slider.slider_image_url(:thumb ) if slider.slider_image?
       %td= link_to 'Show', slider
       %td= link_to 'Edit', edit_slider_path(slider)
       %td= link_to 'Destroy', slider, :confirm => 'Are you sure?', :method => :delete

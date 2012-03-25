@@ -30,6 +30,7 @@
       %td= movie.country
       %td= movie.premiere
       %td= movie.duration
+      %td= image_tag movie.image_url(:small_movie ) if movie.image?
       %td= link_to 'Show', movie
       %td= link_to 'Edit', edit_movie_path(movie)
       %td= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete
