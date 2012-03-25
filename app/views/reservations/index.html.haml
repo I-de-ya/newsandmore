@@ -6,7 +6,10 @@
     %th Lastname
     %th Email
     %th Persons
-    %th Comment
+    %th smokers
+    %th comment
+    %th datetime
+    %th hall
     %th
     %th
     %th
@@ -17,7 +20,10 @@
       %td= reservation.lastname
       %td= reservation.email
       %td= reservation.persons
+      %td= reservation.smokers
       %td= reservation.comment
+      %td= reservation.datetime
+      %td= reservation.hall
       %td= link_to 'Show', reservation_path(reservation)
       %td= link_to 'Edit', edit_reservation_path(reservation)
       %td= link_to 'Destroy', reservation, :confirm => 'Are you sure?', :method => :delete

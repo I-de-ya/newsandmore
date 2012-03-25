@@ -2,7 +2,7 @@
 class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
-#  before_filter :authenticate_admin!, :except => ['new', 'create']
+  before_filter :authenticate_admin!, :except => ['new', 'create']
   def index
     @reservations = Reservation.all
 
@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
     @title = "On-Line бронирование"
     @reservation = Reservation.new
     @sliders = Slider.all
-
+    @text_banquets = Text.find_by_title("Информация для проведения банкетов")
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @reservation }

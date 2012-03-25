@@ -1,6 +1,8 @@
 Newsandmore::Application.routes.draw do
 
 
+  resources :texts
+
   resources :sliders
 
   devise_for :admins
@@ -37,6 +39,7 @@ Newsandmore::Application.routes.draw do
   match '/index' => 'pages#index'
   match '/main' => 'pages#main'
   match '/about' => 'pages#about'
+  match '/admin_page' => 'pages#admin'
   
   match '/main_dishes' => 'pages#main_dishes'
   match '/breakfasts' => 'pages#breakfasts'

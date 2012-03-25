@@ -1,6 +1,7 @@
 class SlidersController < ApplicationController
   # GET /sliders
   # GET /sliders.json
+  before_filter :authenticate_admin!
   def index
     @sliders = Slider.all
 
