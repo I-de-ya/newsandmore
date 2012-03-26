@@ -4,12 +4,13 @@ require 'faker'
 DishCategory.delete_all
 Dish.delete_all
 Post.delete_all
+Slider.delete_all
+Recall.delete_all
 
 30.times do |n|
 	name = Faker::Company.name
   menu_type_id = MenuType.first.id + rand(MenuType.last.id - MenuType.first.id + 1)
  	DishCategory.create!(:name => name, :menu_type_id => menu_type_id)
-
 end
 
 100.times do |n|
@@ -29,9 +30,31 @@ end
   title = Faker::Address.city
   body = Faker::Lorem.paragraph
   date = rand(1.year).since
-  image = File.open('app/assets/images/for_fake/2.jpg')
+  file_array = Dir['app/assets/images/for_fake/*.jpg']
+  image = File.open(file_array[rand(file_array.size)])
   Post.create!(:title => title,
                :body => body,
                :date => date,
                :image => image)
+end
+
+10.times do |n|
+  title = Faker::Lorem.sentence
+  visible = rand(2) == 1
+  file_array = Dir['app/assets/images/for_fake/index_slider/*.png']
+  image = File.open(file_array[rand(file_array.size)])
+  Slider.create!(:title => title,
+                 :visible => visible,
+                 :slider_image => image)
+end
+
+10.times do |n|
+  name = Faker::Address.city
+  email = Faker::Internet.email
+  body = Faker::Lorem.paragraph
+  positivity = rand(2) == 1 ? "Положительный" : "Отрицательный"
+  Recall.create!(:name => name,
+                 :email => email,
+                 :body => body,
+                 :positivity => positivity)
 end

@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
   def new
     @title = "On-Line бронирование"
     @reservation = Reservation.new
-    @sliders = Slider.all
+    @sliders = [Slider.first]
     @text_banquets = Text.find_by_title("Информация для проведения банкетов")
     respond_to do |format|
       format.html # new.html.erb
