@@ -27,9 +27,8 @@ $menu_color:#9eaf19;
 	background:$background;
 	border-radius: $radius;
 }
-
 html {
-	background: url(for_fake/index_slider/index1.png) no-repeat center top;
+	background: url(for_fake/index_slider/index4.png) no-repeat top;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	line-height: 105%;
 }
@@ -38,7 +37,6 @@ body {
 	width:1000px;
 	margin:0 auto;
 	font-size:11px;
-	padding:0 1em 1em 1em;
 }
 
 header {
@@ -111,6 +109,50 @@ h4, h3, h2 {
 	padding:0;
 	margin:0;
 }
+
+.index_left{
+	position: absolute;
+	top:0;
+	background:$background;
+	padding:605px 20px 0 20px;
+	width:415px;
+	float:left;
+	margin:0;
+}
+
+.index_right{
+	float:right;
+
+	.slider_title{
+		float:right;
+		text-align:right;
+		margin-top:500px;
+		font-size:35px;
+		color:$lighttext;
+	}
+	.enter{
+		margin:0;
+		width:545px;
+		margin-top:665px;
+		padding:0;
+		color:$lighttext;
+		hr{
+			padding:0;
+			margin:0;
+		}
+		#info{
+			padding:5px;
+		}
+		a {
+			float:right;
+			background:$darktext;
+			color:white;
+			padding:5px;
+		}
+}
+}
+
+
 
 .left_column {
 	float:left;

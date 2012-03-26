@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 	before_filter :authenticate_admin!, :only => ['admin']
 	
 	def index
+		@background = "url(for_fake/index_slider/index4.png)"
 	end
 
 	def main

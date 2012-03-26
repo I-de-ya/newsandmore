@@ -1,9 +1,16 @@
-%ul
-	%li= link_to "ЗАВТРАКИ", '#'
-	|
-	%li= link_to "ОБЕДЫ", '#'
-	|
-	%li= link_to "УЖИНЫ", '#'
-	|
-МЫ ОТКРЫТЫ С 7:30 УТРА ДО 23:00 И ДАЛЕЕ ДО ПОСЛЕДНЕГО ПОСЕТИЛЕЛЯ
-= link_to "Вход на сайт", main_path
+.index_left
+	= image_tag("logo_index.png")
+	= image_tag("logo_text.png")
+.index_right
+	.slider_title
+		Бифштекс с хрустящей
+		%p
+			котлетой из морских
+		%p
+			и речных рыб
+	.enter
+		%hr
+		= link_to "Вход на сайт", main_path
+		#info
+			Мы открыты c 7:30 утра до 23:00 и далее до последнего посетителя
+		%hr
