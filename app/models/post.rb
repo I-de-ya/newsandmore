@@ -4,4 +4,6 @@ class Post < ActiveRecord::Base
 	paginates_per 3
 	mount_uploader :image, ImageUploader
 
+	validates :title, :body, :presence => true
+
 end

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 	before_filter :authenticate_admin!, :only => ['admin']
 	
 	def index
+		@title = "Главная"
 		@background = "url(for_fake/index_slider/index4.png)"
 	end
 
@@ -10,7 +11,7 @@ class PagesController < ApplicationController
 		@title = "Главная"
 		@events = Event.all
 		@posts = Post.page(params[:page])
-		@movies = Movie.all
+		@movies = Movie.where("showtime <'#{Date.today + 7}'AND showtime > '#{Date.today}'")
 		@sports = Sport.all
 		@text = Text.find_by_title("Концепция и интерьер")
 

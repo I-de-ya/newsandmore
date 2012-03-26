@@ -6,6 +6,8 @@ Dish.delete_all
 Post.delete_all
 Slider.delete_all
 Recall.delete_all
+Movie.delete_all
+Event.delete_all
 
 30.times do |n|
 	name = Faker::Company.name
@@ -36,6 +38,45 @@ end
                :body => body,
                :date => date,
                :image => image)
+end
+
+20.times do |n|
+  title = Faker::Address.city
+  body = Faker::Lorem.paragraph
+  date = rand(1.year).since
+  file_array = Dir['app/assets/images/for_fake/*.jpg']
+  image = File.open(file_array[rand(file_array.size)])
+  Event.create!(:title => title,
+               :body => body,
+               :date => date)
+end
+
+20.times do |n|
+  title = Faker::Address.city
+  origin = Faker::Address.city
+  genre = Faker::Address.city
+  description = Faker::Lorem.paragraph
+  original = Faker::Address.city
+  director =Faker::Address.city
+  starring = Faker::Address.city
+  country = Faker::Address.city
+  date = rand(1.year).since
+  showtime = Date.today + rand(20)
+  file_array = Dir['app/assets/images/for_fake/*.jpg']
+  image = File.open(file_array[rand(file_array.size)])
+  Movie.create!(:title => title,
+                :origin => origin,
+                :genre => genre,
+                :year => "1978",
+                :description => description,
+                :original_title => original,
+                :director  => director,
+                :starring => starring,
+                :country => country,
+                :premiere => date,
+                :duration => date,
+                :showtime => showtime,
+                :image => image)
 end
 
 10.times do |n|

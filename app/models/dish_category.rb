@@ -3,6 +3,8 @@ class DishCategory < ActiveRecord::Base
 	belongs_to :menu_type
 	has_many :dishes
 
+	validates :name, :presence => true
+	
 	main_dishes_id = MenuType.where(:name => "Основные блюда").first.id
 	breakfasts_id = MenuType.where(:name => "Завтраки").first.id
 	kids_menu_id = MenuType.where(:name => "Детское меню").first.id
