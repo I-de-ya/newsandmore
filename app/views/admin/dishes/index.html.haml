@@ -1,0 +1,39 @@
+- content_for :page_header do
+  %h1 Блюда
+  %p= link_to "Добавить блюдо", [:new,:admin,:section,:category,:dish]
+
+= form_tag nil, :class => "change-location" do
+  %span
+    = label_tag :section_id, "Раздел"
+    %br
+    = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id])
+  %span
+    = label_tag :category_id, "Категория"
+    %br
+    = select_tag :category_id, option_groups_from_collection_for_select(Section.order(:position), :categories, :title, :id, :title, params[:category_id]), :class => "change-location"
+
+- unless @dishes.empty?
+  %table.list.sortable.checkboxes
+    %colgroup
+      %col.w1
+      %col.w1
+      %col.w1
+      %col
+      %col.w1
+    - @dishes.each do |d|
+      %tr{id: "pos_#{d.id}"}
+        %td.handle= image_tag asset_path("admin/move_handler.png")
+        %td
+          = check_box_tag :visible, d.id, d.visible
+        %td.show= link_to "", [:toggleshow,:admin,d], :class => d.show ? nil : "not-show"
+        %td
+          = link_to edit_admin_section_category_dish_path(d.category.section,d.category,d) do
+            = d.title
+            - if d.dish_images.count > 0
+              (#{d.dish_images.count} фот.)
+        %td
+          = link_to "Удалить", [:admin,d], :method => :delete, :confirm => "Удалить?", class: :del
+        
+  = sortable sort_admin_dishes_path
+- else
+  в данной категории еще нет добавленных блюд

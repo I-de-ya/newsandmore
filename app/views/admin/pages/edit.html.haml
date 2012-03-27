@@ -1,0 +1,15 @@
+- content_for :page_header do
+  %h1
+    Редактировать страницу
+ 
+= form_tag update_ind_admin_pages_path, :method => :put do |f|
+  %table
+    - for page in @pages
+      = fields_for "pages[]", page do |f|
+        %tr
+          %td{:colspan => "2"}
+            = f.label :body, page.title
+            %br
+            = f.text_area :body
+      
+  .actions= submit_tag "Сохранить"

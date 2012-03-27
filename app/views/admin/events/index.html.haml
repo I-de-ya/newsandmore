@@ -1,0 +1,21 @@
+= content_for :page_header do
+  %h1 События
+  %p= link_to "Добавить", new_admin_event_path
+
+- if @events.empty?
+  %h2 Вы еще не добавили ни одного события. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_event_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  - @events.each do |e|
+    %tr
+      %td.show= link_to "", "#", :class => true ? nil : "not-show"
+      %td= link_to e.title, edit_admin_event_path(e)
+      %td= link_to "Удалить", [:admin, e], :class => :del, :method => :delete
+
+

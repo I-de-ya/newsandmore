@@ -1,0 +1,12 @@
+- content_for :page_header do
+  %h1 Страницы
+
+= link_to "Главная", [:main,:admin,:pages]
+%br
+= link_to "О ресторане", [:about,:admin,:pages]
+%br
+= link_to "Отзывы", [:feedback,:admin,:pages]
+%br
+= link_to "Контакты", [:contacts,:admin,:pages]
+
+

@@ -1,0 +1,63 @@
+- content_for :page_header do
+  %h1
+    - if @dish.new_record?
+      Добавить блюдо
+    - else
+      Редактировать блюдо
+      =content_for(:page_sidebar) do
+        %h5 Фотографии
+        .product-photos
+          %ul.photos#photo-list
+            = render @dish.dish_images
+          .queue
+            #photo_upload
+              = photo_uploadify(admin_dish_dish_images_path(@dish))
+          =#photo_sortable      
+= form_for [:admin,:section,:category,@dish] do |f|
+  -if @dish.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dish.errors.count, "error")} prohibited this dish from being saved:"
+      %ul
+        - @dish.errors.full_messages.each do |msg|
+          %li= msg  
+  %table
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title
+    -#
+      %tr
+        %th= f.label :image
+        %td= f.file_field :image
+    %tr
+      %th= label_tag :section_id, "Раздел"
+      %td
+        = select_tag :section_id, options_for_select(Section.all.collect {|p| [p.title,p.id]}, params[:section_id])        
+    %tr
+      %th= f.label :category_id, "Категория"
+      %td
+        =# f.select :category_id, options_for_select(Category.all.collect {|p| [p.title,p.id]}, params[:category_id])
+        = f.grouped_collection_select :category_id, Section.order(:position), :categories, :title, :id, :title
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :visible
+        = f.label :visible      
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :show
+        = f.label :show
+    %tr
+      %td{:colspan => 2}
+        = f.label :desc
+        %br
+        = f.text_area :desc, :size => "40x3", class: :nowred
+  %table
+    = f.fields_for :views do |builder|
+      = render "view_fields", :f => builder
+    %tbody
+      %tr
+        %th
+        %td= link_to_add_fields "Добавить вид", f, :views
+        %td
+  .actions
+    = f.submit "Сохранить"
+    = f.submit "Применить"

@@ -1,0 +1,15 @@
+- content_for :page_header do
+  %h1 Новости
+  %p
+    = link_to "Добавить новость", new_admin_article_path
+  
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  - @articles.each do |a|
+    %tr
+      %td.show= link_to "", [:toggleshow,:admin,a], :class => a.show ? nil : "not-show"
+      %td= link_to a.title, edit_admin_article_path(a)
+      %td= link_to "Удалить", [:admin,a], :class => :del, :method => :delete

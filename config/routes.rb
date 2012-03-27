@@ -7,10 +7,6 @@ Newsandmore::Application.routes.draw do
 
   devise_for :admins
 
-  devise_scope :admin do
-    get "admin", :to => "devise/sessions#new"
-  end
-
   resources :sports
 
   resources :broadcasts
@@ -25,6 +21,11 @@ Newsandmore::Application.routes.draw do
   resources :menu_types
 
   resources :dish_categories
+
+  namespace :admin do
+    root :to => 'events#index'
+    resources :events
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
