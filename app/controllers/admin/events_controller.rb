@@ -2,7 +2,8 @@
 class Admin::EventsController < Admin::ApplicationController
   def toggleshow
     @event = Event.find(params[:id])
-    @dish.toggle(:show)
+    @event.toggle(:show)
+    @event.save
     redirect_to :back, notice: 'Событие обновлено.'
   end
 

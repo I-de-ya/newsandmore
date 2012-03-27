@@ -24,7 +24,9 @@ Newsandmore::Application.routes.draw do
 
   namespace :admin do
     root :to => 'events#index'
-    resources :events
+    resources :events do
+      get 'toggleshow', :on => :member
+    end
   end
 
   # The priority is based upon order of creation:
