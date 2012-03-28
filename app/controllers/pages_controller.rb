@@ -1,10 +1,9 @@
 # coding: utf-8
 class PagesController < ApplicationController
-	before_filter :authenticate_admin!, :only => ['admin']
 	
 	def index
 		@title = "Главная"
-		@background = "url(for_fake/index_slider/index4.png)"
+		@sliders = Slider.last
 	end
 
 	def main
@@ -51,9 +50,5 @@ class PagesController < ApplicationController
 		@title = "Барная карта"
 		@categories = DishCategory.bar_list
 		@text_banquets = Text.find_by_title("Информация для проведения банкетов")
-	end
-
-	def admin
-		@title = "admin"
 	end
 end

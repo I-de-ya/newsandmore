@@ -1,16 +1,19 @@
-.index_left
-	= image_tag("logo_index.png")
-	= image_tag("logo_text.png")
-.index_right
-	.slider_title
-		Бифштекс с хрустящей
-		%p
-			котлетой из морских
-		%p
-			и речных рыб
-	.enter
-		%hr
-		= link_to "Вход на сайт", main_path
-		#info
-			Мы открыты c 7:30 утра до 23:00 и далее до последнего посетителя
-		%hr
+.slider
+	= image_tag @sliders.slider_image_url if @sliders.slider_image?
+.qwerty
+	.index_left
+		= image_tag("logo_index.png")
+		= image_tag("logo_text.png")
+	.index_right
+		.slider_title
+			Бифштекс с хрустящей
+			%p
+				котлетой из морских
+			%p
+				и речных рыб
+		.enter
+			%hr
+			= link_to "Вход на сайт", main_path
+			#info
+				Мы открыты c 7:30 утра до 23:00 и далее до последнего посетителя
+			%hr
