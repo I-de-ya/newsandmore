@@ -1,6 +1,14 @@
 Newsandmore::Application.routes.draw do
 
 
+  resources :sections
+
+  resources :dish_types
+
+  resources :images
+
+  resources :menu_sections
+
   resources :texts
 
   resources :sliders
@@ -26,6 +34,40 @@ Newsandmore::Application.routes.draw do
     root :to => 'events#index'
     resources :events do
       get 'toggleshow', :on => :member
+    end
+    resources :reservations
+    resources :posts do
+      get 'toggleshow', :on => :member
+    end
+    resources :recalls do
+      get 'toggleshow', :on => :member
+    end
+    resources :sliders do
+      resources :images do
+        put 'update_ind', :on => :collection
+        post 'sort', :on => :collection
+      end
+      get 'toggleshow', :on => :member
+      post 'sort', :on => :collection
+      get 'active', :on => :member
+    end
+    resources :sections do
+      get 'toggleshow', :on => :member
+      post 'sort', :on => :collection
+      resources :dish_categories do
+        resources :dishes
+      end
+    end
+    resources :dish_categories do
+      get 'toggleshow', :on => :member
+      post 'sort', :on => :collection
+    end
+    resources :dishes do
+      get 'toggleshow', :on => :member
+      get 'visible', :on => :member
+      post 'sort', :on => :collection 
+      
+      resources :dish_images    
     end
   end
 

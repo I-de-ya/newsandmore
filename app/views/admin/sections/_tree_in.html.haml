@@ -1,0 +1,5 @@
+- unless c.dishes.empty?
+  %ol
+    - c.dishes.each do |d|
+      %li{id: "dish_#{d.id}", class: "no-nest"}
+        %div= link_to d.title, [:edit,:admin,s,c,d]

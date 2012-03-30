@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327164946) do
+ActiveRecord::Schema.define(:version => 20120330124849) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(:version => 20120327164946) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "menu_type_id"
+    t.integer  "section_id"
+  end
+
+  create_table "dish_types", :force => true do |t|
+    t.string   "title"
+    t.integer  "price"
+    t.integer  "dish_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "dishes", :force => true do |t|
@@ -64,6 +73,20 @@ ActiveRecord::Schema.define(:version => 20120327164946) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.boolean  "show",       :default => true
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "menu_sections", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "menu_types", :force => true do |t|
@@ -128,6 +151,15 @@ ActiveRecord::Schema.define(:version => 20120327164946) do
     t.string   "phone"
     t.integer  "smokers"
     t.integer  "hall"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "position"
+    t.boolean  "show",       :default => true
   end
 
   create_table "sliders", :force => true do |t|

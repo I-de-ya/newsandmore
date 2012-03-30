@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @menu_section.title
+%p
+  %b Body:
+  = @menu_section.body
+
+= link_to 'Edit', edit_menu_section_path(@menu_section)
+\|
+= link_to 'Back', menu_sections_path

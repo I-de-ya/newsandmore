@@ -1,0 +1,5 @@
+%ol
+  - cats.order(:position).each do |c|
+    %li{:id => "cat_#{c.id}", class: "dish"}
+      %div= link_to c.title
+      = render "tree_in", {:s => s, :c => c}

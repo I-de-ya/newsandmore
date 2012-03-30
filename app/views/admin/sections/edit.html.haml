@@ -1,0 +1,18 @@
+- content_for :page_header do
+  %h1
+    - if @section.new_record?
+      Добавить раздел
+    - else
+      Редактирование раздела
+      
+= form_for [:admin,@section] do |f|
+  %table
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :show
+        = f.label :show
+      
+  .actions= submit_tag "Сохранить"

@@ -1,0 +1,26 @@
+- content_for :page_header do
+  %h1 Разделы
+  %p= link_to "Добавить раздел", [:new,:admin,:section]
+
+%table.list.sortable
+  %colgroup
+    %col.w1
+    %col.w1
+    %col
+    %col
+    %col.w1
+  - @sections.each do |s|
+    %tr{id: "pos_#{s.id}"}
+      %td.handle= image_tag asset_path("admin/move_handler.png")
+      %td.show= link_to "", [:toggleshow,:admin,s], :class => s.show ? nil : "not-show"
+      %td
+        = link_to [:admin,s,:dish_categories] do
+          = s.title
+          - if s.dish_categories.count > 0
+            (#{s.dish_categories.count} кат.)
+      %td= link_to "Ред.", [:edit,:admin,s]
+      %td= link_to "Удалить", [:admin,s], :method => :delete, :confirm => "Удалить?", class: :del
+      
+= sortable(sort_admin_sections_path)
+
+=# render "tree"

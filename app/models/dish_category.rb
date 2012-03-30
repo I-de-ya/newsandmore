@@ -1,6 +1,6 @@
 # coding:utf-8
 class DishCategory < ActiveRecord::Base
-	belongs_to :menu_type
+	belongs_to :section
 	has_many :dishes
 
 	validates :name, :presence => true
