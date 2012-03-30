@@ -1,0 +1,36 @@
+- content_for :page_header do
+  %h1 Категории
+  %p= link_to "Добавить категорию", [:new,:admin,:dish_category]
+
+= form_tag nil, :class => "change-location" do
+  = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id]), :class => :"change-location"
+
+- unless @categories.empty?
+  - numcol = 0
+  %table.list.sortable
+    %colgroup
+      %col.w1
+      %col.w1
+      %col
+      %col
+      %col.w1
+    - @categories.each do |c|
+      - if c.column == numcol
+        - numcol += 1
+        %tr
+          %th
+          %th{colspan: 5}= "колонка #{numcol}"
+      %tr{id: "pos_#{c.id}"}
+        %td.handle= image_tag asset_path("admin/move_handler.png")
+        %td.show= link_to "", [:toggleshow,:admin,c], :class => c.show ? nil : "not-show"
+        %td
+          = link_to [:admin,c.section,c,:dishes] do
+            = c.title
+            - unless c.dishes.empty?
+              (#{c.dishes.count} бл.)
+        %td= link_to "ред.", [:edit,:admin,c.section,c]
+        %td= link_to "Удалить", [:admin,c], :method => :delete, :confirm => "Удалить?", class: :del
+  = sortable sort_admin_categories_path
+- else
+  %p В данном разделе еще нет добавленных категорий блюд
+      

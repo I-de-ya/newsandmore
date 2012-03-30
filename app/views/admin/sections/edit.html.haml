@@ -11,6 +11,9 @@
       %th= f.label :title
       %td= f.text_field :title
     %tr
+      %th= f.label :body
+      %td= f.text_area :body
+    %tr
       %th{:colspan => 2}
         = f.check_box :show
         = f.label :show

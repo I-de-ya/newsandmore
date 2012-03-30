@@ -19,9 +19,9 @@ function add_fields(link, association, content) {
 
 function changeSelect() {
 		var f = $(this).closest("form"),
-			url = "/admin/sections/" + f.find("select#section_id").val() + "/categories";
-			if (f.find("select#category_id").val()) {
-				url += "/" + f.find("select#category_id").val() + "/dishes"
+			url = "/admin/sections/" + f.find("select#section_id").val() + "/dish_categories";
+			if (f.find("select#dish_category_id").val()) {
+				url += "/" + f.find("select#dish_category_id").val() + "/dishes"
 			};
 		location = url;
 }
@@ -74,7 +74,7 @@ $(function(){
 	
 	(new SelectDependent("#section_id","#dish_category_id")).init();
 	(function(){
-		var sel = new SelectDependent("#section_id","#category_id");
+		var sel = new SelectDependent("#section_id","#dish_category_id");
 		sel.afterPrint = function(){
 			//первый запуск функции пустой, при загрузке, дабы избежать рекурсии и перезагрузки страницы.
 			//далее определяем функцию, что должно происходить при последующих вызовах.

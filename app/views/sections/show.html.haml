@@ -1,12 +1,32 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @section.title
-%p
-  %b Body:
-  = @section.body
-
-= link_to 'Edit', edit_section_path(@section)
-\|
-= link_to 'Back', sections_path
+.left_column
+  .reservation
+    %h3#dark_text О РЕСТОРАНЕ
+    %hr
+    = render 'layouts/menu'
+    = @section.body
+    
+    - if @section.title == "On-line бронирование"
+      = render 'reservations/form'
+    - elsif @section.title == "Отзывы"
+      - @recalls.each do |recall|
+        %p
+          #dark_text= recall.created_at.strftime("%d/%m/%Y")
+          %hr
+          #light_text= recall.name
+          =recall.body
+    - elsif @section.title == "Контакты и обратная связь"
+      <iframe width="250" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ru/maps?hl=ru&amp;q=%D0%BD%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80+11&amp;ie=UTF8&amp;hq=&amp;hnear=%D0%9D%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB.,+11,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&amp;ll=55.753215,37.582248&amp;spn=0.007028,0.021136&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small></small>
+  = render "shared/footer"
+.right_column
+  = image_tag("rails.png")
+  Подпись
+  
+  .banquets
+    - if @section.title == "Отзывы"
+      = render 'recalls/form'
+    - elsif @section.title == "Контакты и обратная связь"
+      = render 'messages/form'
+    - else
+      %h3#dark_text Информация для проведения банкетов
+      %hr
+      = @text_banquets.body

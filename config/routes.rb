@@ -28,7 +28,7 @@ Newsandmore::Application.routes.draw do
 
   resources :menu_types
 
-  resources :dish_categories
+
 
   namespace :admin do
     root :to => 'events#index'
@@ -102,7 +102,8 @@ Newsandmore::Application.routes.draw do
   resources :recalls
   resources :events
   resources :dishes
-  
+  resources :dish_categories
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

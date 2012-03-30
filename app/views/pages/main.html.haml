@@ -3,19 +3,19 @@
 	.about
 		%h3#dark_text О РЕСТОРАНЕ
 		%hr
-		= truncate(@text.body, :length => 300)
-		%p= link_to "Подробнее", '/about'
+		= truncate(@about.body, :length => 300)
+		%p= link_to "Подробнее", section_path(@about)
 	.main_menu
 		%ul
-			%li#dark_text= link_to "ОСНОВНЫЕ БЛЮДА", main_dishes_path
+			%li#dark_text= link_to "ОСНОВНЫЕ БЛЮДА", section_path(@main_dishes)
 			%hr
-			%li#dark_text= link_to "ЗАВТРАКИ", breakfasts_path
+			%li#dark_text= link_to "ЗАВТРАКИ", section_path(@breakfasts)
 			%hr	
-			%li#dark_text= link_to "БАРНАЯ КАРТА", bar_list_path
+			%li#dark_text= link_to "БАРНАЯ КАРТА", section_path(@bar_list)
 			%hr	
-			%li#dark_text= link_to "БАНКЕТЫ", banquet_path
+			%li#dark_text= link_to "БАНКЕТЫ", section_path(@banquet)
 			%hr
-			%li#dark_text= link_to "ДЕТСКОЕ МЕНЮ", kids_menu_path
+			%li#dark_text= link_to "ДЕТСКОЕ МЕНЮ", section_path(@kids_menu)
 	.news
 		%h3#dark_text НОВОСТИ & СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
 		%hr

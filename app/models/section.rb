@@ -6,4 +6,7 @@ class Section < ActiveRecord::Base
 	belongs_to :text
 
 	validates :title, :presence => true
+
+  scope :visible, where('show = ?', true)
+  default_scope :order => 'position ASC'
 end

@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def show
     @archive = Event.all
     @post = Post.find(params[:id])
+    @sections = Section.all
     @title = "#{@post.title} "
 
     respond_to do |format|

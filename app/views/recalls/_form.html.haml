@@ -1,10 +1,5 @@
 %h3#dark_text
-  Отзывы
-  +
-  = @positive
-  = "/"
-  = '-'
-  = @negative
+  = "Отзывы +#{@positive_recalls} / -#{@negative_recalls}"
 %hr
 = form_for @recall do |f|
   -if @recall.errors.any?
@@ -24,9 +19,9 @@
     %tr
       %td
       %td
-        = f.radio_button 'positivity', 'Положительный' 
+        = f.radio_button 'positiveness', 'true' 
         Положительный
-        = f.radio_button 'positivity', 'Отрицательный'
+        = f.radio_button 'positiveness', 'false'
         Отрицательный
     %tr
       %td#light_text= f.label :body, "Ваш отзыв*"

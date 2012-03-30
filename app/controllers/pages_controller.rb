@@ -12,7 +12,12 @@ class PagesController < ApplicationController
 		@posts = Post.page(params[:page])
 		@movies = Movie.where("showtime <'#{Date.today + 7}'AND showtime > '#{Date.today}'")
 		@sports = Sport.all
-		@text = Text.find_by_title("Концепция и интерьер")
+		@about = Section.find_by_title("Концепция и интерьер")
+		@main_dishes = Section.find_by_title("Основные блюда")
+		@breakfasts = Section.find_by_title("Завтраки")
+		@bar_list = Section.find_by_title("Барная карта")
+		@banquet = Section.find_by_title("Банкетное предложение")
+		@kids_menu = Section.find_by_title("Детское меню")
 
 	end
 

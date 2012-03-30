@@ -1,3 +1,4 @@
+# coding:utf-8
 class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
@@ -14,6 +15,14 @@ class SectionsController < ApplicationController
   # GET /sections/1.json
   def show
     @section = Section.find(params[:id])
+    @sections = Section.visible
+    @text_banquets = Text.find_by_title("Информация для проведения банкетов")
+    @reservation = Reservation.new
+    @recall = Recall.new
+    @recalls = Recall.all
+    @message = Message.new
+    @positive_recalls = Recall.positive.length
+    @negative_recalls = Recall.negative.length
 
     respond_to do |format|
       format.html # show.html.erb

@@ -2,7 +2,7 @@
 class EventsController < ApplicationController
 
   def show
-
+    @sections = Section.all
     @archive = Event.all
     @event = Event.find(params[:id])
     @title = "#{@event.title}"

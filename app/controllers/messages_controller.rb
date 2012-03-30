@@ -13,13 +13,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(params[:message])
+    @section = Section.where('title = ?', 'Контакты и обратная связь').first
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to contacts_path, notice: 'Message was successfully created.' }
+        format.html { redirect_to section_path(@section), notice: 'Message was successfully created.' }
         format.json { render json: @message, status: :created, location: @message }
       else
-        format.html { redirect_to contacts_path }
+        format.html { redirect_to section_path(@section) }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
