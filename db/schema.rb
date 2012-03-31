@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330194346) do
+ActiveRecord::Schema.define(:version => 20120331160326) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(:version => 20120330194346) do
     t.string   "title"
     t.datetime "showtime"
     t.integer  "sport_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "show",       :default => true
   end
 
   create_table "dish_categories", :force => true do |t|
@@ -118,19 +119,20 @@ ActiveRecord::Schema.define(:version => 20120330194346) do
     t.string   "country"
     t.date     "premiere"
     t.time     "duration"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.datetime "showtime"
     t.string   "image"
+    t.boolean  "show",           :default => true
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.date     "date"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "image"
+    t.boolean  "show",       :default => true
   end
 
   create_table "recalls", :force => true do |t|
@@ -176,8 +178,9 @@ ActiveRecord::Schema.define(:version => 20120330194346) do
 
   create_table "sports", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "show",       :default => true
   end
 
   create_table "texts", :force => true do |t|

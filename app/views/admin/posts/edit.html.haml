@@ -1,19 +1,19 @@
 - content_for :page_header do
   %h1
-    - if @event.new_record?
-      Добавить событие
+    - if @post.new_record?
+      Добавить новость
     - else
-      Редактирование события
-  %p= link_to "Назад", [:admin, :events]
+      Редактирование новость
+  %p= link_to "Назад", [:admin, :posts]
       
-= form_for [:admin, @event] do |f|
+= form_for [:admin, @post] do |f|
   %table
     %tr
       %th= f.label :title
       %td= f.text_field :title
     %tr
-      %th= f.label :date
-      %td= f.datetime_select :date
+      %td= f.label :image
+      %td= f.file_field :image   
     %tr
       %th{:colspan => 2}
         = f.check_box :show

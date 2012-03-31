@@ -1,0 +1,57 @@
+- content_for :page_header do
+  %h1
+    - if @movie.new_record?
+      Добавить фильма
+    - else
+      Редактирование фильма
+  %p= link_to "Назад", [:admin, :movies]
+      
+= form_for [:admin, @movie] do |f|
+  %table
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title
+    %tr
+      %th= f.label :origin
+      %td= f.text_field :origin
+    %tr
+      %th= f.label :genre
+      %td= f.text_field :genre
+    %tr
+      %th= f.label :year
+      %td= f.number_field :year
+    %tr
+      %th= f.label :original_title
+      %td= f.text_field :original_title
+    %tr
+      %th= f.label :director
+      %td= f.text_field :director
+    %tr
+      %th= f.label :starring
+      %td= f.text_field :starring
+    %tr
+      %th= f.label :country
+      %td= f.text_field :country
+    %tr
+      %td= f.label :premiere
+      %td= f.date_select :premiere
+    %tr
+      %td= f.label :duration
+      %td= f.time_select :duration    
+    %tr
+      %td= f.label :image
+      %td= f.file_field :image  
+    %tr
+      %td= f.label :showtime
+      %td= f.datetime_select :showtime        
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :show
+        = f.label :show
+    %tr
+      %td{:colspan => "2"}
+        = f.label :description
+        %br
+        = f.text_area :description
+      
+  .actions= f.submit "Сохранить"

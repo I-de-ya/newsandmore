@@ -1,0 +1,41 @@
+- content_for :page_header do
+  %h1
+    - if @reservation.new_record?
+      Добавить резерв
+    - else
+      Редактирование брони
+  %p= link_to "Назад", [:admin, :reservations]
+      
+= form_for [:admin, @reservation] do |f|
+  %table
+    %tr
+      %th= f.label :firstname
+      %td= f.text_field :firstname
+    %tr
+      %th= f.label :lastname
+      %td= f.text_field :lastname
+    %tr
+      %th= f.label :phone
+      %td= f.text_field :phone
+    %tr
+      %th= f.label :email
+      %td= f.email_field :email
+    %tr
+      %th= f.label :persons
+      %td= f.number_field :persons
+    %tr
+      %th= f.label :smokers
+      %td= f.number_field :smokers
+    %tr
+      %th= f.label :datetime
+      %td= f.datetime_select :datetime
+    %tr
+      %th= f.label :hall
+      %td= f.number_field :hall
+    %tr
+      %td{:colspan => "2"}
+        = f.label :comment
+        %br
+        = f.text_area :comment
+      
+  .actions= f.submit "Сохранить"

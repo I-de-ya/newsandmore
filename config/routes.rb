@@ -35,11 +35,23 @@ Newsandmore::Application.routes.draw do
     resources :events do
       get 'toggleshow', :on => :member
     end
+    
+    root :to => 'movies#index'
+    resources :movies do
+      get 'toggleshow', :on => :member
+    end
+
     resources :reservations
     resources :posts do
       get 'toggleshow', :on => :member
     end
     resources :recalls do
+      get 'toggleshow', :on => :member
+    end
+    resources :sports do
+      get 'toggleshow', :on => :member
+    end
+    resources :broadcasts do
       get 'toggleshow', :on => :member
     end
     resources :sliders do

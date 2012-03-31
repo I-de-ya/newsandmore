@@ -1,0 +1,23 @@
+= content_for :page_header do
+  %h1 Трансляции
+  %p= link_to "Добавить", new_admin_broadcast_path
+
+- if @broadcasts.empty?
+  %h2 Вы еще не добавили ни одной трансляции. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_broadcast_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  - @broadcasts.each do |broadcast|
+    %tr
+      %td.show= link_to "", [:toggleshow, :admin, broadcast], :class => broadcast.show ? nil : "not-show"
+      %td= link_to broadcast.title, edit_admin_broadcast_path(broadcast)
+      %td= broadcast.showtime.strftime("%d.%m.%Y/%H:%M")
+      %td= broadcast.sport.title
+      %td= link_to "Удалить", [:admin, broadcast], :class => :del, :method => :delete
+
+

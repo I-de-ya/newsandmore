@@ -1,0 +1,23 @@
+= content_for :page_header do
+  %h1 Резерв
+  %p= link_to "Добавить", new_admin_reservation_path
+
+- if @reservations.empty?
+  %h2 Вы еще не добавили ни одной брони. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_reservation_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  - @reservations.each do |reservation|
+    %tr
+      %td= reservation.datetime.strftime("%d.%m.%Y/%H:%M")
+      %td= reservation.persons
+      %td= reservation.phone
+      %td= reservation.email
+      %td= link_to "Удалить", [:admin, reservation], :class => :del, :method => :delete
+
+

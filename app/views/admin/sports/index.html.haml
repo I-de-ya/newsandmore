@@ -1,0 +1,21 @@
+= content_for :page_header do
+  %h1 Виды спорта
+  %p= link_to "Добавить", new_admin_sport_path
+
+- if @sports.empty?
+  %h2 Вы еще не добавили ни одного вида спорта. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_sport_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  - @sports.each do |sport|
+    %tr
+      %td.show= link_to "", [:toggleshow, :admin, sport], :class => sport.show ? nil : "not-show"
+      %td= link_to sport.title, edit_admin_sport_path(sport)
+      %td= link_to "Удалить", [:admin, sport], :class => :del, :method => :delete
+
+

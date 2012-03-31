@@ -1,0 +1,22 @@
+= content_for :page_header do
+  %h1 Новости
+  %p= link_to "Добавить", new_admin_post_path
+
+- if @posts.empty?
+  %h2 Вы еще не добавили ни одной новости. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_post_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  - @posts.each do |post|
+    %tr
+      %td.show= link_to "", [:toggleshow, :admin, post], :class => post.show ? nil : "not-show"
+      %td= link_to post.title, edit_admin_post_path(post)
+      %td= post.created_at.strftime("%d.%m.%Y/%H:%M")
+      %td= link_to "Удалить", [:admin, post], :class => :del, :method => :delete
+
+

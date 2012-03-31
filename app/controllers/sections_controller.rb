@@ -15,6 +15,7 @@ class SectionsController < ApplicationController
   # GET /sections/1.json
   def show
     @section = Section.find(params[:id])
+    @title = @section.title
     @sections = Section.visible
     @text_banquets = Text.find_by_title("Информация для проведения банкетов")
     @reservation = Reservation.new

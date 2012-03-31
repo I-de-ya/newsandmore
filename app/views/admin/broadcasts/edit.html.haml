@@ -1,0 +1,22 @@
+- content_for :page_header do
+  %h1
+    - if @broadcast.new_record?
+      Добавить трансляцию
+    - else
+      Редактирование трансляции
+  %p= link_to "Назад", [:admin, :broadcasts]
+      
+= form_for [:admin, @broadcast] do |f|
+  %table
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title  
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :show
+        = f.label :show
+    %tr
+      %th{:colspan => 2}
+        = f.select(:sport_id, Sport.all.collect {|p| [ p.title, p.id ] }, {:include_blank => false})
+      
+  .actions= f.submit "Сохранить"

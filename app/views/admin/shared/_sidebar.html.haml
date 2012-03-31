@@ -9,9 +9,14 @@
     /%li{:class => "#{'active' if %w{users}.include? a}"}= link_to "Пользователи", admin_users_path
     /%li{:class => "#{'active' if %w{settings}.include? a}"}= link_to "Настройки", admin_settings_path
     /%li{:class => "#{'active' if "events" == a}"}= link_to "События", [:admin,:events]
+    %li{:class => "#{'active' if "menu_sections" == a}"}= link_to "Новости", [:admin,:posts]
     %li{:class => "#{'active' if "dishes" == a}"}= link_to "Блюда", [:admin,:events]
+    %li{:class => "#{'active' if "movies" == a}"}= link_to "Афиша кино", [:admin,:movies]
     %li{:class => "#{'active' if "reservations" == a}"}= link_to "Резервы", [:admin,:reservations]
     %li{:class => "#{'active' if "menu_sections" == a}"}= link_to "Зеленая менюшка", [:admin,:sections]
+    %li{:class => "#{'active' if "menu_sections" == a}"}= link_to "События", [:admin,:events]
+    %li{:class => "#{'active' if "menu_sections" == a}"}= link_to "Виды спорта", [:admin,:sports]    
+    %li{:class => "#{'active' if "menu_sections" == a}"}= link_to "Трансляции", [:admin,:broadcasts]
 
   -when :menu
     %li{:class => "#{'active' if "sections" == a}"}= link_to "Разделы", [:admin,:sections]

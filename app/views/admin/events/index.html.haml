@@ -16,6 +16,7 @@
     %tr
       %td.show= link_to "", [:toggleshow, :admin, e], :class => e.show ? nil : "not-show"
       %td= link_to e.title, edit_admin_event_path(e)
+      %td= e.date.strftime("%d.%m.%Y/%H:%M")
       %td= link_to "Удалить", [:admin, e], :class => :del, :method => :delete
 
 
