@@ -4,9 +4,9 @@
 		%hr
 		= render "layouts/menu"
 		%table
-			- @sport.broadcasts.each do |broadcast|
+			- @broadcasts.each do |broadcast|
 				%tr
-					%td#dark_text= broadcast.showtime.strftime("%d/%m/%Y")
+					%td#dark_text= broadcast.showtime.strftime("%H:%m %d/%m/%Y")
 					%td#light_text= broadcast.title
 	= render "shared/footer"
 

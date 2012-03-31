@@ -8,10 +8,10 @@ class PagesController < ApplicationController
 
 	def main
 		@title = "Главная"
-		@events = Event.all
-		@posts = Post.page(params[:page])
-		@movies = Movie.where("showtime <'#{Date.today + 7}'AND showtime > '#{Date.today}'")
-		@sports = Sport.all
+		@events = Event.visible
+		@posts = Post.visible.page(params[:page])
+		@movies = Movie.visible.where(:showtime => (Date.today..(Date.today + 7)))
+		@sports = Sport.visible
 		@about = Section.find_by_title("Концепция и интерьер")
 		@main_dishes = Section.find_by_title("Основные блюда")
 		@breakfasts = Section.find_by_title("Завтраки")

@@ -26,7 +26,7 @@
 						- if post.image?
 							= link_to (image_tag post.image_url(:thumb)), post_path(post)
 						%br
-						#dark_text= link_to (post.date.nil? ? "-" : post.date.strftime("%d/%m/%Y") ), post_path(post)
+						#dark_text= link_to (post.created_at.nil? ? "-" : post.created_at.strftime("%d/%m/%Y") ), post_path(post)
 						%hr
 						#light_text
 							= link_to post.title, post_path(post)
@@ -65,7 +65,7 @@
 							= movie.description.nil? ? "" : (link_to "Подробнее", movie_path(movie))
 
 				.left
-					%h3#light_text= movie.title
+					%h3#light_text= link_to movie.title, movie_path(movie)
 					%p
 						= movie.director
 						%br
