@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 	
 	def index
 		@title = "Главная"
-		@sliders = Slider.last
+		@sliders = Slider.all
 	end
 
 	def main

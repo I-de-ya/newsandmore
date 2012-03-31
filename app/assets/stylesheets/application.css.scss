@@ -120,8 +120,11 @@ h4, h3, h2 {
 	margin:0;
 }
 .slider {
-	position:absolute;
-	top: 50px;
+	li{
+		position:absolute;
+		top: 50px;
+		margin-left:-50px;
+	}
 }
 .qwerty{
 	position:absolute;
@@ -137,7 +140,7 @@ h4, h3, h2 {
 }
 
 .index_right{
-	float:right;
+	float:left;
 
 	.slider_title{
 		float:right;
@@ -145,6 +148,7 @@ h4, h3, h2 {
 		margin-top:500px;
 		font-size:35px;
 		color:$lighttext;
+		width:500px;
 	}
 	.enter{
 		margin:0;
