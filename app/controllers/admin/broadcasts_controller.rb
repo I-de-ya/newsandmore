@@ -18,7 +18,17 @@ class Admin::BroadcastsController < Admin::ApplicationController
   end
 
   def create
-    
+    @broadcast = Broadcast.new(params[:broadcast])
+
+    respond_to do |format|
+      if @broadcast.save
+        format.html { redirect_to [:edit,:admin,@broadcast], notice: 'Трансляция успешно добавлена.' }
+        format.json { render json: @broadcast, status: :created, location: @broadcast }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @broadcast.errors, status: :unprocessable_entity }
+      end
+    end    
   end
 
   def edit
@@ -26,7 +36,17 @@ class Admin::BroadcastsController < Admin::ApplicationController
   end
 
   def update
-    
+    @broadcast = Broadcast.find(params[:id])
+
+    respond_to do |format|
+      if @broadcast.update_attributes(params[:broadcast])
+        format.html { redirect_to [:edit,:admin,@broadcast], notice: 'Трансляция успешно обновлена.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @broadcast.errors, status: :unprocessable_entity }
+      end
+    end    
   end
 
   def show

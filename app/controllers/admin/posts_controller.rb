@@ -18,7 +18,17 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def create
-    
+    @post = Post.new(params[:post])
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to [:edit,:admin,@post], notice: 'Новость успешно добавлена.' }
+        format.json { render json: @post, status: :created, location: @post }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -26,7 +36,17 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def update
-    
+    @post = Post.find(params[:id])
+
+    respond_to do |format|
+      if @post.update_attributes(params[:post])
+        format.html { redirect_to [:edit,:admin,@post], notice: 'Новость успешно обновлена.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end    
   end
 
   def show

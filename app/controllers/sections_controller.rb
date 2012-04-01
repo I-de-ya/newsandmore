@@ -6,6 +6,7 @@ class SectionsController < ApplicationController
     @title = @section.title
     @sections = Section.visible
     @text_banquets = Text.find_by_title("Информация для проведения банкетов")
+    @text_thanks = Text.find_by_title("Благодарность за бронирование")
     @reservation = Reservation.new
     @recall = Recall.new
     @recalls = Recall.all

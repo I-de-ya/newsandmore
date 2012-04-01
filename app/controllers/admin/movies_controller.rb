@@ -17,16 +17,38 @@ class Admin::MoviesController < Admin::ApplicationController
     render "edit"
   end
 
-  def create
-    
-  end
-
   def edit
     @movie = Movie.find(params[:id])
   end
 
+  def create
+    @movie = Movie.new(params[:movie])
+
+    respond_to do |format|
+      if @movie.save
+        format.html { redirect_to [:edit,:admin,@movie], notice: 'Фильм успешно добавлен.' }
+        format.json { render json: @movie, status: :created, location: @movie }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /movies/1
+  # PUT /movies/1.json
   def update
-    
+    @movie = Movie.find(params[:id])
+
+    respond_to do |format|
+      if @movie.update_attributes(params[:movie])
+        format.html { redirect_to [:edit,:admin,@movie], notice: 'Фильм успешно обновлен.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show

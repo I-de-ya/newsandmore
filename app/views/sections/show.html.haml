@@ -1,12 +1,18 @@
 .left_column
-  .reservation
+  .content
     %h3#dark_text О РЕСТОРАНЕ
     %hr
     = render 'layouts/menu'
-    = @section.body
+    - if @section.title == "On-line бронирование"
+    - else
+      = @section.body
     
     - if @section.title == "On-line бронирование"
-      = render 'reservations/form'
+      - if notice == nil
+        = @section.body
+        = render 'reservations/form'
+      - else
+        %p= @text_thanks.body
     - elsif @section.title == "Отзывы"
       - @recalls.each do |recall|
         %p
@@ -21,7 +27,7 @@
   = image_tag("rails.png")
   Подпись
   
-  .banquets
+  .bottom
     - if @section.title == "Отзывы"
       = render 'recalls/form'
     - elsif @section.title == "Контакты и обратная связь"

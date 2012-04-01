@@ -55,8 +55,7 @@ header {
 	}
 		
 	ul {
-/*не судите строго за этот text-align
-*/
+//не судите строго за этот text-align
 		text-align:center;
 		margin:0;
 		padding:0;
@@ -91,11 +90,14 @@ ul{
 	border:none;
 	background:$menu_color;
 }
-
-
+input {
+	border:solid 1px $lighttext;
+}
 
 h1, h2, h3, h4, h5, h6 {
 	color:$darktext;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 #dark_text {
@@ -169,10 +171,8 @@ h4, h3, h2 {
 			color:white;
 			padding:5px;
 		}
+	}
 }
-}
-
-
 
 .left_column {
 	float:left;
@@ -248,7 +248,7 @@ h4, h3, h2 {
 				padding:0 0.4em 0 0.4em;
 				margin-bottom:0.5em;
 				background:$menu_color;}}}
-	.reservation {
+	.content {
 		@include main-style;
 		margin-bottom:$margin;
 
@@ -271,23 +271,7 @@ h4, h3, h2 {
 			}
 		}
 	}
-	.event {
-		@include main-style;
-		margin-bottom:$margin;
-	}
 
-	.recalls {
-		@include main-style;
-		margin-bottom:$margin;
-	}
-	.contacts{
-		@include main-style;
-		margin-bottom:$margin;		
-	}
-	.movie {
-		@include main-style;
-		margin-bottom:$margin;	
-	}
 }
 .right_column {
 	width:415px;
@@ -332,26 +316,7 @@ h4, h3, h2 {
 		}
 	}
 
-
-	img{
-
-//		width:415px;
-//убрать эту высоту
-	
-//		height:300px;
-	}
-	.banquets {
-		@include main-style;
-		margin-top:$margin;
-	}
-	.archive{
-		@include main-style;
-		margin-top:$margin;
-		a {
-			text-decoration:underline;
-		}
-	}
-	.recall_form{
+	.bottom{
 		@include main-style;
 		margin-top:$margin;	
 		.actions {
@@ -369,24 +334,4 @@ h4, h3, h2 {
 			}
 		}
 	}
-	.messages_form{
-		@include main-style;
-		margin-top:$margin;
-
-		.actions {
-			float:right;
-		}
-		textarea{
-			width:280px;
-		}
-		table {
-			td {
-				width:85px;
-			}
-			td.input input {
-				width:150px;
-			}
-		}
-	}	
-
 }

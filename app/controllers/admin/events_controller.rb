@@ -17,16 +17,38 @@ class Admin::EventsController < Admin::ApplicationController
     render "edit"
   end
 
-  def create
-    
-  end
-
   def edit
     @event = Event.find(params[:id])
   end
 
+  def create
+    @event = Event.new(params[:event])
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to [:edit,:admin,@event], notice: 'Мероприятие успешно добавлено.' }
+        format.json { render json: @event, status: :created, location: @event }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /events/1
+  # PUT /events/1.json
   def update
-    
+    @event = Event.find(params[:id])
+
+    respond_to do |format|
+      if @event.update_attributes(params[:event])
+        format.html { redirect_to [:edit,:admin,@event], notice: 'Мероприятие успешно обновлено.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show

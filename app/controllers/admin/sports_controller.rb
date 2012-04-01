@@ -17,16 +17,38 @@ class Admin::SportsController < Admin::ApplicationController
     render "edit"
   end
 
-  def create
-    
-  end
-
   def edit
     @sport = Sport.find(params[:id])
   end
 
+  def create
+    @sport = Sport.new(params[:sport])
+
+    respond_to do |format|
+      if @sport.save
+        format.html { redirect_to [:edit,:admin,@sport], notice: 'Вид спорта успешно добавлен.' }
+        format.json { render json: @sport, status: :created, location: @sport }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @sport.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /sports/1
+  # PUT /sports/1.json
   def update
-    
+    @sport = Sport.find(params[:id])
+
+    respond_to do |format|
+      if @sport.update_attributes(params[:sport])
+        format.html { redirect_to [:edit,:admin,@sport], notice: 'Вид спорта успешно обновлен.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @sport.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show

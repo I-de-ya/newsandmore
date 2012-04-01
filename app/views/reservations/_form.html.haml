@@ -1,7 +1,7 @@
 = form_for @reservation do |f|
   .right_form_part
     #light_text= f.label :comment, "Ваши пожелания"
-    %p= f.text_area :comment, :cols => 29, :rows => 7
+    %p= f.text_area :comment, :rows => 7
     .actions
       = f.submit "Забронировать столик"
   .left_form_part
