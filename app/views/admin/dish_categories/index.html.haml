@@ -15,22 +15,17 @@
       %col
       %col.w1
     - @categories.each do |c|
-      - if c.column == numcol
-        - numcol += 1
-        %tr
-          %th
-          %th{colspan: 5}= "колонка #{numcol}"
       %tr{id: "pos_#{c.id}"}
         %td.handle= image_tag asset_path("admin/move_handler.png")
         %td.show= link_to "", [:toggleshow,:admin,c], :class => c.show ? nil : "not-show"
         %td
           = link_to [:admin,c.section,c,:dishes] do
-            = c.title
+            = c.name
             - unless c.dishes.empty?
               (#{c.dishes.count} бл.)
         %td= link_to "ред.", [:edit,:admin,c.section,c]
         %td= link_to "Удалить", [:admin,c], :method => :delete, :confirm => "Удалить?", class: :del
-  = sortable sort_admin_categories_path
+  = sortable sort_admin_dish_categories_path
 - else
   %p В данном разделе еще нет добавленных категорий блюд
       

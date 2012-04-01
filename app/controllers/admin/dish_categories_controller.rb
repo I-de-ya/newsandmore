@@ -49,7 +49,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   # POST /categories.json
   def create
     @category = DishCategory.new(params[:dish_category])
-    
+    @category.section_id = params[:section_id].to_i
     
       if @category.save
         redirect_to (params[:commit] == "Сохранить" ? [:admin,@category.section,:dish_categories] : [:edit,:admin,@category.section,@category]), notice: 'Категория успешно добавлена.'
