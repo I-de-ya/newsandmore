@@ -1,6 +1,6 @@
 - content_for :page_header do
   %h1 Блюда
-  %p= link_to "Добавить блюдо", [:new,:admin,:section,:category,:dish]
+  %p= link_to "Добавить блюдо", [:new,:admin,:section,:dish_category,:dish]
 
 = form_tag nil, :class => "change-location" do
   %span
@@ -8,9 +8,9 @@
     %br
     = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id])
   %span
-    = label_tag :category_id, "Категория"
+    = label_tag :dish_category_id, "Категория"
     %br
-    = select_tag :category_id, option_groups_from_collection_for_select(Section.order(:position), :categories, :title, :id, :title, params[:category_id]), :class => "change-location"
+    = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position), :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
 
 - unless @dishes.empty?
   %table.list.sortable.checkboxes
@@ -25,11 +25,11 @@
         %td.handle= image_tag asset_path("admin/move_handler.png")
         %td
           = check_box_tag :visible, d.id, d.visible
-        %td.show= link_to "", [:toggleshow,:admin,d], :class => d.show ? nil : "not-show"
+        -#%td.show= link_to "", [:toggleshow,:admin,d], :class => d.show ? nil : "not-show"
         %td
-          = link_to edit_admin_section_category_dish_path(d.category.section,d.category,d) do
-            = d.title
-            - if d.dish_images.count > 0
+          = link_to edit_admin_section_dish_category_dish_path(d.dish_category.section,d.dish_category,d) do
+            = d.name
+            -# if d.dish_images.count > 0
               (#{d.dish_images.count} фот.)
         %td
           = link_to "Удалить", [:admin,d], :method => :delete, :confirm => "Удалить?", class: :del
