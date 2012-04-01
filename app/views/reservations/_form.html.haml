@@ -28,8 +28,8 @@
         %td#light_text= f.label :persons, "Персон"
         %td= f.number_field :persons, :min => 1
       %tr
-        %td#light_text= f.label :smokers, "Курящие"
-        %td= f.number_field :smokers, :min => 0
+        %td#light_text= f.label :smoke, "Курящие"
+        %td= f.select :smoke, [["Курим",true], ["Не курим",false]]
       %tr
         %td#light_text= f.label :hall, "Зал"
         %td= f.number_field :hall, :min => 1       

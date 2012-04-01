@@ -34,5 +34,12 @@ class Admin::MoviesController < Admin::ApplicationController
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+
+    respond_to do |format|
+      format.html { redirect_to [:admin,:movies], notice: "Киношка удалена" }
+      format.json { head :no_content }
+    end
   end
 end

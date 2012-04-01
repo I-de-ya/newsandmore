@@ -34,5 +34,12 @@ class Admin::SportsController < Admin::ApplicationController
   end
 
   def destroy
+    @sport = Sport.find(params[:id])
+    @sport.destroy
+
+    respond_to do |format|
+      format.html { redirect_to [:admin,:sports], notice: 'Вид спорта удален.' }
+      format.json { head :no_content }
+    end
   end
 end

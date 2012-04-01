@@ -5,21 +5,15 @@
     - else
       Редактирование категории
       
-= form_for [:admin,@category] do |f|
+= form_for [:admin,@section,@category] do |f|
   %table
     %tr
       %th= f.label :name
       %td= f.text_field :name
     %tr
-      %th= f.label :section_id, "Раздел"
-      %td= f.select :section_id, options_for_select(Section.all.collect {|p| [p.title,p.id]}, @category.section_id)
-    %tr
-      %th= f.label :column
-      %td= f.select :column, options_for_select([["Первая",0],["Вторая",1],["Третья",2]], @category.column)
-    %tr
       %th{:colspan => 2}
         = f.check_box :show
-        = f.label :show  
+        = f.label :show
   .actions
     = f.submit "Сохранить"
     = f.submit "Применить"

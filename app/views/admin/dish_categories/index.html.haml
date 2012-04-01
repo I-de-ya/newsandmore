@@ -1,6 +1,6 @@
 - content_for :page_header do
   %h1 Категории
-  %p= link_to "Добавить категорию", [:new,:admin,:dish_category]
+  %p= link_to "Добавить категорию", [:new,:admin,:section,:dish_category]
 
 = form_tag nil, :class => "change-location" do
   = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id]), :class => :"change-location"

@@ -42,6 +42,9 @@ Newsandmore::Application.routes.draw do
     end
 
     resources :reservations
+    resources :texts do
+      get 'toggleshow', :on => :member
+    end
     resources :posts do
       get 'toggleshow', :on => :member
     end

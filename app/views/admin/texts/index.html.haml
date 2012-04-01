@@ -1,0 +1,22 @@
+= content_for :page_header do
+  %h1 События
+  %p= link_to "Добавить", new_admin_text_path
+
+- if @texts.empty?
+  %h2 Вы еще не добавили ни одного события. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_text_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  - @texts.each do |e|
+    %tr
+      %td.show= link_to "", [:toggleshow, :admin, e], :class => e.show ? nil : "not-show"
+      %td= link_to e.title, edit_admin_text_path(e)
+      %td= e.date.strftime("%d.%m.%Y/%H:%M")
+      %td= link_to "Удалить", [:admin, e], :class => :del, :method => :delete
+
+

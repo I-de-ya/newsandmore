@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120331160326) do
+ActiveRecord::Schema.define(:version => 20120331221127) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20120331160326) do
     t.integer  "section_id"
     t.boolean  "show",         :default => true
     t.integer  "position"
-    t.integer  "column"
   end
 
   create_table "dish_types", :force => true do |t|
@@ -139,9 +138,10 @@ ActiveRecord::Schema.define(:version => 20120331160326) do
     t.string   "name"
     t.string   "email"
     t.text     "body"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.boolean  "positiveness"
+    t.boolean  "show",         :default => true
   end
 
   create_table "reservations", :force => true do |t|
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20120331160326) do
     t.string   "phone"
     t.integer  "smokers"
     t.integer  "hall"
+    t.boolean  "smoke"
   end
 
   create_table "sections", :force => true do |t|

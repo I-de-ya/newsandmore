@@ -34,5 +34,12 @@ class Admin::EventsController < Admin::ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    respond_to do |format|
+      format.html { redirect_to [:admin,:events], notice: "Событие удалено" }
+      format.json { head :no_content }
+    end
   end
 end

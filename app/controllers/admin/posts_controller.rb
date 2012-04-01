@@ -34,5 +34,12 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    respond_to do |format|
+      format.html { redirect_to [:admin,:posts], notice: "Новость удалена" }
+      format.json { head :no_content }
+    end
   end
 end

@@ -34,5 +34,12 @@ class Admin::ReservationsController < Admin::ApplicationController
   end
 
   def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+
+    respond_to do |format|
+      format.html { redirect_to [:admin,:reservations], notice: 'Бронь удалена.' }
+      format.json { head :no_content }
+    end
   end
 end

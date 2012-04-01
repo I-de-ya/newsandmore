@@ -4,7 +4,5 @@ class AddShowPositionColumnToDishCategory < ActiveRecord::Migration
 
     add_column :dish_categories, :position, :integer
 
-    add_column :dish_categories, :column, :integer
-
   end
 end

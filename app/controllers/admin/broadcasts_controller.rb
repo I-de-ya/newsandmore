@@ -34,5 +34,12 @@ class Admin::BroadcastsController < Admin::ApplicationController
   end
 
   def destroy
+    @broadcast = Broadcast.find(params[:id])
+    @broadcast.destroy
+
+    respond_to do |format|
+      format.html { redirect_to [:admin,:broadcasts], notice: "Трансляция удалена" }
+      format.json { head :no_content }
+    end
   end
 end

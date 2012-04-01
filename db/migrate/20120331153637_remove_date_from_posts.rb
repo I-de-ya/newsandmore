@@ -4,6 +4,6 @@ class RemoveDateFromPosts < ActiveRecord::Migration
   end
 
   def down
-  	add_column :posts, :date
+  	add_column :posts, :date, :date
   end
 end

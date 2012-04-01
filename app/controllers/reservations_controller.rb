@@ -14,13 +14,15 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params[:reservation])
+    @section = Section.where('title = ?', 'On-line бронирование').first
+
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to new_reservation_path, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to section_path(@section), notice: 'Reservation was successfully created.' }
         format.json { render json: @reservation, status: :created, location: @reservation }
       else
-        format.html { redirect_to new_reservation_path }
+        format.html { redirect_to section_path(@section) }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end

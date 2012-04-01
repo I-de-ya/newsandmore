@@ -31,6 +31,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   # GET /categories/new.json
   def new
     @category = DishCategory.new
+    @section = Section.find(params[:section_id])
 
     respond_to do |format|
       format.html { render "edit"}
@@ -41,17 +42,17 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   # GET /categories/1/edit
   def edit
     @category = DishCategory.find(params[:id])
+    @section = Section.find(params[:section_id])
   end
 
   # POST /categories
   # POST /categories.json
   def create
-    @category = DishCategory.new(params[:category])
-
-
+    @category = DishCategory.new(params[:dish_category])
+    
+    
       if @category.save
         redirect_to (params[:commit] == "Сохранить" ? [:admin,@category.section,:dish_categories] : [:edit,:admin,@category.section,@category]), notice: 'Категория успешно добавлена.'
-
       else
         render action: "edit"
       end
@@ -64,7 +65,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
     @category = DishCategory.find(params[:id])
 
 
-      if @category.update_attributes(params[:category])
+      if @category.update_attributes(params[:dish_category])
         redirect_to (params[:commit] == "Сохранить" ? [:admin,@category.section,:dish_categories] : [:edit,:admin,@category.section,@category]), notice: 'Категория успешно обновлена.'
       else
         render action: "edit"
