@@ -25,3 +25,5 @@
       %li{:class => "#{'active' if "dish_categories" == a}"}= link_to "Категории", admin_section_dish_categories_path(params[:section_id])
       - if params[:dish_category_id]
         %li{:class => "#{'active' if "dishes" == a}"}= link_to "Блюда", admin_section_dish_category_dishes_path(params[:section_id],params[:dish_category_id])
+        - if params[:dish_id]
+          %li{:class => "#{'active' if "dish_types" == a}"}= link_to "Типы", admin_section_dish_category_dish_dish_types_path(params[:section_id],params[:dish_category_id],params[:dish_id])

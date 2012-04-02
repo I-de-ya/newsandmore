@@ -33,7 +33,7 @@ class Admin::DishesController < Admin::ApplicationController
 
   def toggleshow
     @dish = Dish.find(params[:id])
-    @dish.toggle(:show)
+    @dish.toggle(:visible)
     @dish.save
     redirect_to :back, notice: 'Блюдо обновлено.'
   end

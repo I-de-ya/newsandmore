@@ -70,8 +70,18 @@ Newsandmore::Application.routes.draw do
       get 'toggleshow', :on => :member
       post 'sort', :on => :collection
       resources :dish_categories do
-        resources :dishes
+        get 'toggleshow', :on => :member
+        resources :dishes do
+          get 'toggleshow', :on => :member
+          resources :dish_types do
+            get 'toggleshow', :on => :member
+          end
+        end
       end
+    end
+    resources :dish_types do
+      get 'toggleshow', :on => :member
+      post 'sort', :on => :collection
     end
     resources :dish_categories do
       get 'toggleshow', :on => :member

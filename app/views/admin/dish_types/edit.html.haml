@@ -1,9 +1,9 @@
 - content_for :page_header do
   %h1
-    - if @dish.new_record?
-      Добавить блюдо
+    - if @dish_type.new_record?
+      Добавить тип
     -# else
-      Редактировать блюдо
+      Редактировать тип
       =content_for(:page_sidebar) do
         %h5 Фотографии
         .product-photos
@@ -13,29 +13,29 @@
             #photo_upload
               = photo_uploadify(admin_dish_dish_images_path(@dish))
           =#photo_sortable      
-= form_for [:admin,:section,:dish_category,@dish] do |f|
-  -if @dish.errors.any?
+= form_for [:admin,:section,:dish_category,:dish,@dish_type] do |f|
+  -if @dish_type.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@dish.errors.count, "error")} prohibited this dish from being saved:"
+      %h2= "#{pluralize(@dish_type.errors.count, "error")} prohibited this dish_type from being saved:"
       %ul
-        - @dish.errors.full_messages.each do |msg|
+        - @dish_type.errors.full_messages.each do |msg|
           %li= msg  
   %table
     %tr
-      %th= f.label :name
-      %td= f.text_field :name
+      %th= f.label :title
+      %td= f.text_field :title
     %tr
-      %th= f.label :description
-      %td= f.text_area :description
+      %th= f.label :price
+      %td= f.text_field :price
     -#
       %tr
         %th= f.label :image
         %td= f.file_field :image
-    %tr
+    -#%tr
       %th= label_tag :section_id, "Раздел"
       %td
         = select_tag :section_id, options_for_select(Section.all.collect {|p| [p.title,p.id]}, params[:section_id])        
-    %tr
+    -#%tr
       %th= f.label :dish_category_id, "Категория"
       %td
         =# f.select :category_id, options_for_select(Category.all.collect {|p| [p.title,p.id]}, params[:category_id])

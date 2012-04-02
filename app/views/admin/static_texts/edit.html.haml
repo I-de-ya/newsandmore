@@ -1,0 +1,27 @@
+- content_for :page_header do
+  %h1
+    - if @text.new_record?
+      Добавить событие
+    - else
+      Редактирование события
+  %p= link_to "Назад", [:admin, :texts]
+      
+= form_for [:admin, @text] do |f|
+  %table
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title
+    %tr
+      %th= f.label :date
+      %td= f.datetime_select :date
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :show
+        = f.label :show
+    %tr
+      %td{:colspan => "2"}
+        = f.label :body
+        %br
+        = f.text_area :body
+      
+  .actions= f.submit "Сохранить"
