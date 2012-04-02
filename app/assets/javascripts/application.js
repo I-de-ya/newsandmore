@@ -12,6 +12,55 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+//РазвернутьСвернуть на страницу main
+$(document).ready(function(){
+    $(".expand_events").click(function(){
+        $(".events").slideToggle("slow");
+        $(this).toggleClass("active");
+        if ($(this).text()=="Развернуть")
+            {
+               $(this).text("Свернуть")
+            }
+            else
+            {
+               $(this).text("Развернуть")
+            };
+    });
+
+});
+
+$(document).ready(function(){
+    $(".expand_sports").click(function(){
+        $(".sports").slideToggle("slow");
+        $(this).toggleClass("active");
+        if ($(this).text()=="Развернуть")
+            {
+               $(this).text("Свернуть")
+            }
+            else
+            {
+               $(this).text("Развернуть")
+            }
+    });
+});
+
+$(document).ready(function(){
+    $(".expand_movies").click(function(){
+        $(".movies").slideToggle("slow");
+        $(this).toggleClass("active");
+        if ($(this).text()=="Развернуть")
+            {
+               $(this).text("Свернуть")
+            }
+            else
+            {
+               $(this).text("Развернуть")
+            }
+    });
+});
+
+// слайдер
 function theRotator() {
 	// Устанавливаем прозрачность всех картинок в 0
 	$('div.slider ul li').css({opacity: 0.0});

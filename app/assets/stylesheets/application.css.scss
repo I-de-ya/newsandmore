@@ -254,6 +254,9 @@ h4, h3, h2 {
 
 		.left_form_part{
 			width:285px;
+			p {
+				color:$lighttext;
+				}
 			table {
 				td {
 					width:85px;
@@ -261,6 +264,7 @@ h4, h3, h2 {
 				input {
 					width:150px;
 				}
+
 			}
 		}
 		.right_form_part{
@@ -268,6 +272,7 @@ h4, h3, h2 {
 			margin-right:10px;
 			textarea{
 				width:260px;
+				border:1px solid $lighttext;
 			}
 		}
 	}
@@ -277,28 +282,31 @@ h4, h3, h2 {
 	width:415px;
 	float:left;
 	margin-left:$margin;
-	.events{
-		@include main-style;
-		margin-bottom:$margin;
-		a {
-			font-size:$textsize;
+
+	.block {
+		.expand_events, .expand_sports, .expand_movies, {
+			float:right;
+			color:$menu_color;
+			font-weight:bold;
 			text-decoration:underline;
 		}
-	}
-	.sport {
 		@include main-style;
 		margin-bottom:$margin;
-		a {
-			font-size:$textsize;
-			text-decoration:underline;
+		.events, .sports{
+			 display: none;
+			a {
+				font-size:$textsize;
+				text-decoration:underline;
+			}
 		}
-	}
-	.movies {
-		@include main-style;
-		margin-bottom:$margin;
-		a {
-			color:$lighttext;
+
+		.movies{
+			display: none;
+			a {
+				color:$lighttext;
+			}
 		}
+
 		.right {
 			float:right;
 			img {
@@ -311,9 +319,6 @@ h4, h3, h2 {
 				text-align:right;
 			}
 		}
-		.left {
-		
-		}
 	}
 
 	.bottom{
@@ -324,6 +329,7 @@ h4, h3, h2 {
 		}
 		textarea{
 			width:280px;
+			border:1px solid $lighttext;
 		}
 		table {
 			td {

@@ -35,42 +35,52 @@
 			= paginate @posts
 	= render "shared/footer"
 .right_column
-	.events
+	.block
+		= link_to 'Развернуть', '#', :class => 'expand_events' 
 		%h3#dark_text МЕРОПРИЯТИЯ
+		
 		%hr
-		%ul
-			- @events.each do |event|
-				%li= link_to event.title, event_path(event)
+		.events
+			%ul
+				- @events.each do |event|
+					%li= link_to event.title, event_path(event)
 			
-	.sport
+	.block
+		= link_to 'Развернуть', '#', :class => 'expand_sports'
 		%h3#dark_text СПОРТИВНЫЕ ТРАНСЛЯЦИИ
+		
 		%hr
-		%ul
-			- @sports.each do |sport|
-				%li= link_to sport.title, sport_path(sport)
+		.sports
+			%ul
+				- @sports.each do |sport|
+					%li= link_to sport.title, sport_path(sport)
 
 
-	.movies
+	.block
+		= link_to 'Развернуть', '#', :class => 'expand_movies'
 		%h3#dark_text АФИША КИНО НА НЕДЕЛЮ
-		- @movies.each do |movie|
-			.movie_main
-				%hr
-				.right
-					= image_tag movie.image_url(:small_movie) if movie.image?
-					= movie.showtime.strftime("%d %B / %H:%M")
-					%br
-					.day_of_week
-						= movie.showtime.strftime("%A")
-						%p
-							= movie.description.nil? ? "" : (link_to "Подробнее", movie_path(movie))
-
-				.left
-					%h3#light_text= link_to movie.title, movie_path(movie)
-					%p
-						= movie.director
+		%hr
+		.movies
+			- @movies.each do |movie|
+				.movie_main
+					.right
+						- if movie.image?
+							= link_to (image_tag movie.image_url(:small_movie)), movie_path(movie)
+						= movie.showtime.strftime("%d %B / %H:%M")
 						%br
-							= movie.origin
-							= ","
-							= movie.genre
-							= ","
-							= movie.year
+						.day_of_week
+							= movie.showtime.strftime("%A")
+							%p
+								= movie.description.nil? ? "" : (link_to "Подробнее", movie_path(movie))
+
+					.left
+						%h3#light_text= link_to movie.title, movie_path(movie)
+						%p
+							= movie.director
+							%br
+								= movie.origin
+								= ","
+								= movie.genre
+								= ","
+								= movie.year
+				%hr

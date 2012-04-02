@@ -4,33 +4,37 @@
     %p= f.text_area :comment, :rows => 7
     .actions
       = f.submit "Забронировать столик"
+
   .left_form_part
     %table
       %tr
         %td#light_text Ресторан
         %td#dark_text News&More
       %tr
-        %td#light_text= f.label :firstname, "Имя"
+        %td#light_text= f.label :firstname, "Имя*"
         %td= f.text_field :firstname      
       %tr
-        %td#light_text= f.label :lastname, "Фамилия"
-        %td= f.text_field :lastname   
+        %td#light_text= f.label :lastname, "Фамилия*"
+        %td= f.text_field :lastname
+      %tr
+        %td#light_text= f.label :phone, "Телефон*"
+        %td= f.text_field :phone      
       %tr
         %td#light_text= f.label :email, "Почта"
-        %td= f.email_field :email   
+        %td= f.email_field :email 
       %tr
-        %td#light_text= f.label :datetime, "Время"
+        %td#light_text= f.label :datetime, "Дата*"
+        %td= f.date_select :datetime  
+      %tr
+        %td#light_text= f.label :datetime, "Время*"
         %td= f.time_select :datetime
       %tr
-        %td#light_text= f.label :datetime, "Дата"
-        %td= f.date_select :datetime
-      %tr
-        %td#light_text= f.label :persons, "Персон"
+        %td#light_text= f.label :persons, "Персон*"
         %td= f.number_field :persons, :min => 1
       %tr
         %td#light_text= f.label :smoke, "Курящие"
         %td= f.select :smoke, [["Курим",true], ["Не курим",false]]
       %tr
         %td#light_text= f.label :hall, "Зал"
-        %td= f.number_field :hall, :min => 1       
-
+        %td= f.number_field :hall, :min => 1
+    %p * Поля обязательныe для заполнения
