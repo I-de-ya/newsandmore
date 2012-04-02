@@ -57,8 +57,10 @@
 
   = render "shared/footer"
 .right_column
-  = image_tag("rails.png")
-  Подпись
+  .image
+    - @section.images.each do |image|
+      = image_tag image.image_url if image.image?
+      = image.title if image.image?
   
   .bottom
     - if @section.title == "Отзывы"

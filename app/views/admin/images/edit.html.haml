@@ -1,0 +1,25 @@
+- content_for :page_header do
+  %h1
+    - if @image.new_record?
+      Добавить картинку
+    - else
+      Редактирование картинки
+  %p= link_to "Назад", [:admin, :images]
+      
+= form_for [:admin, @image] do |f|
+  %table
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title 
+    %tr
+      %td= f.label :image
+      %td= f.file_field :image   
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :show
+        = f.label :show
+    %tr
+      %th{:colspan => 2}
+        = f.select(:section_id, Section.all.collect {|p| [ p.title, p.id ] }, {:include_blank => false})
+      
+  .actions= f.submit "Сохранить"

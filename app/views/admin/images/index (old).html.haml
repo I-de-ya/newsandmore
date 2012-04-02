@@ -1,0 +1,27 @@
+- content_for :page_header do
+  %h1
+    Редактировать изображения
+ 
+= form_tag update_ind_admin_slaider_images_path(@slaider), :method => :put, :multipart => true do |f|
+  %table
+    %thead
+      %tr
+        %th Картинка
+        %td 
+          %strong Ховер
+        %td
+    - for img in @images
+      = fields_for "images[]", img do |f|
+        %tr
+          %th.vab
+            = image_tag img.src.url(:thumb)
+            %br
+            = f.file_field :src
+          %td.vab
+            = image_tag(img.hover_src.url(:thumb))
+            %br
+            = f.file_field :hover_src
+          %td.vab
+            = f.label :desc
+            = f.text_area :desc, :size => "25x4", :class => :nowred
+  .actions= submit_tag "Сохранить"

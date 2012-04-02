@@ -40,10 +40,13 @@
       %td= f.time_select :duration    
     %tr
       %td= f.label :image
-      %td= f.file_field :image  
+      %td= f.file_field :image 
+    %tr
+      %th= f.label :image_title
+      %td= f.text_field :image_title 
     %tr
       %td= f.label :showtime
-      %td= f.datetime_select :showtime        
+      %td= f.datetime_select :showtime    
     %tr
       %th{:colspan => 2}
         = f.check_box :show

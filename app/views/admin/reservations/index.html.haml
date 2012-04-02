@@ -12,9 +12,18 @@
     %col.w1
     %col
     %col.w1
+  %tr
+    %th Время
+    %th Имя
+    %th Фамилия
+    %th Персон
+    %th Телефон
+    %th Email
   - @reservations.each do |reservation|
     %tr
-      %td= reservation.datetime.strftime("%d.%m.%Y/%H:%M")
+      %td= reservation.datetime.strftime("%H:%M  %d.%m.%Y")
+      %td= reservation.firstname
+      %td= reservation.lastname
       %td= reservation.persons
       %td= reservation.phone
       %td= reservation.email

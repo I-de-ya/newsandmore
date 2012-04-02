@@ -1,9 +1,9 @@
 = content_for :page_header do
-  %h1 События
+  %h1 Мероприятия
   %p= link_to "Добавить", new_admin_event_path
 
 - if @events.empty?
-  %h2 Вы еще не добавили ни одного события. 
+  %h2 Вы еще не добавили ни одного мероприятия. 
   %p
     Хотите
     = link_to "добавить?", new_admin_event_path
@@ -12,6 +12,10 @@
     %col.w1
     %col
     %col.w1
+  %tr
+    %th 
+    %th Название
+    %th Дата мероприятия
   - @events.each do |e|
     %tr
       %td.show= link_to "", [:toggleshow, :admin, e], :class => e.show ? nil : "not-show"

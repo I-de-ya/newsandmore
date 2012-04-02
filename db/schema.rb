@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120401161114) do
+ActiveRecord::Schema.define(:version => 20120402175420) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -76,16 +76,20 @@ ActiveRecord::Schema.define(:version => 20120401161114) do
     t.string   "title"
     t.text     "body"
     t.date     "date"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.boolean  "show",       :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "show",        :default => true
+    t.string   "image"
+    t.string   "image_title"
   end
 
   create_table "images", :force => true do |t|
     t.string   "title"
     t.string   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "section_id"
+    t.boolean  "show",       :default => true
   end
 
   create_table "menu_sections", :force => true do |t|
@@ -126,15 +130,17 @@ ActiveRecord::Schema.define(:version => 20120401161114) do
     t.datetime "showtime"
     t.string   "image"
     t.boolean  "show",           :default => true
+    t.string   "image_title"
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "image"
-    t.boolean  "show",       :default => true
+    t.boolean  "show",        :default => true
+    t.string   "image_title"
   end
 
   create_table "recalls", :force => true do |t|
@@ -182,9 +188,11 @@ ActiveRecord::Schema.define(:version => 20120401161114) do
 
   create_table "sports", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.boolean  "show",       :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "show",        :default => true
+    t.string   "image"
+    t.string   "image_title"
   end
 
   create_table "texts", :force => true do |t|

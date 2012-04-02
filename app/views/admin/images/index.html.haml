@@ -1,27 +1,26 @@
-- content_for :page_header do
-  %h1
-    Редактировать изображения
- 
-= form_tag update_ind_admin_slaider_images_path(@slaider), :method => :put, :multipart => true do |f|
-  %table
-    %thead
-      %tr
-        %th Картинка
-        %td 
-          %strong Ховер
-        %td
-    - for img in @images
-      = fields_for "images[]", img do |f|
-        %tr
-          %th.vab
-            = image_tag img.src.url(:thumb)
-            %br
-            = f.file_field :src
-          %td.vab
-            = image_tag(img.hover_src.url(:thumb))
-            %br
-            = f.file_field :hover_src
-          %td.vab
-            = f.label :desc
-            = f.text_area :desc, :size => "25x4", :class => :nowred
-  .actions= submit_tag "Сохранить"
+= content_for :page_header do
+  %h1 Картинки
+  %p= link_to "Добавить", new_admin_image_path
+
+- if @images.empty?
+  %h2 Вы еще не добавили ни одной картинки. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_image_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  %tr
+    %th 
+    %th Подпись
+    %th Раздел
+  - @images.each do |image|
+    %tr
+      %td.show= link_to "", [:toggleshow, :admin, image], :class => image.show ? nil : "not-show"
+      %td= link_to image.title, edit_admin_image_path(image)
+      %td= image.section.title
+      %td= link_to "Удалить", [:admin, image], :class => :del, :method => :delete
+
+
