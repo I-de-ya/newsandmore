@@ -12,6 +12,10 @@
     %col.w1
     %col
     %col.w1
+  %tr
+    %th 
+    %th Название
+    %th Время показа
   - @movies.each do |movie|
     %tr
       %td.show= link_to "", [:toggleshow, :admin, movie], :class => movie.show ? nil : "not-show"

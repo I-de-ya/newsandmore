@@ -12,6 +12,10 @@
     %col.w1
     %col
     %col.w1
+  %tr
+    %th 
+    %th Заголовок
+    %th Опубликовано
   - @posts.each do |post|
     %tr
       %td.show= link_to "", [:toggleshow, :admin, post], :class => post.show ? nil : "not-show"

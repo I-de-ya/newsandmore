@@ -320,7 +320,9 @@ h4, h3, h2 {
 			}
 		}
 	}
-
+	.image {
+		color:$lighttext;
+	}
 	.bottom{
 		@include main-style;
 		margin-top:$margin;	

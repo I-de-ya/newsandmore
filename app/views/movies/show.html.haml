@@ -1,5 +1,5 @@
 .left_column
-	.movie
+	.content
 		%h3#dark_text АФИША КИНО НА НЕДЕЛЮ
 		%hr
 		= render "layouts/menu"
@@ -31,5 +31,7 @@
 		= @movie.duration.strftime("%H:%M")
 	= render "shared/footer"
 .right_column
-	= image_tag @movie.image_url if @movie.image?
+	.image
+		= image_tag @movie.image_url if @movie.image?
+		= @movie.image_title if (@movie.image_title? && @movie.image?)
 	= render "events/archive"

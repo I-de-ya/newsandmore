@@ -1,5 +1,5 @@
 .left_column
-	.event
+	.content
 		%h3#dark_text МЕРОПРИЯТИЯ ФОТОГАЛЕРЕЯ
 		%hr
 		= render "layouts/menu"
@@ -9,6 +9,7 @@
 			= @event.body
 	= render "shared/footer"
 .right_column
-	= image_tag("rails.png")
-	Подпись
+	.image
+		= image_tag @event.image_url if @event.image?
+		= @event.image_title if (@event.image_title? && @event.image?)
 	= render "archive"

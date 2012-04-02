@@ -13,7 +13,10 @@
       %td= f.text_field :title
     %tr
       %td= f.label :image
-      %td= f.file_field :image   
+      %td= f.file_field :image 
+    %tr
+      %th= f.label :image_title
+      %td= f.text_field :image_title   
     %tr
       %th{:colspan => 2}
         = f.check_box :show

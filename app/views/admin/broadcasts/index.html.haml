@@ -12,6 +12,11 @@
     %col.w1
     %col
     %col.w1
+  %tr
+    %th 
+    %th 
+    %th Время трансляции
+    %th Вид спорта
   - @broadcasts.each do |broadcast|
     %tr
       %td.show= link_to "", [:toggleshow, :admin, broadcast], :class => broadcast.show ? nil : "not-show"
