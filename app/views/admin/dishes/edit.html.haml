@@ -53,14 +53,14 @@
         = f.label :desc
         %br
         = f.text_area :desc, :size => "40x3", class: :nowred
-  -#%table
-    = f.fields_for :views do |builder|
-      = render "view_fields", :f => builder
-    %tbody
-      %tr
-        %th
-        %td= link_to_add_fields "Добавить вид", f, :views
-        %td
+  %table
+    = f.fields_for :dish_types do |builder|
+      %tbody
+        = render "dish_type_fields", :f => builder
+    %tr
+      %th
+      %td= link_to_add_fields "Добавить вид", f, :dish_types
+      %td
   .actions
     = f.submit "Сохранить"
     = f.submit "Применить"

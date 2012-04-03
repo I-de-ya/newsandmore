@@ -1,5 +1,6 @@
 #coding: utf-8
 class Admin::DishesController < Admin::ApplicationController
+  before_filter :get_category
   # GET /dishes
   # GET /dishes.json
   def index
@@ -93,5 +94,12 @@ class Admin::DishesController < Admin::ApplicationController
       format.html { redirect_to :back, notice: "Блюдо удалено." }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def get_category
+    @category = DishCategory.find(params[:dish_category_id])
+    @section = Section.find(params[:section_id])
   end
 end

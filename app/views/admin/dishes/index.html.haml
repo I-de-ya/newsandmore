@@ -10,7 +10,7 @@
   %span
     = label_tag :dish_category_id, "Категория"
     %br
-    = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position), :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
+    = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position).all, :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
     = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position), :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
 - unless @dishes.empty?
   %table.list.sortable.checkboxes
@@ -20,19 +20,7 @@
       %col
       %col
       %col.w1
-    - @dishes.each do |d|
-      %tr{id: "pos_#{d.id}"}
-        %td.handle= image_tag asset_path("admin/move_handler.png")
-        %td.show= link_to "", [:toggleshow,:admin,d], :class => d.visible ? nil : "not-show"
-        %td
-          = link_to [:admin,d.dish_category.section,d.dish_category,d,:dish_types] do
-            = d.name
-            - unless d.dish_types.empty?
-              (#{d.dish_types.count} порц.)
-        %td= link_to "ред.", [:edit,:admin,d.dish_category.section,d.dish_category,d]
-        %td
-          = link_to "Удалить", [:admin,d], :method => :delete, :confirm => "Удалить?", class: :del
-        
+      = render @dishes
   = sortable sort_admin_dishes_path
 - else
   В данной категории еще нет добавленных блюд

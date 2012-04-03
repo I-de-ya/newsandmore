@@ -1,0 +1,12 @@
+%tr{id: "pos_#{dish.id}"}
+  %td.handle= image_tag asset_path("admin/move_handler.png")
+  %td.show= link_to "", [:toggleshow, :admin, dish], :class => dish.visible ? nil : "not-show"
+  %td
+    = link_to [:edit, :admin, @section, @category, dish] do
+      = dish.name
+      - unless dish.dish_types.empty?
+        (#{dish.dish_types.count} порц.)
+  %td 300 руб
+  %td
+  %td
+    = link_to "Удалить", [:admin, dish], :method => :delete, :confirm => "Удалить?", class: :del
