@@ -1,10 +1,10 @@
 - content_for :page_header do
   %h1
     - if @dish_type.new_record?
-      Добавить тип
-    -# else
-      Редактировать тип
-      =content_for(:page_sidebar) do
+      Добавить порцию
+    - else
+      Редактировать порцию
+      -#=content_for(:page_sidebar) do
         %h5 Фотографии
         .product-photos
           %ul.photos#photo-list

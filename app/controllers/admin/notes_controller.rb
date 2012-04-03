@@ -1,52 +1,52 @@
 #coding: utf-8
-class Admin::EventsController < Admin::ApplicationController
+class Admin::NotesController < Admin::ApplicationController
   def toggleshow
-    @event = Event.find(params[:id])
-    @event.toggle(:show)
-    @event.save
-    redirect_to :back, notice: 'Событие обновлено.'
+    @note = Note.find(params[:id])
+    @note.toggle(:show)
+    @note.save
+    redirect_to :back, notice: 'Текст обновлено.'
   end
 
   def index
-    @page_title = "Cобытия"
-    @events = Event.all
+    @page_title = "Тексты"
+    @notes = Note.all
   end
 
   def new
-    @event = Event.new
+    @note = Note.new
     render "edit"
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @note = Note.find(params[:id])
   end
 
   def create
-    @event = Event.new(params[:event])
+    @note = Note.new(params[:note])
 
     respond_to do |format|
-      if @event.save
-        format.html { redirect_to [:edit,:admin,@event], notice: 'Мероприятие успешно добавлено.' }
-        format.json { render json: @event, status: :created, location: @event }
+      if @note.save
+        format.html { redirect_to [:edit,:admin,@note], notice: 'Текст успешно добавлен.' }
+        format.json { render json: @note, status: :created, location: @note }
       else
         format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /events/1
-  # PUT /events/1.json
+  # PUT /notes/1
+  # PUT /notes/1.json
   def update
-    @event = Event.find(params[:id])
+    @note = Note.find(params[:id])
 
     respond_to do |format|
-      if @event.update_attributes(params[:event])
-        format.html { redirect_to [:edit,:admin,@event], notice: 'Мероприятие успешно обновлено.' }
+      if @note.update_attributes(params[:note])
+        format.html { redirect_to [:edit,:admin,@note], notice: 'Текст успешно обновлен.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,11 +56,11 @@ class Admin::EventsController < Admin::ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
+    @note = Note.find(params[:id])
+    @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to [:admin,:events], notice: "Событие удалено" }
+      format.html { redirect_to [:admin,:notes], notice: "Текст удален" }
       format.json { head :no_content }
     end
   end

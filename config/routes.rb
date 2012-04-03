@@ -1,6 +1,5 @@
 Newsandmore::Application.routes.draw do
 
-
   resources :notes
 
   resources :sections
@@ -9,13 +8,9 @@ Newsandmore::Application.routes.draw do
 
   resources :images
 
-  resources :menu_sections
-
-  resources :texts
-
   resources :sliders
 
-  devise_for :admins
+  devise_for :users
 
   resources :sports
 
@@ -26,10 +21,6 @@ Newsandmore::Application.routes.draw do
   resources :movies
 
   resources :messages
-
-
-  resources :menu_types
-
 
 
   namespace :admin do

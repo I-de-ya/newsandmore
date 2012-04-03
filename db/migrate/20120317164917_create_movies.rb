@@ -12,6 +12,10 @@ class CreateMovies < ActiveRecord::Migration
       t.string :country
       t.date :premiere
       t.time :duration
+      t.datetime :showtime
+      t.string :image
+      t.boolean :visible, :default => :true
+      t.string :image_title
 
       t.timestamps
     end

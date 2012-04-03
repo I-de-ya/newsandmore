@@ -3,6 +3,8 @@ class CreateSections < ActiveRecord::Migration
     create_table :sections do |t|
       t.string :title
       t.text :body
+      t.integer :position
+      t.boolean :visible, :default => :true
 
       t.timestamps
     end

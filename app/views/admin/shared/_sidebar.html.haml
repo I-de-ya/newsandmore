@@ -19,6 +19,7 @@
     %li{:class => "#{'active' if "recalls" == a}"}= link_to "Отзывы", [:admin,:recalls]
     %li{:class => "#{'active' if "texts" == a}"}= link_to "Тексты", [:admin,:texts]
     %li{:class => "#{'active' if "images" == a}"}= link_to "Картинки", [:admin,:images]
+    %li{:class => "#{'active' if "notes" == a}"}= link_to "Тексты (заметки)", [:admin,:notes]
 
   -when :menu
     %li{:class => "#{'active' if "sections" == a}"}= link_to "Разделы", [:admin,:sections]
@@ -27,4 +28,4 @@
       - if params[:dish_category_id]
         %li{:class => "#{'active' if "dishes" == a}"}= link_to "Блюда", admin_section_dish_category_dishes_path(params[:section_id],params[:dish_category_id])
         - if params[:dish_id]
-          %li{:class => "#{'active' if "dish_types" == a}"}= link_to "Типы", admin_section_dish_category_dish_dish_types_path(params[:section_id],params[:dish_category_id],params[:dish_id])
+          %li{:class => "#{'active' if "dish_types" == a}"}= link_to "Порции", admin_section_dish_category_dish_dish_types_path(params[:section_id],params[:dish_category_id],params[:dish_id])

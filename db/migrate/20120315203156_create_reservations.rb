@@ -6,6 +6,11 @@ class CreateReservations < ActiveRecord::Migration
       t.string :email
       t.integer :persons
       t.text :comment
+      t.string :phone
+      t.boolean :smoke
+      t.integer :hall
+      t.datetime :date_and_time
+
 
       t.timestamps
     end

@@ -4,6 +4,8 @@ class CreateDishTypes < ActiveRecord::Migration
       t.string :title
       t.integer :price
       t.integer :dish_id
+      t.integer :position
+      t.boolean :visible, :default => :true
 
       t.timestamps
     end

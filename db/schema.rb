@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402175420) do
+ActiveRecord::Schema.define(:version => 20120403092440) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -35,74 +35,58 @@ ActiveRecord::Schema.define(:version => 20120402175420) do
     t.string   "title"
     t.datetime "showtime"
     t.integer  "sport_id"
+    t.boolean  "visible",    :default => true
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-    t.boolean  "show",       :default => true
   end
 
   create_table "dish_categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "menu_type_id"
     t.integer  "section_id"
-    t.boolean  "show",         :default => true
     t.integer  "position"
+    t.boolean  "visible",    :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "dish_types", :force => true do |t|
     t.string   "title"
     t.integer  "price"
     t.integer  "dish_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "position"
-    t.boolean  "visible"
+    t.boolean  "visible",    :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "dishes", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "price"
     t.integer  "dish_category_id"
-    t.integer  "portion"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.boolean  "visible"
+    t.boolean  "visible",          :default => true
     t.integer  "position"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.date     "date"
+    t.string   "image_title"
+    t.string   "image"
+    t.boolean  "show",        :default => true
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
-    t.boolean  "show",        :default => true
-    t.string   "image"
-    t.string   "image_title"
   end
 
   create_table "images", :force => true do |t|
     t.string   "title"
     t.string   "image"
+    t.integer  "section_id"
+    t.boolean  "visible",    :default => true
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-    t.integer  "section_id"
-    t.boolean  "show",       :default => true
-  end
-
-  create_table "menu_sections", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "menu_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "messages", :force => true do |t|
@@ -125,32 +109,39 @@ ActiveRecord::Schema.define(:version => 20120402175420) do
     t.string   "country"
     t.date     "premiere"
     t.time     "duration"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
     t.datetime "showtime"
     t.string   "image"
-    t.boolean  "show",           :default => true
+    t.boolean  "visible",        :default => true
     t.string   "image_title"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "notes", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
+    t.string   "image"
+    t.boolean  "visible",     :default => true
+    t.string   "image_title"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
-    t.string   "image"
-    t.boolean  "show",        :default => true
-    t.string   "image_title"
   end
 
   create_table "recalls", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.text     "body"
+    t.boolean  "positiveness"
+    t.boolean  "visible",      :default => true
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "positiveness"
-    t.boolean  "show",         :default => true
   end
 
   create_table "reservations", :force => true do |t|
@@ -159,47 +150,39 @@ ActiveRecord::Schema.define(:version => 20120402175420) do
     t.string   "email"
     t.integer  "persons"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.datetime "datetime"
     t.string   "phone"
-    t.integer  "smokers"
-    t.integer  "hall"
     t.boolean  "smoke"
+    t.integer  "hall"
+    t.datetime "date_and_time"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "sections", :force => true do |t|
     t.string   "title"
     t.text     "body"
+    t.integer  "position"
+    t.boolean  "visible",    :default => true
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-    t.integer  "position"
-    t.boolean  "show",       :default => true
   end
 
   create_table "sliders", :force => true do |t|
-    t.text     "title",        :limit => 255
+    t.text     "title"
     t.integer  "position"
     t.boolean  "visible"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
     t.string   "slider_image"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "sports", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "show",        :default => true
+    t.boolean  "visible",     :default => true
     t.string   "image"
     t.string   "image_title"
-  end
-
-  create_table "texts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end

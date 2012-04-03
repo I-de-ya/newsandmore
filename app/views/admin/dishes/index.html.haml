@@ -28,7 +28,7 @@
           = link_to [:admin,d.dish_category.section,d.dish_category,d,:dish_types] do
             = d.name
             - unless d.dish_types.empty?
-              (#{d.dish_types.count} типов)
+              (#{d.dish_types.count} порц.)
         %td= link_to "ред.", [:edit,:admin,d.dish_category.section,d.dish_category,d]
         %td
           = link_to "Удалить", [:admin,d], :method => :delete, :confirm => "Удалить?", class: :del

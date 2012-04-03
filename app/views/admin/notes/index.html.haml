@@ -1,0 +1,25 @@
+= content_for :page_header do
+  %h1 Мероприятия
+  %p= link_to "Добавить", new_admin_note_path
+
+- if @notes.empty?
+  %h2 Вы еще не добавили ни одного текста. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_note_path
+%table.list
+  %colgroup
+    %col.w1
+    %col
+    %col.w1
+  %tr
+    %th 
+    %th Название
+    %th Текст
+  - @notes.each do |e|
+    %tr
+      %td= link_to e.title, edit_admin_note_path(e)
+      %td= truncate(e.body)
+      %td= link_to "Удалить", [:admin, e], :class => :del, :method => :delete
+
+

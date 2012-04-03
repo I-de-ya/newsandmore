@@ -4,6 +4,7 @@ class CreateBroadcasts < ActiveRecord::Migration
       t.string :title
       t.datetime :showtime
       t.integer :sport_id
+      t.boolean :visible, :default => :true
 
       t.timestamps
     end

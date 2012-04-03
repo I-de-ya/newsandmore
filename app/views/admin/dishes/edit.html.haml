@@ -2,9 +2,9 @@
   %h1
     - if @dish.new_record?
       Добавить блюдо
-    -# else
+    - else
       Редактировать блюдо
-      =content_for(:page_sidebar) do
+      -#=content_for(:page_sidebar) do
         %h5 Фотографии
         .product-photos
           %ul.photos#photo-list

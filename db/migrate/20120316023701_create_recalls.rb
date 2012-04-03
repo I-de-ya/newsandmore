@@ -3,8 +3,9 @@ class CreateRecalls < ActiveRecord::Migration
     create_table :recalls do |t|
       t.string :name
       t.string :email
-      t.string :type
       t.text :body
+      t.boolean :positiveness
+      t.boolean :visible, :default => :true
 
       t.timestamps
     end

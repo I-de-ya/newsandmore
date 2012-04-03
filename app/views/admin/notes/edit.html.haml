@@ -1,0 +1,17 @@
+- content_for :page_header do
+  %h1
+    - if @note.new_record?
+      Добавить текст
+    - else
+      Редактирование текста
+  %p= link_to "Назад", [:admin, :notes]
+      
+= form_for [:admin, @note] do |f|
+  %table
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title
+    %tr
+      %th= f.label :body
+      %td= f.text_area :body      
+  .actions= f.submit "Сохранить"
