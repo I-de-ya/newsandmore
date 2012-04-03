@@ -7,9 +7,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-menu_types = ["Основные блюда","Завтраки", "Детское меню", "Барная карта", "Обеды", "Ужины"]
-menu_types.map {|menu_type| MenuType.create(name:menu_type)}
-Admin.create!(:email => 'admin@example.com', :password => 'adminuser', :password_confirmation => 'adminuser')
+sections = ["Концепция и интерьер","Основные блюда","Завтраки", "Детское меню", "Барная карта", "Банкетное предложение", "On-line бронирование", "Отзывы", "Контакты и обратная связь"]
+sections.map {|section| Section.create(title:section)}
 Text.create!([{title: "Концепция и интерьер", :body => "Концепция ниче так"},
 	{title: "Информация для проведения банкетов", :body => "Можно и банкетик заказать"},
 	{title: "Банкетное предложение", :body => "Чуть подробней о банкетиках"}])

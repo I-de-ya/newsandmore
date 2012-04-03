@@ -1,6 +1,8 @@
 Newsandmore::Application.routes.draw do
 
 
+  resources :notes
+
   resources :sections
 
   resources :dish_types
@@ -84,6 +86,7 @@ Newsandmore::Application.routes.draw do
         end
       end
     end
+    resources :notes
     resources :dish_types do
       get 'toggleshow', :on => :member
       post 'sort', :on => :collection

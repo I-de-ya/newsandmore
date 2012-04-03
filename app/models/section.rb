@@ -3,7 +3,7 @@ class Section < ActiveRecord::Base
 	has_many :dish_categories
 	has_many :dishes, :through => :dish_categories
 	
-	belongs_to :text
+	belongs_to :note
 
 	validates :title, :presence => true
 
