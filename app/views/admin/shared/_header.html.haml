@@ -1,8 +1,8 @@
 #header
   #header_wrapper
     #links
-      = link_to current_admin.email, "#"
-      = link_to "Выход", destroy_admin_session_path, :method => :delete
+      = link_to current_user.email, "#"
+      = link_to "Выход", destroy_user_session_path, :method => :delete
     #center
       = link_to "NEWS & MORE", root_path, :target => :_blank
     #app_logo
