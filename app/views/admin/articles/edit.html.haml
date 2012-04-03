@@ -15,12 +15,14 @@
       %td= f.datetime_select :created_at
     %tr
       %th{:colspan => 2}
-        = f.check_box :show
-        = f.label :show
+        = f.check_box :visible
+        = f.label :visible
     %tr
       %td{:colspan => "2"}
         = f.label :body
         %br
         = f.text_area :body
       
-  .actions= submit_tag "Сохранить"
+  .actions
+    = submit_tag "Сохранить"
+    = submit_tag "Применить"

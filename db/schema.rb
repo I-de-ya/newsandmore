@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(:version => 20120403092440) do
     t.date     "date"
     t.string   "image_title"
     t.string   "image"
-    t.boolean  "show",        :default => true
+    t.boolean  "visible",     :default => true
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

@@ -23,11 +23,11 @@
         %td#light_text= f.label :email, "Почта"
         %td= f.email_field :email 
       %tr
-        %td#light_text= f.label :datetime, "Дата*"
-        %td= f.date_select :datetime  
+        %td#light_text= f.label :date_and_time, "Дата*"
+        %td= f.date_select :date_and_time  
       %tr
-        %td#light_text= f.label :datetime, "Время*"
-        %td= f.time_select :datetime
+        %td#light_text= f.label :date_and_time, "Время*"
+        %td= f.time_select :date_and_time
       %tr
         %td#light_text= f.label :persons, "Персон*"
         %td= f.number_field :persons, :min => 1

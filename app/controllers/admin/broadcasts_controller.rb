@@ -2,7 +2,7 @@
 class Admin::BroadcastsController < Admin::ApplicationController
   def toggleshow
     @broadcast = Broadcast.find(params[:id])
-    @broadcast.toggle(:show)
+    @broadcast.toggle(:visible)
     @broadcast.save
     redirect_to :back, notice: 'Трансляция обновлена.'
   end
@@ -22,7 +22,7 @@ class Admin::BroadcastsController < Admin::ApplicationController
 
     respond_to do |format|
       if @broadcast.save
-        format.html { redirect_to [:edit,:admin,@broadcast], notice: 'Трансляция успешно добавлена.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:broadcasts] : [:edit,:admin,@broadcast]), notice: 'Трансляция успешно добавлена.' }
         format.json { render json: @broadcast, status: :created, location: @broadcast }
       else
         format.html { render action: "edit" }
@@ -40,7 +40,7 @@ class Admin::BroadcastsController < Admin::ApplicationController
 
     respond_to do |format|
       if @broadcast.update_attributes(params[:broadcast])
-        format.html { redirect_to [:edit,:admin,@broadcast], notice: 'Трансляция успешно обновлена.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:broadcasts] : [:edit,:admin,@broadcast]), notice: 'Трансляция успешно обновлена.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

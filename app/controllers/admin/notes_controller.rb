@@ -2,9 +2,9 @@
 class Admin::NotesController < Admin::ApplicationController
   def toggleshow
     @note = Note.find(params[:id])
-    @note.toggle(:show)
+    @note.toggle(:visible)
     @note.save
-    redirect_to :back, notice: 'Текст обновлено.'
+    redirect_to :back, notice: 'Текст обновлен.'
   end
 
   def index
@@ -26,7 +26,7 @@ class Admin::NotesController < Admin::ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to [:edit,:admin,@note], notice: 'Текст успешно добавлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:notes] : [:edit,:admin,@note]), notice: 'Текст успешно добавлен.' }
         format.json { render json: @note, status: :created, location: @note }
       else
         format.html { render action: "edit" }
@@ -42,7 +42,7 @@ class Admin::NotesController < Admin::ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to [:edit,:admin,@note], notice: 'Текст успешно обновлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:notes] : [:edit,:admin,@note]), notice: 'Текст успешно обновлен.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

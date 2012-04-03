@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration
       t.date :date
       t.string :image_title
       t.string :image
-      t.boolean :show, :default => true
+      t.boolean :visible, :default => true
 
       t.timestamps
     end

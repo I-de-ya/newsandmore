@@ -22,7 +22,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
 
   def toggleshow
     @category = DishCategory.find(params[:id])
-    @category.toggle(:show)
+    @category.toggle(:visible)
     @category.save
     redirect_to :back, notice: 'Категория обновлена.'
   end

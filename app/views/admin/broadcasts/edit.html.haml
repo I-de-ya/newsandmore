@@ -16,10 +16,12 @@
       %td= f.datetime_select :showtime  
     %tr
       %th{:colspan => 2}
-        = f.check_box :show
-        = f.label :show
+        = f.check_box :visible
+        = f.label :visible
     %tr
       %th{:colspan => 2}
         = f.select(:sport_id, Sport.all.collect {|p| [ p.title, p.id ] }, {:include_blank => false})
       
-  .actions= f.submit "Сохранить"
+  .actions
+    = f.submit "Сохранить"
+    = f.submit "Применить"

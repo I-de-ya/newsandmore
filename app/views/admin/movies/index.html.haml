@@ -18,7 +18,7 @@
     %th Время показа
   - @movies.each do |movie|
     %tr
-      %td.show= link_to "", [:toggleshow, :admin, movie], :class => movie.show ? nil : "not-show"
+      %td.show= link_to "", [:toggleshow, :admin, movie], :class => movie.visible ? nil : "not-show"
       %td= link_to movie.title, edit_admin_movie_path(movie)
       %td= movie.showtime.strftime("%d.%m.%Y/%H:%M")
       %td= link_to "Удалить", [:admin, movie], :class => :del, :method => :delete

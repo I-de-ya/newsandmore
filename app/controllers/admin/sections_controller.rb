@@ -48,7 +48,7 @@ class Admin::SectionsController < Admin::ApplicationController
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to [:edit,:admin,@section], notice: 'Раздел успешно добавлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:sections] : [:edit,:admin,@section]), notice: 'Раздел успешно добавлен.' }
         format.json { render json: @section, status: :created, location: @section }
       else
         format.html { render action: "edit" }
@@ -64,7 +64,7 @@ class Admin::SectionsController < Admin::ApplicationController
 
     respond_to do |format|
       if @section.update_attributes(params[:section])
-        format.html { redirect_to [:edit,:admin,@section], notice: 'Раздел успешно обновлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:sections] : [:edit,:admin,@section]), notice: 'Раздел успешно обновлен.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

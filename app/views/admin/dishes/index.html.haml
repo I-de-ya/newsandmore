@@ -6,12 +6,12 @@
   %span
     = label_tag :section_id, "Раздел"
     %br
-    = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id])
+    = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id]), :class => "change-location"
   %span
     = label_tag :dish_category_id, "Категория"
     %br
     = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position), :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
-
+    = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position), :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
 - unless @dishes.empty?
   %table.list.sortable.checkboxes
     %colgroup

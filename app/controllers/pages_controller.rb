@@ -18,9 +18,9 @@ class PagesController < ApplicationController
 		@bar_list = Section.find_by_title("Барная карта")
 		@banquet = Section.find_by_title("Банкетное предложение")
 		@kids_menu = Section.find_by_title("Детское меню")
-
 	end
 
+=begin
 	def about
 		@text = Text.find_by_title("Концепция и интерьер")
 		@text_banquets = Text.find_by_title("Информация для проведения банкетов")
@@ -56,4 +56,6 @@ class PagesController < ApplicationController
 		@categories = DishCategory.bar_list
 		@text_banquets = Text.find_by_title("Информация для проведения банкетов")
 	end
+=end
+
 end

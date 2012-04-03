@@ -1,15 +1,16 @@
 - content_for :page_header do
   %h1 Порции
-  %p= link_to "Добавить тип", [:new,:admin,:section,:dish_category,:dish,:dish_type]
+  %p= link_to "Добавить вид", [:new,:admin,:section,:dish_category,:dish,:dish_type]
 
 = form_tag nil, :class => "change-location" do
   %span
     = label_tag :section_id, "Раздел"
     %br
-    = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id])
+    = select_tag :section_id, options_for_select(Section.order(:position).collect {|p| [p.title,p.id]}, params[:section_id]), :class => "change-location"
   %span
     = label_tag :dish_category_id, "Категория"
     %br
+    = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position), :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
     = select_tag :dish_category_id, option_groups_from_collection_for_select(Section.order(:position), :dish_categories, :title, :id, :name, params[:dish_category_id]), :class => "change-location"
   %span
     = label_tag :dish_category_id, "Блюдо"

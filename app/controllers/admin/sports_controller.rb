@@ -2,7 +2,7 @@
 class Admin::SportsController < Admin::ApplicationController
   def toggleshow
     @sport = Sport.find(params[:id])
-    @sport.toggle(:show)
+    @sport.toggle(:visible)
     @sport.save
     redirect_to :back, notice: 'Вид спорта обновлен.'
   end
@@ -26,7 +26,7 @@ class Admin::SportsController < Admin::ApplicationController
 
     respond_to do |format|
       if @sport.save
-        format.html { redirect_to [:edit,:admin,@sport], notice: 'Вид спорта успешно добавлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:sports] : [:edit,:admin,@sport]), notice: 'Вид спорта успешно добавлен.' }
         format.json { render json: @sport, status: :created, location: @sport }
       else
         format.html { render action: "edit" }
@@ -42,7 +42,7 @@ class Admin::SportsController < Admin::ApplicationController
 
     respond_to do |format|
       if @sport.update_attributes(params[:sport])
-        format.html { redirect_to [:edit,:admin,@sport], notice: 'Вид спорта успешно обновлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:sports] : [:edit,:admin,@sport]), notice: 'Вид спорта успешно обновлен.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

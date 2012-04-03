@@ -14,7 +14,7 @@
     %col.w1
   - @sports.each do |sport|
     %tr
-      %td.show= link_to "", [:toggleshow, :admin, sport], :class => sport.show ? nil : "not-show"
+      %td.show= link_to "", [:toggleshow, :admin, sport], :class => sport.visible ? nil : "not-show"
       %td= link_to sport.title, edit_admin_sport_path(sport)
       %td= link_to "Удалить", [:admin, sport], :class => :del, :method => :delete
 

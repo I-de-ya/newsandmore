@@ -2,7 +2,7 @@
 class Admin::ReservationsController < Admin::ApplicationController
   def toggleshow
     @reservation = Reservation.find(params[:id])
-    @reservation.toggle(:show)
+    @reservation.toggle(:visible)
     @reservation.save
     redirect_to :back, notice: 'Бронирование обновлено'
   end

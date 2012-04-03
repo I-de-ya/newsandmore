@@ -19,6 +19,8 @@
       %td= f.text_field :image_title 
     %tr
       %th{:colspan => 2}
-        = f.check_box :show
-        = f.label :show
-  .actions= f.submit "Сохранить"
+        = f.check_box :visible
+        = f.label :visible
+  .actions
+    = f.submit "Сохранить"
+    = f.submit "Применить"

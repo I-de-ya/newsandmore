@@ -2,7 +2,7 @@
 class Admin::ImagesController < Admin::ApplicationController
   def toggleshow
     @image = Image.find(params[:id])
-    @image.toggle(:show)
+    @image.toggle(:visible)
     @image.save
     redirect_to :back, notice: 'Картинка обновлена'
   end

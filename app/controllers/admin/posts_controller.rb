@@ -2,7 +2,7 @@
 class Admin::PostsController < Admin::ApplicationController
   def toggleshow
     @post = Post.find(params[:id])
-    @post.toggle(:show)
+    @post.toggle(:visible)
     @post.save
     redirect_to :back, notice: 'Новость обновлена'
   end
@@ -22,7 +22,7 @@ class Admin::PostsController < Admin::ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to [:edit,:admin,@post], notice: 'Новость успешно добавлена.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:posts] : [:edit,:admin,@post]), notice: 'Новость успешно добавлена.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "edit" }
@@ -40,7 +40,7 @@ class Admin::PostsController < Admin::ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to [:edit,:admin,@post], notice: 'Новость успешно обновлена.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:posts] : [:edit,:admin,@post]), notice: 'Новость успешно обновлена.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -34,7 +34,7 @@ class Admin::SlidersController < Admin::ApplicationController
 
   def toggleshow
     @slider = Slider.find(params[:id])
-    @slider.toggle(:show)
+    @slider.toggle(:visible)
     @slider.save
     redirect_to :back, notice: 'Слайдер обновлен.'
   end

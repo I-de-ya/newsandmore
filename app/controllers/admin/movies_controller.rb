@@ -2,7 +2,7 @@
 class Admin::MoviesController < Admin::ApplicationController
   def toggleshow
     @movie = Movie.find(params[:id])
-    @movie.toggle(:show)
+    @movie.toggle(:visible)
     @movie.save
     redirect_to :back, notice: 'Кино обновлено.'
   end
@@ -26,7 +26,7 @@ class Admin::MoviesController < Admin::ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to [:edit,:admin,@movie], notice: 'Фильм успешно добавлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:movies] : [:edit,:admin,@movie]), notice: 'Фильм успешно добавлен.' }
         format.json { render json: @movie, status: :created, location: @movie }
       else
         format.html { render action: "edit" }
@@ -42,7 +42,7 @@ class Admin::MoviesController < Admin::ApplicationController
 
     respond_to do |format|
       if @movie.update_attributes(params[:movie])
-        format.html { redirect_to [:edit,:admin,@movie], notice: 'Фильм успешно обновлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:movies] : [:edit,:admin,@movie]), notice: 'Фильм успешно обновлен.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

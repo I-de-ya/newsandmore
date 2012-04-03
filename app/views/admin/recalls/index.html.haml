@@ -14,7 +14,7 @@
     %th Отправлен
   - @recalls.each do |r|
     %tr
-      %td.show= link_to "", [:toggleshow,:admin,r], :class => r.show ? nil : "not-show"
+      %td.show= link_to "", [:toggleshow,:admin,r], :class => r.visible ? nil : "not-show"
       %td= link_to r.name, edit_admin_recall_path(r)
       %td= r.created_at.strftime("%d.%m.%Y/%H:%M")
       %td= link_to "Удалить", [:admin,r], :class => :del, :method => :delete

@@ -2,7 +2,7 @@
 class Admin::EventsController < Admin::ApplicationController
   def toggleshow
     @event = Event.find(params[:id])
-    @event.toggle(:show)
+    @event.toggle(:visible)
     @event.save
     redirect_to :back, notice: 'Событие обновлено.'
   end
@@ -26,7 +26,7 @@ class Admin::EventsController < Admin::ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to [:edit,:admin,@event], notice: 'Мероприятие успешно добавлено.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:events] : [:edit,:admin,@event]), notice: 'Мероприятие успешно добавлено.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "edit" }
@@ -42,7 +42,7 @@ class Admin::EventsController < Admin::ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to [:edit,:admin,@event], notice: 'Мероприятие успешно обновлено.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:events] : [:edit,:admin,@event]), notice: 'Мероприятие успешно обновлено.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

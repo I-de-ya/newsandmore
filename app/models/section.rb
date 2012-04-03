@@ -6,7 +6,8 @@ class Section < ActiveRecord::Base
 	belongs_to :note
 
 	validates :title, :presence => true
+  validates :title, :uniqueness => true  
 
-  scope :visible, where('show = ?', true)
+  scope :visible, where('visible = ?', true)
   default_scope :order => 'position ASC'
 end

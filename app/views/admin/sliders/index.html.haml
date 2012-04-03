@@ -14,7 +14,7 @@
     %tr{id: "pos_#{s.id}"}
       %td.handle= image_tag asset_path("admin/move_handler.png")
       %td.active= radio_button_tag :active, s.id, s.active, :onchange => "location = '#{active_admin_slider_path(s)}'"
-      %td.show= link_to "", [:toggleshow,:admin,s], :class => s.show ? nil : "not-show"
+      %td.show= link_to "", [:toggleshow,:admin,s], :class => s.visible ? nil : "not-show"
       %td= link_to s.title, edit_admin_slider_path(s)
       %td= link_to "Удалить", [:admin,s], :class => :del, :method => :delete
       

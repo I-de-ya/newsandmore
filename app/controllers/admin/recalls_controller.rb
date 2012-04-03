@@ -13,7 +13,7 @@ class Admin::RecallsController < Admin::ApplicationController
 
   def toggleshow
     @recall = Recall.find(params[:id])
-    @recall.toggle(:show)
+    @recall.toggle(:visible)
     @recall.save
     redirect_to :back, notice: 'Отзыв обновлен.'
   end

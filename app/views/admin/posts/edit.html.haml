@@ -19,12 +19,14 @@
       %td= f.text_field :image_title   
     %tr
       %th{:colspan => 2}
-        = f.check_box :show
-        = f.label :show
+        = f.check_box :visible
+        = f.label :visible
     %tr
       %td{:colspan => "2"}
         = f.label :body
         %br
         = f.text_area :body
       
-  .actions= f.submit "Сохранить"
+  .actions
+    = f.submit "Сохранить"
+    = f.submit "Применить"
