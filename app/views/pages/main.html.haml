@@ -3,7 +3,7 @@
 	.about
 		%h3#dark_text О РЕСТОРАНЕ
 		%hr
-		= truncate(@about.body, :length => 300)
+		= h truncate(@about.body, :length => 100)
 		%p= link_to "Подробнее", section_path(@about)
 	.main_menu
 		%ul

@@ -5,7 +5,7 @@
     = render 'layouts/menu'
     - if @section.title == "On-line бронирование"
     - else
-      = @section.body
+      = raw(@section.body)
     
     - if @section.title == "On-line бронирование"
       - if notice == nil
@@ -31,7 +31,7 @@
           %p
             #light_text
               = "#{dish.name}"
-          = dish.description
+          = raw(dish.description)
           %br
           - dish.dish_types.visible.each do |type|
             
