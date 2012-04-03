@@ -71,7 +71,7 @@ a {
 }
 hr {
 	height: 1px;
-	background: url(hr-line.png) scroll center;
+	background: url(hr-line.png) repeat-x center;
 	clear:both;
 	border:0px none;
 }
@@ -94,10 +94,16 @@ input {
 	border:solid 1px $lighttext;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h3 {
 	color:$darktext;
 	font-size: 15px;
 	font-weight: bold;
+	text-transform: uppercase;
+}
+h4 {
+	font-size: 13px;
+	text-transform: uppercase;
+	color:$darktext;
 }
 
 #dark_text {
@@ -252,6 +258,15 @@ h4, h3, h2 {
 		@include main-style;
 		margin-bottom:$margin;
 
+		#right_dish_part{
+			text-align:right;
+			background: url(hr-line.png) repeat-x center;
+
+		}
+		#left_dish_part{
+			float:left;
+
+		}
 		.left_form_part{
 			width:285px;
 			p {

@@ -25,17 +25,24 @@
     - elsif @section.dish_categories != []
       - @section.dish_categories.visible.each do |category|
         %p
-          #dark_text= category.name
+          %h4= category.name
+          %hr
         - category.dishes.visible.each do |dish|
           %p
             #light_text
               = "#{dish.name}"
           = dish.description
+          %br
           - dish.dish_types.visible.each do |type|
-            %p
-              = type.title
+            
+            #left_dish_part
+              =type.title
+            #right_dish_part
               = type.price.to_s + " руб."
-              
+                       
+
+
+            
   = render "shared/footer"
 .right_column
   .image
