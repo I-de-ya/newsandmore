@@ -1,37 +1,25 @@
 - content_for :page_header do
   %h1
     - if @slider.new_record?
-      Добавить слайдер
+      Добавить картинку
     - else
-      Редактирование слайдера
-      =content_for(:page_sidebar) do
-        %h5 Фотографии #{link_to "ред.", [:admin,@slider,:images]}
-        .product-photos
-          %ul.photos#photo-list
-            =render @slider.images
-          .queue
-            #photo_upload
-              = photo_uploadify(admin_slider_images_path(@slider))
-      = photo_sortable sort_admin_slider_images_path(@slider)    
-= form_for [:admin,@slider] do |f|
+      Редактирование картинки
+  %p= link_to "Назад", [:admin, :sliders]
+      
+= form_for [:admin, @slider] do |f|
   %table
     %tr
       %th= f.label :title
-      %td= f.text_field :title
+      %td= f.text_field :title 
+    %tr
+      %td= f.label :slider_image
+      %td= f.file_field :slider_image
+    %tr
+      %td= f.label :position
+      %td= f.number_field :position
     %tr
       %th{:colspan => 2}
         = f.check_box :visible
         = f.label :visible
-    %tr
-      %th= f.label :ico
-      %td
-        = image_tag @slider.ico if @slider.ico && @slider.ico.url
-        = f.file_field :ico
-    %tr
-      %th
-        = f.label :active_ico
-      %td
-        = image_tag @slider.active_ico.url if @slider.active_ico && @slider.active_ico.url
-        = f.file_field :active_ico
       
   .actions= f.submit "Сохранить"

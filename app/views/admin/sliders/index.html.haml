@@ -1,21 +1,25 @@
-- content_for :page_header do
-  %h1 Слайдеры
+= content_for :page_header do
+  %h1 Слайдер
+  %p= link_to "Добавить", new_admin_slider_path
+
+- if @sliders.empty?
+  %h2 Вы еще не добавили ни одной картинки для слайдера. 
   %p
-    = link_to "Добавить слайдер", new_admin_slider_path
-  
-%table.list.sortable
+    Хотите
+    = link_to "добавить?", new_admin_slider_path
+%table.list
   %colgroup
-    %col.w1
-    %col.w1
     %col.w1
     %col
     %col.w1
-  - @sliders.each do |s|
-    %tr{id: "pos_#{s.id}"}
-      %td.handle= image_tag asset_path("admin/move_handler.png")
-      %td.active= radio_button_tag :active, s.id, s.active, :onchange => "location = '#{active_admin_slider_path(s)}'"
-      %td.show= link_to "", [:toggleshow,:admin,s], :class => s.visible ? nil : "not-show"
-      %td= link_to s.title, edit_admin_slider_path(s)
-      %td= link_to "Удалить", [:admin,s], :class => :del, :method => :delete
-      
-= sortable(sort_admin_sliders_path)
+  %tr
+    %th 
+    %th Подпись
+    %th Раздел
+  - @sliders.each do |slider|
+    %tr
+      %td.show= link_to "", [:toggleshow, :admin, slider], :class => slider.visible ? nil : "not-show"
+      %td= link_to slider.title, edit_admin_slider_path(slider)
+      %td= link_to "Удалить", [:admin, slider], :class => :del, :method => :delete
+
+
