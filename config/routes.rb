@@ -24,7 +24,6 @@ Newsandmore::Application.routes.draw do
 
 
   namespace :admin do
-    root :to => 'events#index'
     resources :events do
       get 'toggleshow', :on => :member
     end

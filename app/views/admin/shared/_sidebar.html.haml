@@ -2,13 +2,6 @@
 %ul#nav
   -case @active
   -when :materials
-    /%li{:class => "#{'active' if %w{posts}.include? a}"}= link_to "Новости", admin_posts_path
-    /%li{:class => "#{'active' if %w{recalls}.include? a}"}= link_to "Отзывы", admin_recalls_path
-    /%li{:class => "#{'active' if %w{slaiders images}.include? a}"}= link_to "Слайдеры", admin_slaiders_path
-    /%li{:class => "#{'active' if %w{pages}.include? a}"}= link_to "Страницы", admin_pages_path
-    /%li{:class => "#{'active' if %w{users}.include? a}"}= link_to "Пользователи", admin_users_path
-    /%li{:class => "#{'active' if %w{settings}.include? a}"}= link_to "Настройки", admin_settings_path
-    /%li{:class => "#{'active' if "events" == a}"}= link_to "События", [:admin,:events]
     %li{:class => "#{'active' if "posts" == a}"}= link_to "Новости", [:admin,:posts]
     %li{:class => "#{'active' if "movies" == a}"}= link_to "Афиша кино", [:admin,:movies]
     %li{:class => "#{'active' if "reservations" == a}"}= link_to "Резервы", [:admin,:reservations]

@@ -12,7 +12,7 @@
   - @sections.each do |s|
     %tr{id: "pos_#{s.id}"}
       %td.handle= image_tag asset_path("admin/move_handler.png")
-      %td.show= link_to "", [:toggleshow,:admin,s], :class => s.show ? nil : "not-show"
+      %td.show= link_to "", [:toggleshow,:admin,s], :class => s.visible ? nil : "not-show"
       %td
         = link_to [:admin,s,:dish_categories] do
           = s.title

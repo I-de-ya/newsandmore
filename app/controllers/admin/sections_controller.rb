@@ -22,7 +22,7 @@ class Admin::SectionsController < Admin::ApplicationController
 
   def toggleshow
     @section = Section.find(params[:id])
-    @section.toggle(:show)
+    @section.toggle(:visible)
     @section.save
     redirect_to :back, notice: 'Раздел обновлен.'
   end
