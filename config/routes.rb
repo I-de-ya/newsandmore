@@ -22,13 +22,22 @@ Newsandmore::Application.routes.draw do
 
   resources :messages
 
+  
+  resources :reservations
+  resources :recalls
+  resources :events
+  resources :dishes
+  resources :dish_categories
+
 
   namespace :admin do
+
     resources :events do
       get 'toggleshow', :on => :member
     end
     
     root :to => 'movies#index'
+
     resources :movies do
       get 'toggleshow', :on => :member
     end
@@ -36,24 +45,27 @@ Newsandmore::Application.routes.draw do
     resources :reservations do
       get 'toggleshow', :on => :member
     end
+
     resources :images do
       get 'toggleshow', :on => :member
     end
-    resources :texts do
-      get 'toggleshow', :on => :member
-    end
+
     resources :posts do
       get 'toggleshow', :on => :member
     end
+
     resources :recalls do
       get 'toggleshow', :on => :member
     end
+
     resources :sports do
       get 'toggleshow', :on => :member
     end
+
     resources :broadcasts do
       get 'toggleshow', :on => :member
     end
+
     resources :sliders do
       resources :images do
         put 'update_ind', :on => :collection
@@ -63,6 +75,7 @@ Newsandmore::Application.routes.draw do
       post 'sort', :on => :collection
       get 'active', :on => :member
     end
+
     resources :sections do
       get 'toggleshow', :on => :member
       post 'sort', :on => :collection
@@ -76,22 +89,25 @@ Newsandmore::Application.routes.draw do
         end
       end
     end
+
     resources :notes
+
     resources :dish_types do
       get 'toggleshow', :on => :member
       post 'sort', :on => :collection
     end
+
     resources :dish_categories do
       get 'toggleshow', :on => :member
       post 'sort', :on => :collection
     end
+
     resources :dishes do
       get 'toggleshow', :on => :member
       get 'visible', :on => :member
       post 'sort', :on => :collection 
-      
-      resources :dish_images    
     end
+
   end
 
   # The priority is based upon order of creation:
@@ -121,11 +137,6 @@ Newsandmore::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :reservations
-  resources :recalls
-  resources :events
-  resources :dishes
-  resources :dish_categories
 
   # Sample resource route with options:
   #   resources :products do
