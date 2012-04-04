@@ -7,9 +7,11 @@
       
 = form_for [:admin,@section] do |f|
   %table
-    %tr
-      %th= f.label :title
-      %td= f.text_field :title
+    - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь"
+    - else
+      %tr
+        %th= f.label :title
+        %td= f.text_field :title
     %tr
       %th= f.label :body
       %td= f.text_area :body

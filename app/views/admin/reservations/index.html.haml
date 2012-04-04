@@ -21,7 +21,7 @@
     %th Email
   - @reservations.each do |reservation|
     %tr
-      %td= reservation.datetime.strftime("%H:%M  %d.%m.%Y")
+      %td= reservation.date_and_time.strftime("%H:%M  %d.%m.%Y")
       %td= reservation.firstname
       %td= reservation.lastname
       %td= reservation.persons

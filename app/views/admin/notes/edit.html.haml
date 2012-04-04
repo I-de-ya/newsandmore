@@ -8,9 +8,11 @@
       
 = form_for [:admin, @note] do |f|
   %table
-    %tr
-      %th= f.label :title
-      %td= f.text_field :title
+    - if @note.title == "Информация для проведения банкетов" || @note.title == "Благодарность за бронирование"
+    - else
+      %tr
+        %th= f.label :title
+        %td= f.text_field :title
     %tr
       %th= f.label :body
       %td= f.text_area :body      

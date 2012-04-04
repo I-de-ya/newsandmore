@@ -4,6 +4,3 @@ class Reservation < ActiveRecord::Base
 	validates :email, :format => { :with => email_regex }
 	validates :persons, :numericality => {:greater_than_or_equal_to => 1}
 end
-	
-	
-	

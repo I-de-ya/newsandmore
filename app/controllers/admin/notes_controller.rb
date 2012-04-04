@@ -1,5 +1,6 @@
 #coding: utf-8
 class Admin::NotesController < Admin::ApplicationController
+
   def toggleshow
     @note = Note.find(params[:id])
     @note.toggle(:visible)
@@ -64,4 +65,5 @@ class Admin::NotesController < Admin::ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

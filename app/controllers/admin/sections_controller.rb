@@ -1,7 +1,7 @@
 #coding: utf-8
 class Admin::SectionsController < Admin::ApplicationController
-  # GET /sections
-  # GET /sections.json
+    # GET /sections
+    # GET /sections.json
   def index
     @sections = Section.order(:position)
 
@@ -84,4 +84,6 @@ class Admin::SectionsController < Admin::ApplicationController
       format.json { head :no_content }
     end
   end
+ 
 end
+
