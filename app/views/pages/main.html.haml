@@ -3,7 +3,7 @@
 	.about
 		%h3#dark_text О РЕСТОРАНЕ
 		%hr
-		= h truncate(@about.body, :length => 100)
+		= truncate(@about.body, :length => 100)
 		%p= link_to "Подробнее", section_path(@about)
 	.main_menu
 		%ul
@@ -31,7 +31,6 @@
 						#light_text
 							= link_to post.title, post_path(post)
 		%p
-			Страницы: 
 			= paginate @posts
 	= render "shared/footer"
 .right_column

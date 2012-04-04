@@ -30,11 +30,11 @@
         %td= f.time_select :date_and_time
       %tr
         %td#light_text= f.label :persons, "Персон*"
-        %td= f.number_field :persons, :min => 1
+        %td= f.select :persons, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]]
       %tr
         %td#light_text= f.label :smoke, "Курящие"
         %td= f.select :smoke, [["Курим",true], ["Не курим",false]]
       %tr
         %td#light_text= f.label :hall, "Зал"
-        %td= f.number_field :hall, :min => 1
+        %td= f.select :hall, [["Зал 1",0], ["Зал 2",1], ["Зал 3",2]]
     %p * Поля обязательныe для заполнения

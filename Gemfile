@@ -33,6 +33,7 @@ gem 'mini_magick'
 gem 'russian'
 gem 'carrierwave'
 gem 'haml'
+gem 'globalize3'
 
 gem 'haml-rails', :group => :development
 # To use ActiveModel has_secure_password

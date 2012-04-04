@@ -9,3 +9,7 @@ ru:
       previous: ""
       next: ""
       first: "1"
+  devise:
+    sessions:
+      user:
+        signed_in: "Приветствуем в админке"

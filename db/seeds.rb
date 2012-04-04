@@ -8,6 +8,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 sections = ["Концепция и интерьер","Основные блюда","Завтраки", "Детское меню", "Барная карта", "Банкетное предложение", "On-line бронирование", "Отзывы", "Контакты и обратная связь"]
-sections.map {|section| Section.create(title:section)}
+sections.map {|section| Section.create(title:section, slug:section.parameterize)}
 Note.create!([{title: "Информация для проведения банкетов", :body => "Можно и банкетик заказать"},{title: "Благодарность за бронирование", :body => "Благодарим за бронирование"}])
 User.create(email: 'admin@redde.ru', password: '123123', password_confirmation:"123123")

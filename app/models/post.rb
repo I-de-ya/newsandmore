@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
 	validates :title, :body, :presence => true
 	scope :visible, :conditions => { :visible => true }
 	
+  translates :title, :body
 end

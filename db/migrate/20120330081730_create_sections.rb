@@ -5,6 +5,7 @@ class CreateSections < ActiveRecord::Migration
       t.text :body
       t.integer :position
       t.boolean :visible, :default => :true
+      t.string :slug
 
       t.timestamps
     end

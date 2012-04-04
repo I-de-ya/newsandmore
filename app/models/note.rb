@@ -3,4 +3,6 @@ class Note < ActiveRecord::Base
 
   attr_accessible :body, :title
   validates :body, :presence => true
+
+  translates :title, :body
 end

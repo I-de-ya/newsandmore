@@ -10,4 +10,6 @@ class Section < ActiveRecord::Base
 
   scope :visible, where('visible = ?', true)
   default_scope :order => 'position ASC'
+
+  translates :title, :body
 end

@@ -7,6 +7,7 @@
 -#    paginator:     the paginator that renders the pagination tags inside
 = paginator.render do
   %nav.pagination
+    = "Страницы: "
     = first_page_tag
     /= prev_page_tag unless current_page.first?
     - each_page do |page|

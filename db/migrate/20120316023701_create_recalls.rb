@@ -4,7 +4,7 @@ class CreateRecalls < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.text :body
-      t.boolean :positiveness
+      t.boolean :positiveness, :default => :true
       t.boolean :visible, :default => :true
 
       t.timestamps

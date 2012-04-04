@@ -3,4 +3,6 @@ class Broadcast < ActiveRecord::Base
 	validates :title, :presence => true
 	default_scope :order => 'showtime ASC'
 	scope :visible, :conditions => { :visible => true }
+
+  translates :title
 end

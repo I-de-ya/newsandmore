@@ -1,6 +1,8 @@
 .footer
-	.logo_index= image_tag("logo_index.png")
-	.logo_text= image_tag("logo_text.png")
-	%hr
-	Мы открыты c 7:30 утра до 23:00 и далее до последнего посетителя
-	%hr
+  .logo_index= image_tag("logo_index.png")
+  .logo_text= image_tag("logo_text.png")
+  %hr
+  Мы открыты c 7:30 утра до 23:00 и далее до последнего посетителя
+  = link_to "Русский", url_for(:locale => 'ru')
+  = link_to "English", url_for(:locale => 'en')
+  %hr

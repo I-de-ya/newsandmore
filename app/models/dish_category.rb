@@ -6,4 +6,6 @@ class DishCategory < ActiveRecord::Base
 	validates :name, :presence => true
 	
   scope :visible, where('visible = ?', true)
+
+  translates :name
 end

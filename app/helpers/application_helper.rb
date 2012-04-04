@@ -1,3 +1,4 @@
+# coding:utf-8
 module ApplicationHelper
 
   def link_to_remove_fields(name, f)

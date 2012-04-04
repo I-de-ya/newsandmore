@@ -7,4 +7,6 @@ class Dish < ActiveRecord::Base
   accepts_nested_attributes_for :dish_types, :allow_destroy => true
   
   scope :visible, where('visible = ?', true)
+
+  translates :name, :description
 end
