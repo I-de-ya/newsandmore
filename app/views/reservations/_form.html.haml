@@ -1,4 +1,5 @@
 = form_for @reservation do |f|
+
   .right_form_part
     #light_text= f.label :comment, "Ваши пожелания"
     %p= f.text_area :comment, :rows => 7
@@ -14,22 +15,22 @@
         %td#light_text= f.label :firstname, "Имя*"
         %td= f.text_field :firstname      
       %tr
-        %td#light_text= f.label :lastname, "Фамилия*"
+        %td#light_text= f.label :lastname, "Фамилия*"       
         %td= f.text_field :lastname
       %tr
-        %td#light_text= f.label :phone, "Телефон*"
+        %td#light_text= f.label :phone, "Телефон*"  
         %td= f.text_field :phone      
       %tr
         %td#light_text= f.label :email, "Почта"
         %td= f.email_field :email 
       %tr
-        %td#light_text= f.label :date_and_time, "Дата*"
+        %td#light_text= f.label :date_and_time, "Дата*"        
         %td= f.date_select :date_and_time  
       %tr
-        %td#light_text= f.label :date_and_time, "Время*"
+        %td#light_text= f.label :date_and_time, "Время*" 
         %td= f.time_select :date_and_time
       %tr
-        %td#light_text= f.label :persons, "Персон*"
+        %td#light_text= f.label :persons, "Персон*" 
         %td= f.select :persons, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]]
       %tr
         %td#light_text= f.label :smoke, "Курящие"
@@ -37,4 +38,7 @@
       %tr
         %td#light_text= f.label :hall, "Зал"
         %td= f.select :hall, [["Зал 1",0], ["Зал 2",1], ["Зал 3",2]]
-    %p * Поля обязательныe для заполнения
+    - if @reservation.errors.any?
+      #red * Поля обязательные к заполнению
+    - else
+      * Поля обязательные к заполнению

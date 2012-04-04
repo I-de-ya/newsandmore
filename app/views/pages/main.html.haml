@@ -29,8 +29,8 @@
 						#dark_text= link_to (post.created_at.nil? ? "-" : post.created_at.strftime("%d/%m/%Y") ), post_path(post)
 						%hr
 						#light_text
-							= link_to post.title, post_path(post)
-		%p
+							.title= link_to post.title, post_path(post)
+		#pagination
 			= paginate @posts
 	= render "shared/footer"
 .right_column

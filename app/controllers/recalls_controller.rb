@@ -16,13 +16,15 @@ class RecallsController < ApplicationController
   def create
     @recall = Recall.new(params[:recall])
     @section = Section.where('title = ?', 'Отзывы').first
-
+    @sections = Section.visible
+    @recalls = Recall.all
     respond_to do |format|
+
       if @recall.save
         format.html { redirect_to section_path(@section), notice: 'Recall was successfully created.' }
         format.json { render json: @recall, status: :created, location: @recall }
       else
-        format.html { redirect_to section_path(@section) }
+        format.html { render 'sections/show' }
         format.json { render json: @recall.errors, status: :unprocessable_entity }
       end
     end

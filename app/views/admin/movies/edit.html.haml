@@ -37,7 +37,10 @@
       %td= f.date_select :premiere
     %tr
       %td= f.label :duration
-      %td= f.time_select :duration    
+      %td= f.time_select :duration   
+    %tr
+      %th
+      %td= image_tag @movie.image_url if @movie.image? 
     %tr
       %td= f.label :image
       %td= f.file_field :image 

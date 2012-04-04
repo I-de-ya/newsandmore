@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-	default_scope :order => 'created_at ASC'
+	default_scope :order => 'created_at DESC'
 	paginates_per 3
 	mount_uploader :image, ImageUploader
 	validates :title, :body, :presence => true

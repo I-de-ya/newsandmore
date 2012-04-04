@@ -18,7 +18,7 @@
     %th Раздел
   - @images.each do |image|
     %tr
-      %td.show= link_to "", [:toggleshow, :admin, image], :class => image.show ? nil : "not-show"
+      %td.show= link_to "", [:toggleshow, :admin, image], :class => image.visible ? nil : "not-show"
       %td= link_to image.title, edit_admin_image_path(image)
       %td= image.section.title
       %td= link_to "Удалить", [:admin, image], :class => :del, :method => :delete

@@ -5,12 +5,15 @@
     - else
       Редактирование картинки
   %p= link_to "Назад", [:admin, :sliders]
-      
+  
 = form_for [:admin, @slider] do |f|
   %table
     %tr
       %th= f.label :title
-      %td= f.text_field :title 
+      %td= f.text_field :title
+    %tr
+      %th
+      %td= image_tag @slider.slider_image_url if @slider.slider_image?
     %tr
       %td= f.label :slider_image
       %td= f.file_field :slider_image

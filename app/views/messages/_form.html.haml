@@ -1,12 +1,6 @@
 %h3#dark_text Обратная связь
 %hr
 = form_for @message do |f|
-  -if @message.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@message.errors.count, "error")} prohibited this message from being saved:"
-      %ul
-        - @message.errors.full_messages.each do |msg|
-          %li= msg
   %table
     %tr
       %td#light_text= f.label :name, "Имя*"
@@ -17,6 +11,9 @@
     %tr
       %td#light_text= f.label :body, "Сообщение*"
       %td= f.text_area :body, :rows => 5
-  * Поля обязательные к заполнению
   .actions
-    = f.submit 'Отправить сообщение'
+    = f.submit "Отправить сообщение"
+  - if @message.errors.any?
+    #red * Поля обязательные к заполнению
+  - else
+    * Поля обязательные к заполнению

@@ -12,10 +12,10 @@ class SectionsController < ApplicationController
     @message = Message.new
     @positive_recalls = Recall.positive.length
     @negative_recalls = Recall.negative.length
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @section }
     end
+    
   end
 end
