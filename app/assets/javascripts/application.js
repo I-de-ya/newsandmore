@@ -44,7 +44,7 @@ $(document).ready(function(){
             }
     });
 });
-z
+
 $(document).ready(function(){
     $(".expand_movies").click(function(){
         $(".movies").slideToggle("slow");
