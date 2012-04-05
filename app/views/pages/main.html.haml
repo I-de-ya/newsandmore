@@ -24,7 +24,10 @@
 				%li
 					.post
 						- if post.image?
-							= link_to (image_tag post.image_url(:thumb)), post_path(post)
+							#post_image
+								#thumb= link_to image_tag('thumb.png'), post_path(post)
+								= link_to (image_tag post.image_url(:thumb)), post_path(post)
+								
 						%br
 						#dark_text= link_to (post.created_at.nil? ? "-" : post.created_at.strftime("%d/%m/%Y") ), post_path(post)
 						%hr

@@ -130,6 +130,10 @@ h4 {
 		}
 }
 
+#light {
+			color:$lighttext;
+		}
+
 h4, h3, h2 {
 	padding:0;
 	margin:0;
@@ -226,14 +230,25 @@ h4, h3, h2 {
 			.title {
 				width: 160px;
 			}
-			img {
-				border:solid 1px $lighttext;
-				margin-right:3px;
+			#post_image {
+				#thumb {
+					display:none;
+				}
+				img {
+					border:solid 1px $lighttext;
+					margin-right:3px;
+				}	
 			}
-			img:hover {
-				border:solid 5px $menu_color;
-				width: 162px;
-				height: 162px;
+			#post_image:hover {
+				#thumb {
+					position:absolute;
+					display:block;
+				}
+				img{
+					border:solid 5px $menu_color;
+					width: 162px;
+					height: 162px;
+				}
 			}
 		}
 	}
@@ -289,6 +304,7 @@ h4, h3, h2 {
 	.content {
 		@include main-style;
 		margin-bottom:$margin;
+
 		.expand_dish {
 			float:right;
 			color:$lighttext;
