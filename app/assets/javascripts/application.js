@@ -79,21 +79,21 @@ $(document).ready(function(){
 // слайдер
 function theRotator() {
 	// Устанавливаем прозрачность всех картинок в 0
-	$('div.slider ul li').css({opacity: 0.0});
+	$('.slider ul li, .slider_title').css({opacity: 0.0});
  
 	// Берем первую картинку и показываем ее (по пути включаем полную видимость)
-	$('div.slider ul li:first').css({opacity: 1.0});
+	$('.slider ul li:first, .slider_title:first').css({opacity: 1.0}).addClass('show');
  
 	// Вызываем функцию rotate для запуска слайдшоу, 5000 = смена картинок происходит раз в 5 секунд
-	setInterval('rotate()',10000);
+	setInterval('rotate()',7000);
 }
  
 function rotate() {	
 	// Берем первую картинку
-	var current = ($('div.slider ul li.show')?  $('div.slider ul li.show') : $('div.slider ul li:first'));
+	var current = ($('.slider ul li.show, .slider_title.show')?  $('div.slider ul li.show, .slider_title.show') : $('.slider ul li:first, .slider_title:first'));
  
 	// Берем следующую картинку, когда дойдем до последней начинаем с начала
-	var next = ((current.next().length) ? ((current.next().hasClass('show')) ? $('div.slider ul li:first') :current.next()) : $('div.slider ul li:first'));	
+	var next = ((current.next().length - 1) ? ((current.next().hasClass('show')) ? $('.slider ul li:first, .slider_title:first') :current.next()) : $('.slider ul li:first, .slider_title:first'));	
  
 	next.css({opacity: 0.0})
 	.addClass('show')

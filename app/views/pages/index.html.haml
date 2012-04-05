@@ -10,8 +10,9 @@
 			= link_to image_tag('english.png'), url_for(:locale => 'en')
 		= image_tag("logo_text.png")
 	.index_right
-		.slider_title
-			= @sliders.any? ? @sliders.last.title : "Место для названия блюда"
+		- @sliders.each do |image|
+			.slider_title
+				= image.title? ? image.title : ""
 		.enter
 			%hr
 			= link_to "Вход на сайт", main_path
