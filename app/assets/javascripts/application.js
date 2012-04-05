@@ -60,6 +60,22 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $(".expand_dish").click(function(){
+        var category_index = $(".expand_dish").index(this)
+        $(".dish:eq("+category_index+")").slideToggle("slow");
+        $(this).toggleClass("active");
+        if ($(this).text()=="Развернуть")
+            {
+               $(this).text("Свернуть")
+            }
+            else
+            {
+               $(this).text("Развернуть")
+            }
+    });
+});
+
 // слайдер
 function theRotator() {
 	// Устанавливаем прозрачность всех картинок в 0
