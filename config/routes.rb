@@ -1,33 +1,41 @@
 Newsandmore::Application.routes.draw do
 
-  resources :notes
+scope "(:locale)", :locale => /ru|en/ do
+    
+    resources :notes
 
-  resources :sections
+    resources :sections
 
-  resources :dish_types
+    resources :dish_types
 
-  resources :images
+    resources :images
 
-  resources :sliders
+    resources :sliders
 
-  devise_for :users
+    devise_for :users
 
-  resources :sports
+    resources :sports
 
-  resources :broadcasts
+    resources :broadcasts
 
-  resources :posts
+    resources :posts
 
-  resources :movies
+    resources :movies
 
-  resources :messages
+    resources :messages
+
+    
+    resources :reservations
+    resources :recalls
+    resources :events
+    resources :dishes
+    resources :dish_categories
+
+end
 
   
-  resources :reservations
-  resources :recalls
-  resources :events
-  resources :dishes
-  resources :dish_categories
+
+
 
 
   namespace :admin do

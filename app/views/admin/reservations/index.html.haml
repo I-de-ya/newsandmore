@@ -9,7 +9,11 @@
     = link_to "добавить?", new_admin_reservation_path
 %table.list
   %colgroup
-    %col.w1
+    %col
+    %col
+    %col
+    %col
+    %col
     %col
     %col.w1
   %tr
@@ -19,6 +23,7 @@
     %th Персон
     %th Телефон
     %th Email
+    %th
   - @reservations.each do |reservation|
     %tr
       %td= reservation.date_and_time.strftime("%H:%M  %d.%m.%Y")

@@ -22,7 +22,7 @@ class Admin::ImagesController < Admin::ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to [:edit,:admin,@image], notice: 'Картинка успешно добавлена.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:images] : [:edit,:admin,@image]), notice: 'Картинка успешно добавлена.' }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "edit" }
@@ -40,7 +40,7 @@ class Admin::ImagesController < Admin::ApplicationController
 
     respond_to do |format|
       if @image.update_attributes(params[:image])
-        format.html { redirect_to [:edit,:admin,@image], notice: 'Картинка успешно обновлена.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:images] : [:edit,:admin,@image]), notice: 'Картинка успешно обновлена.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

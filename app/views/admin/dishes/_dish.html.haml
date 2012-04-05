@@ -6,7 +6,29 @@
       = dish.name
       - unless dish.dish_types.empty?
         (#{dish.dish_types.count} порц.)
-  %td 300 руб
-  %td
+  %td= dish.dish_types[0].title if dish.dish_types.count == (1 || 0) 
+  %td= "#{dish.dish_types[0].price} руб." if dish.dish_types.count == (1 || 0) 
   %td
     = link_to "Удалить", [:admin, dish], :method => :delete, :confirm => "Удалить?", class: :del
+
+- if dish.dish_types.count > 1
+  - dish.dish_types.each do |dish_type|
+    %tr
+      %td
+      %td
+      %td{:colspan => 5}
+        %table.list.sortable.checkboxes
+          %colgroup
+            %col.wl
+            %col.w1
+            %col.wl
+            %col
+            %col
+            %col.w1
+          %tr
+            %td.handle= image_tag asset_path("admin/move_handler.png")
+            %td.show= link_to "", [:toggleshow, :admin, dish_type], :class => dish_type.visible ? nil : "not-show"
+            %td
+            %td= link_to dish_type.title, [:edit, :admin, @section, @category, dish, dish_type]
+            %td= "#{dish_type.price} руб."
+            %td= link_to "Удалить", [:admin, dish_type], :method => :delete, :confirm => "Удалить?", class: :del

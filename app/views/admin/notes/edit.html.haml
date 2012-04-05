@@ -15,5 +15,7 @@
         %td= f.text_field :title
     %tr
       %th= f.label :body
-      %td= f.text_area :body      
-  .actions= f.submit "Сохранить"
+      %td= f.text_area :body
+  .actions
+    = f.submit "Сохранить"
+    = f.submit "Применить"

@@ -19,7 +19,7 @@ class Admin::DishTypesController < Admin::ApplicationController
     @dish = DishType.find(params[:id])
     @dish.toggle(:visible)
     @dish.save
-    redirect_to :back, notice: 'Блюдо обновлено.'
+    redirect_to :back, notice: 'Тип блюда обновлен.'
   end 
 
   def sort
@@ -90,7 +90,7 @@ class Admin::DishTypesController < Admin::ApplicationController
     @dish_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back, notice: "Блюдо удалено." }
+      format.html { redirect_to :back, notice: "Тип блюда удален." }
       format.json { head :no_content }
     end
   end

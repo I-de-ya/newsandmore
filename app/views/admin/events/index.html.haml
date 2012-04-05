@@ -10,14 +10,19 @@
 %table.list
   %colgroup
     %col.w1
+    %col.w1
+    %col
     %col
     %col.w1
   %tr
+    %th
     %th 
     %th Название
     %th Дата мероприятия
+    %th
   - @events.each do |e|
     %tr
+      %td
       %td.show= link_to "", [:toggleshow, :admin, e], :class => e.visible ? nil : "not-show"
       %td= link_to e.title, edit_admin_event_path(e)
       %td= e.date.strftime("%d.%m.%Y/%H:%M")

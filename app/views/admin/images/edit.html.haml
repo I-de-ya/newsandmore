@@ -25,4 +25,6 @@
       %th{:colspan => 2}
         = f.select(:section_id, Section.all.collect {|p| [ p.title, p.id ] }, {:include_blank => false})
       
-  .actions= f.submit "Сохранить"
+  .actions
+    = f.submit "Сохранить"
+    = f.submit "Применить"
