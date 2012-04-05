@@ -44,10 +44,12 @@
                                   
   = render "shared/footer"
 .right_column
-  .image
-    - @section.images.each do |image|
-      = image_tag image.image_url if image.image?
-      = image.title if image.image?
+  .section_images
+    %ul
+      - @section.images.each do |image|
+        %li
+          = image_tag image.image_url if image.image?
+          = image.title if image.image?
   
   .bottom
     - if @section.title == "Отзывы"

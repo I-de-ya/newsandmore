@@ -391,12 +391,17 @@ h4, h3, h2 {
 			}
 		}
 	}
-	.image {
+	.section_images {
 		color:$lighttext;
+
+		ul li {
+			position:absolute;
+			width:415px;
+		}
 	}
 	.bottom{
 		@include main-style;
-		margin-top:$margin;	
+		margin-top:350px;	
 		.actions {
 			float:right;
 		}
