@@ -10,6 +10,11 @@
 			= link_to image_tag('english.png'), url_for(:locale => 'en')
 		= image_tag("logo_text.png")
 	.index_right
+		.enter_button
+			#new
+				%span= link_to 'Вход на сайт', main_path
+				= link_to image_tag("index_point.png"), main_path
+		
 		.slider_title
 			- @sliders.each do |image|
 				%li= image.title
