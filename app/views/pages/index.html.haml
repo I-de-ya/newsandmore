@@ -6,8 +6,8 @@
 	.index_left
 		= image_tag("logo_index.png")
 		.indexlocale
-			= link_to "Русский", url_for(:locale => 'ru')
-			= link_to "English", url_for(:locale => 'en')
+			= link_to image_tag('russian.png'), url_for(:locale => 'ru')
+			= link_to image_tag('english.png'), url_for(:locale => 'en')
 		= image_tag("logo_text.png")
 	.index_right
 		.slider_title

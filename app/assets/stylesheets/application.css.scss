@@ -155,6 +155,9 @@ h4, h3, h2 {
 	.indexlocale {
 		float:left;
 		padding:10px 20px 0 0;
+		img {
+			margin-right:5px;
+		}
 	}
 }
 
@@ -217,13 +220,7 @@ h4, h3, h2 {
 		margin-top:$margin;
 		float:left;
 		@include main-style;
-		#pagination{
-				float:right;
-				color:$lighttext;
-				a {
-					color:$lighttext;
-				}
-			}
+		
 		.post {
 			float:left;
 			.title {
@@ -240,6 +237,14 @@ h4, h3, h2 {
 			}
 		}
 	}
+	#pagination{
+				float:right;
+				color:$lighttext;
+				margin-top:5px;
+				a {
+					color:$lighttext;
+				}
+			}
 	.footer{
 		color:$lighttext;
 		.logo_index{
@@ -259,6 +264,9 @@ h4, h3, h2 {
 		}
 		.locale {
 			float:right;
+			img {
+				margin-left:5px;
+			}
 		}
 	}
 	.menu{
@@ -281,7 +289,11 @@ h4, h3, h2 {
 	.content {
 		@include main-style;
 		margin-bottom:$margin;
-
+		.expand_dish {
+			float:right;
+			color:$lighttext;
+			font-weight:bold;
+		}
 		#right_dish_part{
 			text-align:right;
 			background: url(hr-line.png) repeat-x center;
@@ -332,11 +344,14 @@ h4, h3, h2 {
 		@include main-style;
 		margin-bottom:$margin;
 		.events, .sports{
-			 display: none;
 			a {
 				font-size:$textsize;
 				text-decoration:underline;
 			}
+		}
+
+		.sports {
+			display: none;
 		}
 
 		.movies{
