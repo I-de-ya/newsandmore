@@ -8,4 +8,5 @@ class DishCategory < ActiveRecord::Base
   scope :visible, where('visible = ?', true)
 
   translates :name
+  accepts_nested_attributes_for :translations
 end

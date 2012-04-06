@@ -7,4 +7,5 @@ class Post < ActiveRecord::Base
 	scope :visible, :conditions => { :visible => true }
 	
   translates :title, :body
+  accepts_nested_attributes_for :translations
 end

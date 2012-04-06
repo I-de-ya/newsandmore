@@ -4,12 +4,19 @@
       Добавить категорию
     - else
       Редактирование категории
-      
+
+= render "admin/shared/globalize_switcher"
 = form_for [:admin,@section,@category] do |f|
-  %table
+  %table#russian_table
     %tr
       %th= f.label :name
       %td= f.text_field :name
+  = f.globalize_fields_for :en do |g|
+    %table#english_table
+      %tr
+        %th= g.label :name
+        %td= g.text_field :name
+  %table
     %tr
       %th{:colspan => 2}
         = f.check_box :visible

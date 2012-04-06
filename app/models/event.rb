@@ -5,4 +5,5 @@ class Event < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   translates :title, :body
+  accepts_nested_attributes_for :translations
 end

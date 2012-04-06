@@ -11,6 +11,21 @@ function remove_fields(link) {
   $(link).closest("tbody").hide();
 }
 
+$(document).ready(function(){	
+	    $(".russian_globalize").click(function(){
+	        $("#russian_table").show();
+	        $("#english_table").hide();
+	    });
+	    $(".english_globalize").click(function(){
+	        $("#english_table").show();
+	        $("#russian_table").hide();
+	    });
+	 $("#english_table").hide();
+});
+
+
+
+
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
