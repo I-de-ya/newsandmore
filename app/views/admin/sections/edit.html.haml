@@ -10,7 +10,7 @@
 = form_for [:admin,@section] do |f|
   
   %table#russian_table
-    - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь"
+    - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь" || @section.title == "Концепция и интерьер" || @section.title == "Основные блюда" || @section.title == "Завтраки" || @section.title == "Детское меню" || @section.title == "Барная карта"
     - else
       %tr
         %th= f.label :title
