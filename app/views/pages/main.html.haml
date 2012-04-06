@@ -67,16 +67,16 @@
 				.movie_main
 					.right
 						- if movie.image?
-							= link_to (image_tag movie.image_url(:small_movie)), movie_path(movie)
+							= movie.description? ? (link_to (image_tag movie.image_url(:small_movie)), movie_path(movie)) : (image_tag movie.image_url(:small_movie))
 						= movie.showtime.strftime("%d %B / %H:%M")
 						%br
 						.day_of_week
 							= movie.showtime.strftime("%A")
 							%p
-								= movie.description.nil? ? "" : (link_to "Подробнее", movie_path(movie))
+								= movie.description? ? (link_to "Подробнее", movie_path(movie)) : ""
 
 					.left
-						%h3#light_text= link_to movie.title, movie_path(movie)
+						%h3#light_text= movie.description? ? (link_to movie.title, movie_path(movie)) : movie.title
 						%p
 							= movie.director
 							%br
