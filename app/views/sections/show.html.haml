@@ -9,10 +9,10 @@
     
     - if @section.title == "On-line бронирование"
       - if notice == nil
-        = @section.body
+        = raw(@section.body)
         = render 'reservations/form'
       - else
-        %p= @text_thanks.body
+        %p= raw(@text_thanks.body)
     - elsif @section.title == "Отзывы"
       - @recalls.each do |recall|
         %p
@@ -59,4 +59,4 @@
     - else
       %h3#dark_text Информация для проведения банкетов
       %hr
-      = @text_banquets.body
+      = raw(@text_banquets.body)

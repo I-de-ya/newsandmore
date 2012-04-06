@@ -21,6 +21,14 @@
       %th{:colspan => 2}
         = f.check_box :visible
         = f.label :visible
+  %table
+    = f.fields_for :broadcasts do |builder|
+      %tbody
+        = render "broadcast_fields", :f => builder
+    %tr
+      %th
+      %td= link_to_add_fields "Добавить трансляцию", f, :broadcasts
+      %td
   .actions
     = f.submit "Сохранить"
     = f.submit "Применить"
