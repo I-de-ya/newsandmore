@@ -9,4 +9,5 @@ class Dish < ActiveRecord::Base
   scope :visible, where('visible = ?', true)
 
   translates :name, :description
+  accepts_nested_attributes_for :translations
 end

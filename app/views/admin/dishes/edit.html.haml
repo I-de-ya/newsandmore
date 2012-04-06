@@ -12,7 +12,7 @@
           .queue
             #photo_upload
               = photo_uploadify(admin_dish_dish_images_path(@dish))
-          =#photo_sortable      
+          =#photo_sortable
 = form_for [:admin,:section,:dish_category,@dish] do |f|
   -if @dish.errors.any?
     #error_explanation

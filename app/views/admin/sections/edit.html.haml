@@ -4,9 +4,12 @@
       Добавить раздел
     - else
       Редактирование раздела
-      
+
+= render "admin/shared/globalize_switcher"
+
 = form_for [:admin,@section] do |f|
-  %table
+  
+  %table#russian_table
     - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь"
     - else
       %tr
@@ -15,11 +18,23 @@
     %tr
       %th= f.label :body
       %td= f.text_area :body
-    %tr
-      %th{:colspan => 2}
-        = f.check_box :visible
-        = f.label :visible
-        
+
+  = f.globalize_fields_for :en do |g|
+    %table#english_table
+      - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь"
+      - else
+        %tr
+          %th= g.label :title
+          %td= g.text_field :title
+      %tr
+        %th= g.label :body
+        %td= g.text_area :body
+
+  %tr
+    %th{:colspan => 2}
+      = f.check_box :visible
+      = f.label :visible
+
   .actions
     = submit_tag "Сохранить"
     = submit_tag "Применить"

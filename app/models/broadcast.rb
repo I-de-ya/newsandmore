@@ -5,4 +5,5 @@ class Broadcast < ActiveRecord::Base
 	scope :visible, :conditions => { :visible => true }
 
   translates :title
+  accepts_nested_attributes_for :translations
 end

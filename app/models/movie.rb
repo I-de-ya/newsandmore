@@ -6,4 +6,5 @@ class Movie < ActiveRecord::Base
 	default_scope :order => 'showtime ASC'
 
   translates :title, :origin, :genre, :description, :director, :starring, :country
+  accepts_nested_attributes_for :translations
 end

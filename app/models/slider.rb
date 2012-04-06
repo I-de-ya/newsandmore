@@ -4,4 +4,5 @@ class Slider < ActiveRecord::Base
 	validates :title, :slider_image, :presence => true
 
   translates :title
+  accepts_nested_attributes_for :translations
 end

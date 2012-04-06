@@ -16,4 +16,4 @@
           %div.freeze Правая колонка
           - cats = s.dish_categories.where(:column => 2)
           = render "tree_in2", {:s => s, :cats => cats} unless cats.empty?
-%div{:style => "clear:both"}                                         
+%div{:style => "clear:both"}

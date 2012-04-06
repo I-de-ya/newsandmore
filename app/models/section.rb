@@ -13,7 +13,8 @@ class Section < ActiveRecord::Base
   default_scope :order => 'position ASC'
 
   translates :title, :body
-
+  accepts_nested_attributes_for :translations
+  
   def check_title
     if changes["title"] != nil
       if (changes["title"].first == "On-line бронирование" || changes["title"].first == "Отзывы" || changes["title"].first == "Контакты и обратная связь" || changes["title"].first == "Банкетное предложение") && changes["title"].first != title
