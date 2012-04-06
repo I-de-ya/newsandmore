@@ -357,15 +357,21 @@ h4, h3, h2 {
 			color:$lighttext;
 			font-weight:bold;
 		}
-		#right_dish_part{
-			text-align:right;
-			background: url(hr-line.png) repeat-x center;
+		.dish
+			table {
+				width:100%;
+				td {
+					white-space:nowrap;
+				}
+				td.last {
+					text-align:right;
+				}
+				td.point{
+					background:url(hr-line.png) repeat-x center;
+					width:100%;
+				}
+			}
 
-		}
-		#left_dish_part{
-			float:left;
-
-		}
 		.left_form_part{
 			width:285px;
 			p {

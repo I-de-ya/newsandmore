@@ -37,10 +37,11 @@
             = raw(dish.description)
             - dish.dish_types.visible.each do |type|
               
-              #left_dish_part
-                =type.title
-              #right_dish_part
-                = type.price.to_s + " руб."
+              %table
+                %tr
+                  %td=type.title
+                  %td.point
+                  %td.last= type.price.to_s + " руб."
                                   
   = render "shared/footer"
 .right_column
