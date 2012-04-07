@@ -27,6 +27,10 @@
 							#post_image
 								#thumb= link_to image_tag('thumb.png'), post_path(post)
 								= link_to (image_tag post.image_url(:thumb)), post_path(post)
+						- else
+							#post_image
+								#thumb= link_to image_tag('thumb.png'), post_path(post)
+								= image_tag("empty_image(170x170).png")
 								
 						%br
 						#dark_text= link_to (post.created_at.nil? ? "-" : post.created_at.strftime("%d/%m/%Y") ), post_path(post)
@@ -68,6 +72,8 @@
 					.right
 						- if movie.image?
 							= movie.description? ? (link_to (image_tag movie.image_url(:small_movie)), movie_path(movie)) : (image_tag movie.image_url(:small_movie))
+						- else
+							= image_tag("empty_image(60x60).png")
 						= movie.showtime.strftime("%d %B / %H:%M")
 						%br
 						.day_of_week

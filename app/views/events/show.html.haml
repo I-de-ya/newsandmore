@@ -10,6 +10,6 @@
 	= render "shared/footer"
 .right_column
 	.image
-		= image_tag @event.image_url if @event.image?
+		= @event.image? ? (image_tag @event.image_url) : image_tag("empty_image(415x300).png")
 		= @event.image_title if (@event.image_title? && @event.image?)
 	= render "archive"

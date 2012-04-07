@@ -32,6 +32,6 @@
 	= render "shared/footer"
 .right_column
 	.image
-		= image_tag @movie.image_url if @movie.image?
+		= @movie.image? ? (image_tag @movie.image_url) : image_tag("empty_image(415x300).png")
 		= @movie.image_title if (@movie.image_title? && @movie.image?)
 	= render "events/archive"

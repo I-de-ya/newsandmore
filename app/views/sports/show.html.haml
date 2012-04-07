@@ -1,5 +1,5 @@
 .left_column
-	.movie
+	.content
 		%h3#dark_text= "Трансляции. #{@sport.title}"
 		%hr
 		= render "layouts/menu"
@@ -11,6 +11,6 @@
 	= render "shared/footer"
 
 .right_column
-	= image_tag("rails.png")
-	Подпись
+	.image
+		= image_tag("empty_image(415x300).png")
 	= render "events/archive"
