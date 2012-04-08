@@ -30,7 +30,7 @@ $menu_color:#9eaf19;
 html {
 //	background: url(for_fake/index_slider/index4.png) no-repeat top;
 	font-family: Helvetica, Arial, sans-serif;
-	line-height: 105%;
+
 }
 
 body {
@@ -262,6 +262,7 @@ h4, h3, h2 {
 		
 		.post {
 			float:left;
+			padding-right:3px;
 			.title {
 				width: 160px;
 			}
@@ -404,6 +405,7 @@ h4, h3, h2 {
 	margin-left:$margin;
 	.image {
 		position:absolute;
+		width:415px;
 		color:$lighttext;
 	}
 	.block {

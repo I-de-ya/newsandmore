@@ -12,5 +12,6 @@
 
 .right_column
 	.image
-		= image_tag("empty_image(415x300).png")
+		= @sport.image? ? (image_tag @sport.image_url) : image_tag("empty_image(415x300).png")
+		= @sport.image_title if (@sport.image_title? && @sport.image?)
 	= render "events/archive"
