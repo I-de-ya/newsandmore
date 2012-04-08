@@ -1,34 +1,23 @@
 .left_column
 	.content
-		%h3#dark_text АФИША КИНО НА НЕДЕЛЮ
+		%h3#dark_text= t(:afisha)
 		%hr
 		= render "layouts/menu"
-		%p 
+		%p
 			%h3#dark_text= @movie.title
-		#light_text
-			= @movie.origin
-			,
-			= @movie.genre
-			,
-			= @movie.year
-		%p= @movie.description
-		Оригинальное название:	
-		= @movie.original_title
+		#light_text= "#{@movie.origin}, #{@movie.genre}, #{@movie.year}"
+		%p= raw(@movie.description)
+		= "#{t 'movie.original_title'}: #{@movie.original_title}"
 		%br
-		Режиссер:
-		= @movie.director
+		= "#{t 'movie.director'}: #{@movie.director}"
 		%br
-		В ролях:
-		= @movie.starring
+		= "#{t 'movie.starring'}: #{@movie.starring}"
 		%br
-		Страна:
-		= @movie.country
+		= "#{t 'movie.country'}: #{@movie.country}"		
 		%br
-		Премьера:
-		= @movie.premiere.strftime("%d.%m.%Y")
+		= "#{t 'movie.premiere'}: #{@movie.premiere.strftime("%d.%m.%Y")}"
 		%br
-		Продолжительность:
-		= @movie.duration.strftime("%H:%M")
+		= "#{t 'movie.duration'}: #{@movie.duration.strftime("%H:%M")}"		
 	= render "shared/footer"
 .right_column
 	.image

@@ -25,7 +25,7 @@
       %td
       %td
       %td= link_to e.title, edit_admin_note_path(e)
-      %td= truncate(e.body)
+      %td= raw(truncate(e.body))
       %td= link_to "Удалить", [:admin, e], :class => :del, :method => :delete
 
 

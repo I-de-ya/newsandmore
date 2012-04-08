@@ -17,6 +17,10 @@ module ApplicationHelper
   	"current" if current_page?(path)
 	end
 
+  def russian_upcase(string)
+    string.mb_chars.upcase.to_s
+  end
+
 	def sortable(url)
     html = %Q{
       <script type="text/javascript">

@@ -1,23 +1,23 @@
 .left_column
 
 	.about
-		%h3#dark_text О РЕСТОРАНЕ
+		%h3#dark_text= t(:about_restaurant)
 		%hr
-		= truncate(@about.body, :length => 100)
-		%p= link_to "Подробнее", section_path(@about)
+		= raw truncate(@about.body, :length => 270)
+		%p= link_to t(:more), section_path(@about)
 	.main_menu
 		%ul
-			%li#dark_text= link_to "ОСНОВНЫЕ БЛЮДА", section_path(@main_dishes)
+			%li#dark_text= link_to russian_upcase(@main_dishes.title), section_path(@main_dishes)
 			%hr
-			%li#dark_text= link_to "ЗАВТРАКИ", section_path(@breakfasts)
+			%li#dark_text= link_to russian_upcase(@breakfasts.title), section_path(@breakfasts)
 			%hr	
-			%li#dark_text= link_to "БАРНАЯ КАРТА", section_path(@bar_list)
+			%li#dark_text= link_to russian_upcase(@bar_list.title), section_path(@bar_list)
 			%hr	
-			%li#dark_text= link_to "БАНКЕТЫ", section_path(@banquet)
+			%li#dark_text= link_to t(:banquets), section_path(@banquet)
 			%hr
-			%li#dark_text= link_to "ДЕТСКОЕ МЕНЮ", section_path(@kids_menu)
+			%li#dark_text= link_to russian_upcase(@kids_menu.title), section_path(@kids_menu)
 	.news
-		%h3#dark_text НОВОСТИ & СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ
+		%h3#dark_text= t(:news_and_special)
 		%hr
 		%ul
 			-@posts.each do |post|
@@ -42,8 +42,8 @@
 	= render "shared/footer"
 .right_column
 	.block
-		= link_to 'Свернуть', '#', :class => 'expand_events' 
-		%h3#dark_text МЕРОПРИЯТИЯ
+		= link_to t(:roll_up), '#', :class => 'expand_events'
+		%h3#dark_text= t(:events)
 		
 		%hr
 		.events
@@ -52,8 +52,8 @@
 					%li= link_to event.title, event_path(event)
 			
 	.block
-		= link_to 'Развернуть', '#', :class => 'expand_sports'
-		%h3#dark_text СПОРТИВНЫЕ ТРАНСЛЯЦИИ
+		= link_to t(:expand), '#', :class => 'expand_sports'
+		%h3#dark_text= t(:sport_broadcasts)
 		
 		%hr
 		.sports
@@ -63,8 +63,8 @@
 
 
 	.block
-		= link_to 'Развернуть', '#', :class => 'expand_movies'
-		%h3#dark_text АФИША КИНО НА НЕДЕЛЮ
+		= link_to t(:expand), '#', :class => 'expand_movies'
+		%h3#dark_text= t(:afisha) 
 		%hr
 		.movies
 			- @movies.each do |movie|
@@ -79,16 +79,12 @@
 						.day_of_week
 							= movie.showtime.strftime("%A")
 							%p
-								= movie.description? ? (link_to "Подробнее", movie_path(movie)) : ""
+								= movie.description? ? (link_to t(:more), movie_path(movie)) : ""
 
 					.left
 						%h3#light_text= movie.description? ? (link_to movie.title, movie_path(movie)) : movie.title
 						%p
 							= movie.director
 							%br
-								= movie.origin
-								= ","
-								= movie.genre
-								= ","
-								= movie.year
+								= "#{movie.origin}, #{movie.genre}, #{movie.year}"
 				%hr

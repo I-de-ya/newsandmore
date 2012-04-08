@@ -3,19 +3,19 @@
 	%ul
 		%li
 			= image_tag("reservation.png")
-			= link_to "ON-LINE БРОНИРОВАНИЕ", section_path(Section.find_by_title("On-line бронирование"))
+			= link_to t(:on_line_reservation), section_path(Section.find_by_title("On-line бронирование"))
 			= image_tag("phone.png")
-			= link_to "КОНТАКТЫ: +7(495)605-17-84, +7(499)255-66-55", '#'
+			= link_to "#{t(:contacts)}: +7(495)605-17-84, +7(499)255-66-55", '#'
 		%li
 			= image_tag("adress.png")
-			= link_to "НОВИНСКИЙ БУЛЬВАР, Д.11", section_path(Section.find_by_title("Контакты и обратная связь"))
+			= link_to t(:novinskiy), section_path(Section.find_by_title("Контакты и обратная связь"))
 		%li
 			= image_tag("contacts.png")
-			= link_to "СХЕМА ПРОЕЗДА", section_path(Section.find_by_title("Контакты и обратная связь"))
+			= link_to t(:how_to_find), section_path(Section.find_by_title("Контакты и обратная связь"))
 		%li
 			= image_tag("email.png")
 			= link_to "INFO@NEWSANDMORE.RU", section_path(Section.find_by_title("Контакты и обратная связь"))
 		%li
 			= image_tag("recalls.png")
-			= link_to "ОТЗЫВЫ", section_path(Section.find_by_title("Отзывы"))
+			= link_to russian_upcase(t(:recalls)), section_path(Section.find_by_title("Отзывы"))
 	%hr

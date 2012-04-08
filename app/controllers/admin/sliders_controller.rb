@@ -62,7 +62,7 @@ class Admin::SlidersController < Admin::ApplicationController
 
     respond_to do |format|
       if @slider.save
-        format.html { redirect_to edit_admin_slider_path(@slider), notice: 'Слайдер успешно создан.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:sliders] : [:edit,:admin,@slider]), notice: 'Слайдер успешно создан.' }
         format.json { render json: @slider, status: :created, location: @slider }
       else
         format.html { render action: "new" }
@@ -78,7 +78,7 @@ class Admin::SlidersController < Admin::ApplicationController
 
     respond_to do |format|
       if @slider.update_attributes(params[:slider])
-        format.html { redirect_to edit_admin_slider_path(@slider), notice: 'Слайдер успешно обновлен.' }
+        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:sliders] : [:edit,:admin,@slider]), notice: 'Слайдер успешно обновлен.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

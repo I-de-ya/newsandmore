@@ -2,7 +2,7 @@
   .logo_index= image_tag("logo_index.png")
   .logo_text= image_tag("logo_text.png")
   %hr
-  Мы открыты c 7:30 утра до 23:00 и далее до последнего посетителя
+  =t(:work_hours_info)
   .locale
     = link_to image_tag('russian.png'), url_for(:locale => 'ru')
     = link_to image_tag('english.png'), url_for(:locale => 'en')

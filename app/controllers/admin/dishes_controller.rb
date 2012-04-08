@@ -73,7 +73,6 @@ class Admin::DishesController < Admin::ApplicationController
     #render :inline => "<%= debug params[:dish] %>"
     @dish = Dish.find(params[:id])
 
-
       if @dish.update_attributes(params[:dish])
         redirect_to (params[:commit] == "Сохранить" ? [:admin,@dish.dish_category.section,@dish.dish_category,:dishes] : [:edit,:admin,@dish.dish_category.section,@dish.dish_category,@dish]), notice: 'Блюдо успешно обновлено.'
 

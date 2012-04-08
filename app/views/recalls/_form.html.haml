@@ -1,29 +1,32 @@
 %h3#dark_text
-  = "Отзывы +#{@positive_recalls} / -#{@negative_recalls}"
+  = "#{t(:recalls)} +#{@positive_recalls} / -#{@negative_recalls}"
 %hr
 = form_for @recall do |f|
 
   %table
     %tr
-      %td#light_text= f.label :name, "Имя*"
+      %td#light_text
+        = f.label :name
+        *
       %td.input= f.text_field :name
     %tr
-      %td#light_text= f.label :email, "E-mail"
+      %td#light_text= f.label :email
       %td.input= f.email_field :email
     %tr
       %td
       %td
         = f.radio_button 'positiveness', 'true' 
-        Положительный
+        = t(:positive)
         = f.radio_button 'positiveness', 'false'
-        Отрицательный
+        = t(:negative)
     %tr
-      %td#light_text= f.label :body, "Ваш отзыв*"
+      %td#light_text
+        = f.label :body
+        *
       %td= f.text_area :body, :rows => 5
   .actions
-    = f.submit 'Отправить сообщение'
+    = f.submit t(:send_message)
   - if @recall.errors.any?
-    #red * Поля обязательные к заполнению
+    #red= "* #{t(:required_fields)}"
   - else
-    #light * Поля обязательные к заполнению
-
+    #light= "* #{t(:required_fields)}"

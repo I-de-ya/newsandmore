@@ -1,44 +1,53 @@
 = form_for @reservation do |f|
 
   .right_form_part
-    #light_text= f.label :comment, "Ваши пожелания"
+    #light_text= f.label :comment
     %p= f.text_area :comment, :rows => 7
     .actions
-      = f.submit "Забронировать столик"
+      = f.submit t(:reserve_table)
 
   .left_form_part
     %table
       %tr
-        %td#light_text Ресторан
+        %td#light_text= t(:restaurant)
         %td#dark_text News&More
       %tr
-        %td#light_text= f.label :firstname, "Имя*"
+        %td#light_text
+          = f.label :firstname
+          *
         %td= f.text_field :firstname      
       %tr
-        %td#light_text= f.label :lastname, "Фамилия*"       
+        %td#light_text
+          = f.label :lastname
+          *
         %td= f.text_field :lastname
       %tr
-        %td#light_text= f.label :phone, "Телефон*"  
+        %td#light_text
+          = f.label :phone
+          *
         %td= f.text_field :phone      
       %tr
-        %td#light_text= f.label :email, "Почта"
+        %td#light_text= f.label :email
         %td= f.email_field :email 
       %tr
-        %td#light_text= f.label :date_and_time, "Дата*"        
+        %td#light_text= f.label :date_and_time, "#{t(:reserve_date)}*"
         %td= f.date_select :date_and_time  
       %tr
-        %td#light_text= f.label :date_and_time, "Время*" 
+        %td#light_text= f.label :date_and_time, "#{t(:reserve_time)}*"
         %td= f.time_select :date_and_time
       %tr
-        %td#light_text= f.label :persons, "Персон*" 
+        %td#light_text
+          = f.label :persons
+          *
         %td= f.select :persons, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]]
       %tr
-        %td#light_text= f.label :smoke, "Курящие"
-        %td= f.select :smoke, [["Курим",true], ["Не курим",false]]
+        %td#light_text
+          = f.label :smoke
+        %td= f.select :smoke, [[t(:smoke),true], [t(:dont_smoke),false]]
       %tr
-        %td#light_text= f.label :hall, "Зал"
-        %td= f.select :hall, [["Зал 1",0], ["Зал 2",1], ["Зал 3",2]]
+        %td#light_text= f.label :hall
+        %td= f.select :hall, [[t(:hall_1),0], [t(:hall_2),1], [t(:hall_3),2]]
     - if @reservation.errors.any?
-      #red * Поля обязательные к заполнению
+      #red= "* #{t(:required_fields)}"
     - else
-      #light * Поля обязательные к заполнению
+      #light= "* #{t(:required_fields)}"

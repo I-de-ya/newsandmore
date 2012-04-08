@@ -1,12 +1,12 @@
 .left_column
 	.content
-		%h3#dark_text МЕРОПРИЯТИЯ ФОТОГАЛЕРЕЯ
+		%h3#dark_text= t(:events_gallery)
 		%hr
 		= render "layouts/menu"
 		%p
 			#dark_text= @event.date.strftime("%d/%m/%Y")
 			#light_text= @event.title
-			= @event.body
+			= raw(@event.body)
 	= render "shared/footer"
 .right_column
 	.image

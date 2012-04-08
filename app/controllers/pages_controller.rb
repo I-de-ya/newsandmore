@@ -20,6 +20,8 @@ class PagesController < ApplicationController
 		@kids_menu = Section.find_by_title("Детское меню")
 	end
 
+private
+
 =begin
 	def about
 		@text = Text.find_by_title("Концепция и интерьер")

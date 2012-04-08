@@ -5,12 +5,29 @@
     - else
       Редактирование мероприятия
   %p= link_to "Назад", [:admin, :events]
-      
+
+= render "admin/shared/globalize_switcher"
 = form_for [:admin, @event] do |f|
-  %table
+  %table#russian_table
     %tr
       %th= f.label :title
       %td= f.text_field :title
+    %tr
+      %td{:colspan => "2"}
+        = f.label :body
+        %br
+        = f.text_area :body
+  = f.globalize_fields_for :en do |g|
+    %table#english_table
+      %tr
+        %th= g.label :title
+        %td= g.text_field :title
+      %tr
+        %td{:colspan => "2"}
+          = g.label :body
+          %br
+          = g.text_area :body
+  %table
     %tr
       %th= f.label :date
       %td= f.datetime_select :date
@@ -27,11 +44,7 @@
       %th{:colspan => 2}
         = f.check_box :visible
         = f.label :visible
-    %tr
-      %td{:colspan => "2"}
-        = f.label :body
-        %br
-        = f.text_area :body
+
       
   .actions
     = f.submit "Сохранить"

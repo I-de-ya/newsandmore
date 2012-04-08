@@ -1,32 +1,32 @@
 .left_column
   .content
-    %h3#dark_text О РЕСТОРАНЕ
+    %h3#dark_text= t(:about_restaurant)
     %hr
     = render 'layouts/menu'
-    - if @section.title == "On-line бронирование"
+    - if @section.title == "On-line бронирование" || @section.title == "On-line reservation"
     - else
       = raw(@section.body)
     
-    - if @section.title == "On-line бронирование"
+    - if @section.title == "On-line бронирование" || @section.title == "On-line reservation"
       - if notice == nil
         = raw(@section.body)
         = render 'reservations/form'
       - else
         %p= raw(@text_thanks.body)
-    - elsif @section.title == "Отзывы"
+    - elsif @section.title == "Отзывы" || @section.title == "Recalls"
       - @recalls.each do |recall|
         %p
           #dark_text= recall.created_at.strftime("%d/%m/%Y")
           %hr
           #light_text= recall.name
-          =recall.body
-    - elsif @section.title == "Контакты и обратная связь"
+          = recall.body
+    - elsif @section.title == "Контакты и обратная связь" || @section.title == "Contacts and feedback"
       <iframe width="250" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ru/maps?hl=ru&amp;q=%D0%BD%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80+11&amp;ie=UTF8&amp;hq=&amp;hnear=%D0%9D%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB.,+11,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&amp;ll=55.753215,37.582248&amp;spn=0.007028,0.021136&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small></small>
     - elsif @section.dish_categories != []
 
       - @section.dish_categories.visible.each do |category|
 
-        = link_to 'Свернуть', '#', :class => 'expand_dish' 
+        = link_to t(:roll_up), '#', :class => 'expand_dish' 
         
         %h4= category.name
         %hr
@@ -41,7 +41,7 @@
                 %tr
                   %td=type.title
                   %td.point
-                  %td.last= type.price.to_s + " руб."
+                  %td.last= type.price.to_s + t(:rub)
                                   
   = render "shared/footer"
 .right_column
@@ -56,11 +56,11 @@
             = image.title if image.image?
   
   .bottom
-    - if @section.title == "Отзывы"
+    - if @section.title == "Отзывы" || @section.title == "Recalls"
       = render 'recalls/form'
-    - elsif @section.title == "Контакты и обратная связь"
+    - elsif @section.title == "Контакты и обратная связь" || @section.title == "Contacts and feedback"
       = render 'messages/form'
     - else
-      %h3#dark_text Информация для проведения банкетов
+      %h3#dark_text= @text_banquets.title
       %hr
       = raw(@text_banquets.body)

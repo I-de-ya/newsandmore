@@ -22,7 +22,15 @@ $(document).ready(function(){
             {
                $(this).text("Свернуть")
             }
-            else
+            else if ($(this).text()=="Roll up")
+            {
+               $(this).text("Expand")
+            }
+            else if ($(this).text()=="Expand")
+            {
+               $(this).text("Roll up")
+            }
+            else    
             {
                $(this).text("Развернуть")
             };
@@ -38,10 +46,18 @@ $(document).ready(function(){
             {
                $(this).text("Свернуть")
             }
-            else
+            else if ($(this).text()=="Roll up")
+            {
+               $(this).text("Expand")
+            }
+            else if ($(this).text()=="Expand")
+            {
+               $(this).text("Roll up")
+            }
+            else    
             {
                $(this).text("Развернуть")
-            }
+            };
     });
 });
 
@@ -53,10 +69,18 @@ $(document).ready(function(){
             {
                $(this).text("Свернуть")
             }
-            else
+            else if ($(this).text()=="Roll up")
+            {
+               $(this).text("Expand")
+            }
+            else if ($(this).text()=="Expand")
+            {
+               $(this).text("Roll up")
+            }
+            else    
             {
                $(this).text("Развернуть")
-            }
+            };
     });
 });
 
@@ -69,10 +93,18 @@ $(document).ready(function(){
             {
                $(this).text("Свернуть")
             }
-            else
+            else if ($(this).text()=="Roll up")
+            {
+               $(this).text("Expand")
+            }
+            else if ($(this).text()=="Expand")
+            {
+               $(this).text("Roll up")
+            }
+            else    
             {
                $(this).text("Развернуть")
-            }
+            };
     });
 });
 

@@ -12,7 +12,7 @@
 	.index_right
 		.enter_button
 			#new
-				%span= link_to 'Вход на сайт', main_path
+				%span= link_to t(:site_enter), main_path
 				= link_to image_tag("index_point.png"), main_path
 		
 		.slider_title
@@ -20,7 +20,7 @@
 				%li= image.title
 		.enter
 			%hr
-			= link_to "Вход на сайт", main_path
+			= link_to t(:site_enter), main_path
 			#info
-				Мы открыты c 7:30 утра до 23:00 и далее до последнего посетителя
+				= t(:work_hours_info)
 			%hr
