@@ -62,6 +62,10 @@ end
       get 'toggleshow', :on => :member
     end
 
+    resources :messages do
+      get 'toggleshow', :on => :member
+    end
+
     resources :recalls do
       get 'toggleshow', :on => :member
     end

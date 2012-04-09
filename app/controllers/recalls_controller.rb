@@ -15,7 +15,7 @@ class RecallsController < ApplicationController
 
   def create
     @recall = Recall.new(params[:recall])
-    @section = Section.where('title = ?', 'Отзывы').first
+    @section = Section.find_by_title('Отзывы')
     @sections = Section.visible
     @recalls = Recall.all
     respond_to do |format|

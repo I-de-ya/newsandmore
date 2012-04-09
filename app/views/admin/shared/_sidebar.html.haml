@@ -12,7 +12,7 @@
     %li{:class => "#{'active' if "recalls" == a}"}= link_to "Отзывы", [:admin,:recalls]
     %li{:class => "#{'active' if "images" == a}"}= link_to "Картинки", [:admin,:images]
     %li{:class => "#{'active' if "notes" == a}"}= link_to "Тексты", [:admin,:notes]
-
+    %li{:class => "#{'active' if "messages" == a}"}= link_to "Обратная связь", [:admin,:messages]
   -when :menu
     %li{:class => "#{'active' if "sections" == a}"}= link_to "Разделы", [:admin,:sections]
     - if params[:section_id]

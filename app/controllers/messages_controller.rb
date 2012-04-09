@@ -12,8 +12,9 @@ class MessagesController < ApplicationController
   end
 
   def create
+
     @message = Message.new(params[:message])
-    @section = Section.where('title = ?', 'Контакты и обратная связь').first
+    @section = Section.find_by_title('Контакты и обратная связь')
     @sections = Section.visible
 @text_banquets = Note.find_by_title("Информация для проведения банкетов")
     respond_to do |format|

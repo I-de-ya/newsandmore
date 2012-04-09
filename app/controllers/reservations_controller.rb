@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params[:reservation])
-    @section = Section.where('title = ?', 'On-line бронирование').first
+    @section = Section.find_by_title('On-line бронирование')
     @sections = Section.visible
     @text_banquets = Note.find_by_title("Информация для проведения банкетов")
     respond_to do |format|
