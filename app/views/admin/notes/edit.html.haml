@@ -5,9 +5,9 @@
     - else
       Редактирование текста
   %p= link_to "Назад", [:admin, :notes]
-      
+= render "admin/shared/globalize_switcher"
 = form_for [:admin, @note] do |f|
-  %table
+  %table#russian_table
     - if @note.title == "Информация для проведения банкетов" || @note.title == "Благодарность за бронирование"
     - else
       %tr
@@ -16,6 +16,14 @@
     %tr
       %th= f.label :body
       %td= f.text_area :body
+  = f.globalize_fields_for :en do |g|
+    %table#english_table
+      %tr
+        %th= g.label :title
+        %td= g.text_field :title
+      %tr
+        %th= g.label :body
+        %td= g.text_area :body
   .actions
     = f.submit "Сохранить"
     = f.submit "Применить"
