@@ -80,3 +80,67 @@ ru:
         name: "Имя"
         body: "Ваш отзыв"
         email: "E-mail"
+        visible: "Показывать на сайте"
+      post:
+        title: "Заголовок"
+        image: "Картинка"
+        image_title: "Подпись для картинки"
+        visible: "Показывать на сайте"
+        body: "Текст"
+      movie:
+        title: "Название"
+        genre: "Жанр"
+        description: "Описание"
+        director: "Режиссер"
+        original_title: "Оригинальное название"
+        starring: "В ролях"
+        country: "Страна"
+        premiere: "Премьера"
+        duration: "Продолжительность"
+        year: "Год"
+        image: "Картинка"
+        image_title: "Подпись для картинки"
+        showtime: "Время показа"
+        visible: "Показывать на сайте"
+      event:
+        title: "Название"
+        body: "Описание"
+        date: "Дата мероприятия"
+        image: "Картинка"
+        image_title: "Подпись для картинки"
+        visible: "Показывать на сайте"
+      sport:
+        title: "Наименование"
+        image: "Картинка"
+        image_title: "Подпись для картинки"
+        visible: "Показывать на сайте"
+      broadcast:
+        title: "Наименование"
+        showtime: "Время показа"
+        visible: "Показывать на сайте"
+      slider:
+        title: "Подпись к картинке"
+        visible: "Показывать на сайте"
+        slider_image: "Картинка"
+        position: "Позиция"
+      image:
+        title: "Подпись к картинке"
+        image: "Картинка"
+        visible: "Показывать на сайте"
+      note:
+        title: "Заголовок"
+        body: "Текст"
+      section:
+        title: "Название"
+        body: "Текст"
+        visible: "Показывать на сайте"
+      dish_category:
+        name: "Название"
+        visible: "Показывать на сайте"
+      dish:
+        name: "Название"
+        description: "Описание"
+        visible: "Показывать на сайте"
+      dish_type:
+        title: "Порция"
+        price: "Цена"

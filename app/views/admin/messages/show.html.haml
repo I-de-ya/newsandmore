@@ -1,0 +1,11 @@
+- content_for :page_header do
+  %h1
+    Просмотр сообщения
+      
+%table
+  %tr
+    %th Имя
+    %td= @message.name
+  %tr
+    %th Сообщение
+    %td= @message.body
