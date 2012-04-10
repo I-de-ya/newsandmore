@@ -4,7 +4,7 @@
       Добавить блюдо
     - else
       Редактировать блюдо
-= render "admin/shared/globalize_switcher"
+
 = form_for [:admin,:section,:dish_category,@dish] do |f|
   -if @dish.errors.any?
     #error_explanation
@@ -12,14 +12,7 @@
       %ul
         - @dish.errors.full_messages.each do |msg|
           %li= msg  
-  %table
-    %thead
-      %tr.lang
-        %th Язык/lang
-        %td
-          = link_to "Русский", nil, :class => "russian_globalize selected"
-          | 
-          = link_to "English", nil, :class => "english_globalize"
+  = render "admin/shared/globalize_switcher"
   %table#russian_table
     %tr
       %th= f.label :name

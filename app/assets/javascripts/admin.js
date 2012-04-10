@@ -12,12 +12,27 @@ function remove_fields(link) {
 
 $(document).ready(function(){	
 	    $(".russian_globalize").click(function(){
-	        $("#russian_table").show();
-	        $("#english_table").hide();
+        	if ($(this).hasClass('selected'))
+          {}
+          else
+          {
+		          $(this).toggleClass("selected")
+			        $(".english_globalize.selected").toggleClass("selected")
+			        $("#russian_table").show();
+			        $("#english_table").hide();
+          };
 	    });
+
 	    $(".english_globalize").click(function(){
-	        $("#english_table").show();
-	        $("#russian_table").hide();
+        	if ($(this).hasClass('selected'))
+          {}
+          else
+          {
+					    $(this).toggleClass("selected")
+				      $(".russian_globalize.selected").toggleClass("selected")
+				      $("#english_table").show();
+				      $("#russian_table").hide();
+          };
 	    });
 	 $("#english_table").hide();
 });

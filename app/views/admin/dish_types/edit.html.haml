@@ -19,11 +19,18 @@
       %h2= "#{pluralize(@dish_type.errors.count, "error")} prohibited this dish_type from being saved:"
       %ul
         - @dish_type.errors.full_messages.each do |msg|
-          %li= msg  
-  %table
+          %li= msg
+  = render "admin/shared/globalize_switcher"
+  %table#russian_table
     %tr
       %th= f.label :title
       %td= f.text_field :title
+  = f.globalize_fields_for :en do |g|
+    %table#english_table
+      %tr
+        %th= g.label :title
+        %td= g.text_field :title
+  %table
     %tr
       %th= f.label :price
       %td= f.text_field :price

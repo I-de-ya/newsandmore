@@ -1,9 +1,9 @@
 - content_for :page_header do
   %h1
     - if @message.new_record?
-      Добавить отзыв
+      Добавить сообщение
     - else
-      Редактирование отзыва
+      Редактирование сообщения
       
 = form_for [:admin,@message] do |f|
   %table

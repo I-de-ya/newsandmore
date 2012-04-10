@@ -1,9 +1,9 @@
 - content_for :page_header do
-  %h1 Отзывы
+  %h1 Обратная связь
   %p
     = link_to "Добавить сообщение", new_admin_message_path
 - if @messages.empty?
-  %h2 Пока нет ни одного отзыва.
+  %h2 Пока нет ни одного сообщения.
   %p
     Хотите
     = link_to "добавить?", new_admin_note_path
@@ -16,12 +16,16 @@
       %col
       %col.w1
     %tr
+      %th 
+      %th       
       %th Автор
-      %th Отправлен
+      %th Отправлено
       %th 
 
     - @messages.each do |r|
       %tr
+        %td
+        %td        
         %td= link_to r.name, edit_admin_message_path(r)
         %td= r.created_at.strftime("%d.%m.%Y/%H:%M")
         %td= link_to "Удалить", [:admin,r], :class => :del, :method => :delete

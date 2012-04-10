@@ -11,13 +11,13 @@
   %table#russian_table
     %tr
       %th= f.label :title
-      %td= f.text_field :title  
+      %td= f.text_field :title
   = f.globalize_fields_for :en do |g|
     %table#english_table
       %tr
         %th= g.label :title
-        %td= g.text_field :title  
-  %table  
+        %td= g.text_field :title
+  %table
     %tr
       %th{:colspan => 2}
         = f.select(:sport_id, Sport.all.collect {|p| [ p.title, p.id ] }, {:include_blank => false})

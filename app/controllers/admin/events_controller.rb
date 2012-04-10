@@ -4,11 +4,11 @@ class Admin::EventsController < Admin::ApplicationController
     @event = Event.find(params[:id])
     @event.toggle(:visible)
     @event.save
-    redirect_to :back, notice: 'Событие обновлено.'
+    redirect_to :back, notice: 'Мероприятие обновлено.'
   end
 
   def index
-    @page_title = "Cобытия"
+    @page_title = "Мероприятия"
     @events = Event.all
   end
 
@@ -18,6 +18,7 @@ class Admin::EventsController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование мероприятия"
     @event = Event.find(params[:id])
   end
 
@@ -60,7 +61,7 @@ class Admin::EventsController < Admin::ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to [:admin,:events], notice: "Событие удалено" }
+      format.html { redirect_to [:admin,:events], notice: "Мероприятие удалено" }
       format.json { head :no_content }
     end
   end

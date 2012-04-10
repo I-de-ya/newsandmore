@@ -1,2 +1,8 @@
-= button_tag "Русский", :class => "russian_globalize"
-= button_tag "English", :class => "english_globalize"
+%table
+  %thead
+    %tr.lang
+      %th Язык/lang
+      %td
+        = link_to "Русский", "#", :class => "russian_globalize selected"
+        | 
+        = link_to "English", "#", :class => "english_globalize"

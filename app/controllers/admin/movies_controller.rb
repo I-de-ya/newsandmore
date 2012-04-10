@@ -8,7 +8,7 @@ class Admin::MoviesController < Admin::ApplicationController
   end
 
   def index
-    @page_title = "Cобытия"
+    @page_title = "Фильмы"
     @movies = Movie.all
   end
 
@@ -18,6 +18,7 @@ class Admin::MoviesController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование фильма"    
     @movie = Movie.find(params[:id])
   end
 

@@ -3,6 +3,7 @@ class Admin::SectionsController < Admin::ApplicationController
     # GET /sections
     # GET /sections.json
   def index
+    @page_title = "Разделы"
     @sections = Section.order(:position)
 
     respond_to do |format|
@@ -38,6 +39,7 @@ class Admin::SectionsController < Admin::ApplicationController
 
   # GET /sections/1/edit
   def edit
+    @page_title = "Редактирование раздела"
     @section = Section.find(params[:id])
   end
 

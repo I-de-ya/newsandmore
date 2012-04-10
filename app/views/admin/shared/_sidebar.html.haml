@@ -4,11 +4,11 @@
   -when :materials
     %li{:class => "#{'active' if "posts" == a}"}= link_to "Новости", [:admin,:posts]
     %li{:class => "#{'active' if "movies" == a}"}= link_to "Афиша кино", [:admin,:movies]
-    %li{:class => "#{'active' if "reservations" == a}"}= link_to "Резервы", [:admin,:reservations]
+    %li{:class => "#{'active' if "reservations" == a}"}= link_to "Бронирование", [:admin,:reservations]
     %li{:class => "#{'active' if "events" == a}"}= link_to "Мероприятия", [:admin,:events]
     %li{:class => "#{'active' if "sports" == a}"}= link_to "Виды спорта", [:admin,:sports]    
     %li{:class => "#{'active' if "broadcasts" == a}"}= link_to "Трансляции", [:admin,:broadcasts]
-    %li{:class => "#{'active' if "sliders" == a}"}= link_to "Слайдеры (на мэйн)", [:admin,:sliders]
+    %li{:class => "#{'active' if "sliders" == a}"}= link_to "Слайдер (на мэйн)", [:admin,:sliders]
     %li{:class => "#{'active' if "recalls" == a}"}= link_to "Отзывы", [:admin,:recalls]
     %li{:class => "#{'active' if "images" == a}"}= link_to "Картинки", [:admin,:images]
     %li{:class => "#{'active' if "notes" == a}"}= link_to "Тексты", [:admin,:notes]

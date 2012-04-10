@@ -3,6 +3,7 @@ class Admin::SlidersController < Admin::ApplicationController
   # GET /sliders
   # GET /sliders.json
   def index
+    @page_title = "Слайдер"
     @sliders = Slider.order("position ASC")
 
     respond_to do |format|
@@ -52,6 +53,7 @@ class Admin::SlidersController < Admin::ApplicationController
 
   # GET /sliders/1/edit
   def edit
+    @page_title = "Редактирование картинок на слайдер"
     @slider = Slider.find(params[:id])
   end
 

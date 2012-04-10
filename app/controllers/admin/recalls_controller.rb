@@ -3,6 +3,7 @@ class Admin::RecallsController < Admin::ApplicationController
   # GET /recalls
   # GET /recalls.json
   def index
+    @page_title = "Отзывы"    
     @recalls = Recall.order("created_at ASC")
 
     respond_to do |format|
@@ -24,6 +25,7 @@ class Admin::RecallsController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование отзыва"  
     @recall = Recall.find(params[:id])
   end
 

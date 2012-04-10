@@ -19,6 +19,7 @@ class Admin::NotesController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование текста"
     @note = Note.find(params[:id])
   end
 

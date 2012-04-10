@@ -3,6 +3,7 @@ class Admin::DishTypesController < Admin::ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
+    @page_title = "Типы блюда"
     if params[:dish_id]
       @dish_types = DishType.where(:dish_id => params[:dish_id]).order("visible DESC, position")
     else
@@ -51,6 +52,7 @@ class Admin::DishTypesController < Admin::ApplicationController
 
   # GET /dishes/1/edit
   def edit
+    @page_title = "Редактирование типа блюда"
     @dish_type = DishType.find(params[:id])
   end
 

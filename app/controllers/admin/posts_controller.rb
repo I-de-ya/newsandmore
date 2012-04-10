@@ -32,6 +32,7 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование новости"
     @post = Post.find(params[:id])
   end
 

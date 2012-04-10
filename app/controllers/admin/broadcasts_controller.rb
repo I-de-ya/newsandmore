@@ -32,6 +32,7 @@ class Admin::BroadcastsController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование трансляции"    
     @broadcast = Broadcast.find(params[:id])
   end
 

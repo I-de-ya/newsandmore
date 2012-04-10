@@ -32,6 +32,7 @@ class Admin::ImagesController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование картинки"
     @image = Image.find(params[:id])
   end
 

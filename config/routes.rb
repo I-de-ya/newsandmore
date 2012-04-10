@@ -3,42 +3,18 @@ Newsandmore::Application.routes.draw do
   mount ImperaviRails::Engine => "/imperavi"
 
 scope "(:locale)", :locale => /ru|en/ do
-    
-    resources :notes
 
     resources :sections
-
-    resources :dish_types
-
-    resources :images
-
-    resources :sliders
-
     devise_for :users
-
     resources :sports
-
-    resources :broadcasts
-
     resources :posts
-
     resources :movies
-
     resources :messages
-
-    
     resources :reservations
     resources :recalls
     resources :events
-    resources :dishes
-    resources :dish_categories
 
 end
-
-  
-
-
-
 
   namespace :admin do
 
@@ -134,8 +110,11 @@ end
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  
   match '/index' => 'pages#index'
   match '/main' => 'pages#main'
+
+=begin  
   match '/about' => 'pages#about'
   match '/admin_page' => 'pages#admin'
   
@@ -147,6 +126,8 @@ end
   match '/banquet' => 'pages#banquet'
   match '/reservation' => 'reservations#new'
   match '/contacts' => 'messages#new'
+=end
+
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

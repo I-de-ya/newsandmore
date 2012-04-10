@@ -8,7 +8,7 @@ class Admin::MessagesController < Admin::ApplicationController
   end
 
   def index
-    @page_title = "Сообщения"
+    @page_title = "Обратная связь"
     @messages = Message.all
   end
 
@@ -18,6 +18,7 @@ class Admin::MessagesController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование сообщения"    
     @message = Message.find(params[:id])
   end
 

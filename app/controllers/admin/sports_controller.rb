@@ -18,6 +18,7 @@ class Admin::SportsController < Admin::ApplicationController
   end
 
   def edit
+    @page_title = "Редактирование вида спорта"
     @sport = Sport.find(params[:id])
   end
 

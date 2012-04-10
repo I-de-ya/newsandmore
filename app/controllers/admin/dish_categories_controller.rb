@@ -3,6 +3,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+    @page_title = "Категории блюд"
     @categories = Section.find(params[:section_id]).dish_categories
 
     respond_to do |format|
@@ -41,6 +42,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
 
   # GET /categories/1/edit
   def edit
+    @page_title = "Редактирование категории блюд"
     @category = DishCategory.find(params[:id])
     @section = Section.find(params[:section_id])
   end
