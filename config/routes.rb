@@ -1,5 +1,7 @@
 Newsandmore::Application.routes.draw do
 
+  mount ImperaviRails::Engine => "/imperavi"
+
 scope "(:locale)", :locale => /ru|en/ do
     
     resources :notes

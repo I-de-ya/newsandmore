@@ -4,6 +4,8 @@
     %title= @page_title || "Без Заголовка"
     = stylesheet_link_tag "admin"
     = javascript_include_tag "admin"
+    = include_imperavi_stylesheet
+    = include_imperavi_javascript
     = yield :js
     = csrf_meta_tag
   %body

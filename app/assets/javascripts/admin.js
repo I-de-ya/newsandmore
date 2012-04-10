@@ -4,7 +4,6 @@
 //= require swfobject.js
 //= require uploadify/jquery.uploadify.min.js
 //= require jquery.ui.nestedSortable.js
-//= require redactor/js/redactor/redactor.js
 
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
