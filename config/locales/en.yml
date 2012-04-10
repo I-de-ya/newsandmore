@@ -51,7 +51,12 @@ en:
     country: "Country"
     premiere: "Premiere"
     duration: "Duration"
-
+  
+  time:
+    formats:
+      main_page: "%d %B / %H:%M"
+      week_day: "%A"
+  
   activerecord:
     attributes:
       message:

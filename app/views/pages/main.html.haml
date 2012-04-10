@@ -74,10 +74,10 @@
 							= movie.description? ? (link_to (image_tag movie.image_url(:small_movie)), movie_path(movie)) : (image_tag movie.image_url(:small_movie))
 						- else
 							= image_tag("empty_image(60x60).png")
-						= movie.showtime.strftime("%d %B / %H:%M")
+						= l movie.showtime, :format => :main_page
 						%br
 						.day_of_week
-							= movie.showtime.strftime("%A")
+							= l movie.showtime, :format => :week_day
 							%p
 								= movie.description? ? (link_to t(:more), movie_path(movie)) : ""
 

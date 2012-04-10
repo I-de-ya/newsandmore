@@ -56,6 +56,11 @@ ru:
     premiere: "Премьера"
     duration: "Продолжительность"
 
+  time:
+    formats:
+      main_page: "%d %B / %H:%M"
+      week_day: "%A"
+
   activerecord:
     attributes:
       message:
