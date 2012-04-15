@@ -1,12 +1,12 @@
-!!!
-%html
-	%head
-		%title= "News&More|#{@title}"
-
-		= stylesheet_link_tag    "application", :media => "all"
-		= javascript_include_tag "application"
-		= csrf_meta_tags
-		
-	%body
-		= render 'layouts/header'
-		= yield
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en"}
+  %head
+    %title= "News&More | #{@title}"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags    
+  %body{:class => ["c-#{controller.controller_name}","a-#{controller.action_name}"]}
+    = render 'layouts/header_in'
+    .wr
+      = yield
+    = render 'shared/footer'

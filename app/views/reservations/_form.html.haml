@@ -1,53 +1,54 @@
-= form_for @reservation do |f|
+= form_for @reservation, html: {class: "fform freservation"} do |f|
 
-  .right_form_part
-    #light_text= f.label :comment
-    %p= f.text_area :comment, :rows => 7
-    .actions
-      = f.submit t(:reserve_table)
+    
 
-  .left_form_part
-    %table
-      %tr
-        %td#light_text= t(:restaurant)
-        %td#dark_text News&More
-      %tr
-        %td#light_text
-          = f.label :firstname
-          *
-        %td= f.text_field :firstname      
-      %tr
-        %td#light_text
-          = f.label :lastname
-          *
-        %td= f.text_field :lastname
-      %tr
-        %td#light_text
-          = f.label :phone
-          *
-        %td= f.text_field :phone      
-      %tr
-        %td#light_text= f.label :email
-        %td= f.email_field :email 
-      %tr
-        %td#light_text= f.label :date_and_time, "#{t(:reserve_date)}*"
-        %td= f.date_select :date_and_time  
-      %tr
-        %td#light_text= f.label :date_and_time, "#{t(:reserve_time)}*"
-        %td= f.time_select :date_and_time
-      %tr
-        %td#light_text
-          = f.label :persons
-          *
-        %td= f.select :persons, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]]
-      %tr
-        %td#light_text
-          = f.label :smoke
-        %td= f.select :smoke, [[t(:smoke),true], [t(:dont_smoke),false]]
-      %tr
-        %td#light_text= f.label :hall
-        %td= f.select :hall, [[t(:hall_1),0], [t(:hall_2),1], [t(:hall_3),2]]
-    - if @reservation.errors.any?
-      #red= "* #{t(:required_fields)}"
-    - else
-      #light= "* #{t(:required_fields)}"
+
+  %table
+    %tr
+      %th= label_tag t(:restaurant)
+      %td.n-and-m News&More
+      %th.last= f.label :comment
+    %tr
+      %th
+        = f.label :firstname, class: :req
+      %td= f.text_field :firstname
+      %td.last.vat{rowspan: 10}
+        .wr-txta= f.text_area :comment, :rows => 5
+        
+        %p.rememb
+          = label_tag "Запомнить меня"
+          = check_box_tag :remember_me
+        
+        - if @reservation.errors.any?
+          #red= "* #{t(:required_fields)}"
+        - else
+          #light= "* #{t(:required_fields)}"
+        .actions= f.submit t(:reserve_table)
+    %tr
+      %th
+        = f.label :lastname, class: :req
+      %td= f.text_field :lastname
+    %tr
+      %th
+        = f.label :phone, class: :req
+      %td= f.text_field :phone      
+    %tr
+      %th= f.label :email
+      %td= f.text_field :email 
+    %tr
+      %th= f.label :date_and_time, "#{t(:reserve_date)}*"
+      %td= f.date_select :date_and_time  
+    %tr
+      %th= f.label :date_and_time, "#{t(:reserve_time)}*"
+      %td= f.time_select :date_and_time
+    %tr
+      %th
+        = f.label :persons, class: :req
+      %td= f.select :persons, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]]
+    %tr
+      %th
+        = f.label :smoke
+      %td= f.select :smoke, [[t(:smoke),true], [t(:dont_smoke),false]], :prompt => "не важно"
+    %tr
+      %th= f.label :hall
+      %td= f.select :hall, [[t(:hall_1),0], [t(:hall_2),1], [t(:hall_3),2]], :prompt => "не важно"

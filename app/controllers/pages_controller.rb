@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 	def index
 		@title = "Главная"
 		@sliders = Slider.all
+		render :layout => "appmain"
 	end
 
 	def main

@@ -1,0 +1,15 @@
+.i-category
+  .icat-head
+    = link_to t(:roll_up), '#', :class => 'expand_dish' 
+    %h4= category.name
+    
+  .dish
+    - category.dishes.visible.each do |dish|
+      %h5= dish.name
+      .desc= raw(dish.description)
+      - dish.dish_types.visible.each do |type|
+        %table.dish-type
+          %tr
+            %td=type.title
+            %td.point= image_tag asset_path "px1tr.png"
+            %td.last= raw "#{type.price}#{image_tag(asset_path "rur.png")}" 

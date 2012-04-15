@@ -1,90 +1,84 @@
 .left_column
 
-	.about
-		%h3#dark_text= t(:about_restaurant)
-		%hr
-		= raw truncate(@about.body, :length => 270)
-		%p= link_to t(:more), section_path(@about)
-	.main_menu
-		%ul
-			%li#dark_text= link_to russian_upcase(@main_dishes.title), section_path(@main_dishes)
-			%hr
-			%li#dark_text= link_to russian_upcase(@breakfasts.title), section_path(@breakfasts)
-			%hr	
-			%li#dark_text= link_to russian_upcase(@bar_list.title), section_path(@bar_list)
-			%hr	
-			%li#dark_text= link_to t(:banquets), section_path(@banquet)
-			%hr
-			%li#dark_text= link_to russian_upcase(@kids_menu.title), section_path(@kids_menu)
-	.news
-		%h3#dark_text= t(:news_and_special)
-		%hr
-		%ul
-			-@posts.each do |post|
-				%li
-					.post
-						- if post.image?
-							#post_image
-								#thumb= link_to image_tag('thumb.png'), post_path(post)
-								= link_to (image_tag post.image_url(:thumb)), post_path(post)
-						- else
-							#post_image
-								#thumb= link_to image_tag('thumb.png'), post_path(post)
-								= image_tag("empty_image(170x170).png")
-								
-						%br
-						#dark_text= link_to (post.created_at.nil? ? "-" : post.created_at.strftime("%d/%m/%Y") ), post_path(post)
-						%hr
-						#light_text
-							.title= link_to post.title, post_path(post)
-	#pagination
-		= paginate @posts
-	= render "shared/footer"
+  .about.r1-r2-r4
+    %h3.dark-text= t(:about_restaurant)
+    = raw truncate(@about.body, :length => 270)
+    %p= link_to t(:more), section_path(@about)
+  .main_menu.r1-r3
+    %ul
+      %li= link_to (@main_dishes.title), section_path(@main_dishes)
+      %li= link_to (@breakfasts.title), section_path(@breakfasts)
+      %li= link_to (@bar_list.title), section_path(@bar_list)
+      %li= link_to t(:banquets), section_path(@banquet)
+      %li= link_to (@kids_menu.title), section_path(@kids_menu)
+  .clear
+  .news.r1-r2
+    %h3.dark-text= t(:news_and_special)
+    .wr-scroll-styled
+      #scroll-styled
+        %table
+          %tr
+            -3.times do
+              -@posts.each do |post|
+                %td
+                  = link_to post_path(post), :class => :post do
+                    - if post.image?
+                      = image_tag post.image_url(:thumb), :class => :img
+                    - else
+                      = image_tag asset_path("empty_image(170x170).png"), :class => :img
+                    = image_tag asset_path('thumb.png'), :class => :thumb
+                  .date= link_to (post.created_at.nil? ? "-" : post.created_at.strftime("%d/%m/%Y") ), post_path(post)
+                  = link_to post.title*5, post_path(post), :class => :title
+      %a.next{:href => "#"}
+      %a.prev{:href => "#"}
+    .clear
+  = paginate @posts
+  .clear
+  
 .right_column
-	.block
-		= link_to t(:roll_up), '#', :class => 'expand_events'
-		%h3#dark_text= t(:events)
-		
-		%hr
-		.events
-			%ul
-				- @events.each do |event|
-					%li= link_to event.title, event_path(event)
-			
-	.block
-		= link_to t(:expand), '#', :class => 'expand_sports'
-		%h3#dark_text= t(:sport_broadcasts)
-		
-		%hr
-		.sports
-			%ul
-				- @sports.each do |sport|
-					%li= link_to sport.title, sport_path(sport)
+  .block.r2-r4
+    = link_to t(:roll_up), '#', :class => 'expand_events'
+    %h3.dark-text= t(:events)
+    
+    .events
+      %ul
+        - @events.each do |event|
+          %li= link_to event.title, event_path(event)
+      
+  .block.r1-r3
+    = link_to t(:expand), '#', :class => 'expand_sports'
+    %h3.dark-text= t(:sport_broadcasts)
+    .sports
+      %ul
+        - @sports.each do |sport|
+          %li= link_to sport.title, sport_path(sport)
 
 
-	.block
-		= link_to t(:expand), '#', :class => 'expand_movies'
-		%h3#dark_text= t(:afisha) 
-		%hr
-		.movies
-			- @movies.each do |movie|
-				.movie_main
-					.right
-						- if movie.image?
-							= movie.description? ? (link_to (image_tag movie.image_url(:small_movie)), movie_path(movie)) : (image_tag movie.image_url(:small_movie))
-						- else
-							= image_tag("empty_image(60x60).png")
-						= l movie.showtime, :format => :main_page
-						%br
-						.day_of_week
-							= l movie.showtime, :format => :week_day
-							%p
-								= movie.description? ? (link_to t(:more), movie_path(movie)) : ""
+  .block.r1-r3
+    = link_to t(:expand), '#', :class => 'expand_movies'
+    %h3.dark-text= t(:afisha) 
+    %ul.movies
+      - @movies.each do |movie|
+        %li.movie_main
+          %table
+            %tr
+              %td.left
+                %h3.light-text &laquo;#{movie.description? ? (link_to movie.title, movie_path(movie)) : movie.title}&raquo;
+                %p
+                  = movie.director
+                  %br
+                    = "#{movie.origin}, #{movie.genre}, #{movie.year}"
+              %td.center
+                = l movie.showtime, :format => :main_page
+                %br
+                = l movie.showtime, :format => :week_day
+                %br
+                = movie.description? ? (link_to t(:more), movie_path(movie)) : ""
+              %td.right
+                - if movie.image?
+                  = movie.description? ? (link_to (image_tag movie.image_url(:small_movie)), movie_path(movie)) : (image_tag movie.image_url(:small_movie))
+                - else
+                  = image_tag("empty_image(60x60).png")
 
-					.left
-						%h3#light_text= movie.description? ? (link_to movie.title, movie_path(movie)) : movie.title
-						%p
-							= movie.director
-							%br
-								= "#{movie.origin}, #{movie.genre}, #{movie.year}"
-				%hr
+
+.clear

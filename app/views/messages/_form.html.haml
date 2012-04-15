@@ -1,23 +1,25 @@
-%h3#dark_text= t(:feedback)
-%hr
-= form_for @message do |f|
+%h3.dark-text= t(:feedback)
+= form_for @message, html: {class: :fform} do |f|
   %table
     %tr
-      %td#light_text
-        = f.label :name
-        *
-      %td.input= f.text_field :name
+      %th
+        = f.label :name, class: :req
+      %td.input{colspan: 2}= f.text_field :name
     %tr
-      %td#light_text= f.label :email
-      %td.input= f.email_field :email
-    %tr
-      %td#light_text
-        = f.label :body
-        *
-      %td= f.text_area :body, :rows => 5
-  .actions
-    = f.submit t(:send_message)
-  - if @message.errors.any?
-    #red= "* #{t(:required_fields)}"
-  - else
-    #light= "* #{t(:required_fields)}"
+      %th= f.label :email
+      %td.input{colspan: 2}= f.email_field :email
+    %tr.txtarea
+      %th
+        = f.label :body, class: :req
+      %td{colspan: 2}
+        .wr-txta= f.text_area :body, :rows => 5
+    %tr.tr-actions
+      %th
+      %td.fz10
+        - if @message.errors.any?
+          #red.whs-nw= "*#{t(:required_fields)}"
+        - else
+          #light.whs-nw= "*#{t(:required_fields)}"
+      %td
+        .actions
+          = f.submit t(:send_message)

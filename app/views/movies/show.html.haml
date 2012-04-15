@@ -1,26 +1,28 @@
 .left_column
-	.content
-		%h3#dark_text= t(:afisha)
-		%hr
-		= render "layouts/menu"
-		%p
-			%h3#dark_text= @movie.title
-		#light_text= "#{@movie.origin}, #{@movie.genre}, #{@movie.year}"
-		%p= raw(@movie.description)
-		= "#{t 'movie.original_title'}: #{@movie.original_title}"
-		%br
-		= "#{t 'movie.director'}: #{@movie.director}"
-		%br
-		= "#{t 'movie.starring'}: #{@movie.starring}"
-		%br
-		= "#{t 'movie.country'}: #{@movie.country}"		
-		%br
-		= "#{t 'movie.premiere'}: #{@movie.premiere.strftime("%d.%m.%Y")}"
-		%br
-		= "#{t 'movie.duration'}: #{@movie.duration.strftime("%H:%M")}"		
-	= render "shared/footer"
+  .content.r1-r2-r4
+    %h3.dark-text= t(:afisha)
+    = render "layouts/menu"
+    .movie-i
+      %h5.date &laquo;#{@movie.title}&raquo;
+      %h4= "#{@movie.origin}, #{@movie.genre}, #{@movie.year}"
+      .text
+        %p
+          = raw(@movie.description)
+          %br
+          = "#{t 'movie.original_title'}: #{@movie.original_title}"
+          %br
+          = "#{t 'movie.director'}: #{@movie.director}"
+          %br
+          = "#{t 'movie.starring'}: #{@movie.starring}"
+          %br
+          = "#{t 'movie.country'}: #{@movie.country}"    
+          %br
+          = "#{t 'movie.premiere'}: #{@movie.premiere.strftime("%d.%m.%Y")}"
+          %br
+          = "#{t 'movie.duration'}: #{@movie.duration.strftime("%H:%M")}"    
+
 .right_column
-	.image
-		= @movie.image? ? (image_tag @movie.image_url) : image_tag("empty_image(415x300).png")
-		= @movie.image_title if (@movie.image_title? && @movie.image?)
-	= render "events/archive"
+  .image
+    = @movie.image? ? (image_tag @movie.image_url) : image_tag("empty_image(415x300).png")
+    = @movie.image_title if (@movie.image_title? && @movie.image?)
+  = render "events/archive"

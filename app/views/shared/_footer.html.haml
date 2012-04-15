@@ -1,9 +1,15 @@
-.footer
-  .logo_index= image_tag("logo_index.png")
-  .logo_text= image_tag("logo_text.png")
-  %hr
-  =t(:work_hours_info)
-  .locale
-    = link_to image_tag('russian.png'), url_for(:locale => 'ru')
-    = link_to image_tag('english.png'), url_for(:locale => 'en')
-  %hr
+.f-in
+  .f2-in
+    .logo-wr
+      = link_to image_tag(asset_path "logo_index.png"), root_path
+      = image_tag("logo_text.png")
+
+    .locale
+      %span= t(:work_hours_info)
+      = link_to image_tag('english.png'), url_for(:locale => 'en')
+      = link_to image_tag('russian.png'), url_for(:locale => 'ru')
+    
+  .links-bot
+    = link_to image_tag(asset_path "afisha.png")
+    = link_to nil, :class => :fb do
+      = image_tag(asset_path "fb.png")+content_tag(:span,"News&more")

@@ -1,10 +1,8 @@
 .left_column
-  .content
-    %h3#dark_text= t(:about_restaurant)
-    %hr
+  .content.r1-r2-r4
+    %h3.dark-text= t(:about_restaurant)
     = render 'layouts/menu'
-    - if @section.title == "On-line бронирование" || @section.title == "On-line reservation"
-    - else
+    - unless @section.title == "On-line бронирование" || @section.title == "On-line reservation"
       = raw(@section.body)
     
     - if @section.title == "On-line бронирование" || @section.title == "On-line reservation"
@@ -14,53 +12,35 @@
       - else
         %p= raw(@text_thanks.body)
     - elsif @section.title == "Отзывы" || @section.title == "Recalls"
-      - @recalls.each do |recall|
-        %p
-          #dark_text= recall.created_at.strftime("%d/%m/%Y")
-          %hr
-          #light_text= recall.name
-          = recall.body
+      = render :partial => "recall", :collection => @recalls
+
     - elsif @section.title == "Контакты и обратная связь" || @section.title == "Contacts and feedback"
-      <iframe width="250" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ru/maps?hl=ru&amp;q=%D0%BD%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80+11&amp;ie=UTF8&amp;hq=&amp;hnear=%D0%9D%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB.,+11,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&amp;ll=55.753215,37.582248&amp;spn=0.007028,0.021136&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small></small>
+      = render "contacts"
     - elsif @section.dish_categories != []
 
-      - @section.dish_categories.visible.each do |category|
+      = render :partial => "category", :collection => @section.dish_categories.visible
 
-        = link_to t(:roll_up), '#', :class => 'expand_dish' 
-        
-        %h4= category.name
-        %hr
-        .dish
-          - category.dishes.visible.each do |dish|
-            #light_text
-              = "#{dish.name}"
-            = raw(dish.description)
-            - dish.dish_types.visible.each do |type|
-              
-              %table
-                %tr
-                  %td=type.title
-                  %td.point
-                  %td.last= type.price.to_s + t(:rub)
-                                  
-  = render "shared/footer"
 .right_column
   .section_images
     - if @section.images.empty?
       = image_tag("empty_image(415x300).png")
     - else
-      %ul
-        - @section.images.each do |image|
-          %li
-            = image_tag image.image_url if image.image?
-            = image.title if image.image?
+      %table.section_images
+        %tr
+          - @section.images.each do |image|
+            - if image.image?
+              %td
+                = link_to image.image_url, :title => image.title do
+                  = image_tag image.image_url
+  %p.title-text Подпись
   
-  .bottom
+  .bottom.r2-r3
     - if @section.title == "Отзывы" || @section.title == "Recalls"
       = render 'recalls/form'
     - elsif @section.title == "Контакты и обратная связь" || @section.title == "Contacts and feedback"
       = render 'messages/form'
     - else
-      %h3#dark_text= @text_banquets.title
-      %hr
+      %h3.dark-text= @text_banquets.title
       = raw(@text_banquets.body)
+      
+.clear

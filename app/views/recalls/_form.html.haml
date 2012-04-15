@@ -1,32 +1,35 @@
-%h3#dark_text
+%h3.dark-text
   = "#{t(:recalls)} +#{@positive_recalls} / -#{@negative_recalls}"
-%hr
-= form_for @recall do |f|
+= form_for @recall, html: {:class => :fform} do |f|
 
   %table
     %tr
-      %td#light_text
-        = f.label :name
-        *
-      %td.input= f.text_field :name
+      %th
+        = f.label :name, :class => :req
+      %td.input{colspan: 2}= f.text_field :name
     %tr
-      %td#light_text= f.label :email
-      %td.input= f.email_field :email
-    %tr
-      %td
-      %td
+      %th= f.label :email
+      %td.input{colspan: 2}= f.text_field :email
+    %tr.rbuttons
+      %th
+      %td{colspan: 2}
         = f.radio_button 'positiveness', 'true' 
-        = t(:positive)
+        = f.label :positiveness_true, t(:positive)
+        &nbsp; &nbsp;
         = f.radio_button 'positiveness', 'false'
-        = t(:negative)
-    %tr
-      %td#light_text
-        = f.label :body
-        *
-      %td= f.text_area :body, :rows => 5
-  .actions
-    = f.submit t(:send_message)
-  - if @recall.errors.any?
-    #red= "* #{t(:required_fields)}"
-  - else
-    #light= "* #{t(:required_fields)}"
+        = f.label :positiveness_false, t(:negative)
+    %tr.txtarea
+      %th
+        = f.label :body, :class => :req
+      %td{colspan: 2}
+        .wr-txta= f.text_area :body, :rows => 5
+    %tr.tr-actions
+      %th
+      %td.tal.fz10
+        - if @recall.errors.any?
+          #red.whs-nw= "*#{t(:required_fields)}"
+        - else
+          #light.whs-nw= "*#{t(:required_fields)}"
+      %td.tar
+        .actions
+          = f.submit t(:send_message)

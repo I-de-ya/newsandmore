@@ -1,6 +1,5 @@
-.bottom
-	%h3#dark_text= t(:archive_of_events)
-	%hr
-	%ul
+.bottom.r1-r3
+	%h3.dark-text= t(:archive_of_events)
+	%ul.m-archive
 		- @archive.each do |event| 
 			%li= link_to event.title, event_path(event)

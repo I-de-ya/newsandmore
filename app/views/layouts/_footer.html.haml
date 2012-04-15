@@ -1,0 +1,9 @@
+.f
+  .left
+    = image_tag("logo_index.png")
+    .indexlocale
+      #{link_to image_tag('russian.png'), url_for(:locale => 'ru')}#{link_to image_tag('english.png'), url_for(:locale => 'en')}#{image_tag("logo_text.png")}
+  .enter
+    = link_to t(:site_enter), main_path
+    #info
+      = t(:work_hours_info)

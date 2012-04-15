@@ -1,21 +1,16 @@
-%header
-	%hr
-	%ul
-		%li
-			= image_tag("reservation.png")
-			= link_to t(:on_line_reservation), section_path(Section.find_by_title("On-line бронирование"))
-			= image_tag("phone.png")
-			= link_to "#{t(:contacts)}: +7(495)605-17-84, +7(499)255-66-55", '#'
-		%li
-			= image_tag("adress.png")
-			= link_to t(:novinskiy), section_path(Section.find_by_title("Контакты и обратная связь"))
-		%li
-			= image_tag("contacts.png")
-			= link_to t(:how_to_find), section_path(Section.find_by_title("Контакты и обратная связь"))
-		%li
-			= image_tag("email.png")
-			= link_to "INFO@NEWSANDMORE.RU", section_path(Section.find_by_title("Контакты и обратная связь"))
-		%li
-			= image_tag("recalls.png")
-			= link_to russian_upcase(t(:recalls)), section_path(Section.find_by_title("Отзывы"))
-	%hr
+.h-wr
+  .h
+    %ul.left
+      %li
+        = link_to image_tag(asset_path "reservation.png")+content_tag(:span,t(:on_line_reservation)), section_path(Section.find_by_title("On-line бронирование"))
+      %li
+        = link_to image_tag(asset_path "phone.png")+content_tag(:span,"#{t(:contacts)}: +7(495)605-17-84, +7(499)255-66-55"), '#'
+    %ul.right
+      %li
+        = link_to image_tag(asset_path "adress.png")+content_tag(:span,t(:novinskiy)), section_path(Section.find_by_title("Контакты и обратная связь"))
+      %li
+        = link_to image_tag(asset_path "contacts.png")+content_tag(:span,t(:how_to_find)), section_path(Section.find_by_title("Контакты и обратная связь"))
+      %li
+        = link_to image_tag(asset_path "email.png")+content_tag(:span,"INFO@NEWSANDMORE.RU"), section_path(Section.find_by_title("Контакты и обратная связь"))
+      %li
+        = link_to image_tag(asset_path "recalls.png")+content_tag(:span,russian_upcase(t(:recalls))), section_path(Section.find_by_title("Отзывы"))

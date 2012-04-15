@@ -1,14 +1,12 @@
 .left_column
 	.content
-		%h3#dark_text= "#{t(:broadcasts)}. #{@sport.title}"
-		%hr
+		%h3.dark-text= "#{t(:broadcasts)}. #{@sport.title}"
 		= render "layouts/menu"
-		%table
+		%table.sports
 			- @broadcasts.each do |broadcast|
 				%tr
-					%td#dark_text= broadcast.showtime.strftime("%H:%m %d/%m/%Y")
-					%td#light_text= broadcast.title
-	= render "shared/footer"
+					%th= broadcast.showtime.strftime("%H:%m %d/%m/%Y")
+					%td= broadcast.title
 
 .right_column
 	.image
