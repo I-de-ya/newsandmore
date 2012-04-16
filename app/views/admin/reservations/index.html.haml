@@ -30,7 +30,7 @@
     %th
   - @reservations.each do |reservation|
     %tr
-      %td= reservation.date_and_time.strftime("%H:%M  %d.%m.%Y")
+      %td= Russian.strftime(reservation.date_and_time, "%Y/%b/%d,  %H:%M")
       %td= reservation.firstname
       %td= reservation.lastname
       %td= reservation.persons

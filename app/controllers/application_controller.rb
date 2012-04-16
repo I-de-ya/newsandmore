@@ -32,4 +32,11 @@ end
     @recalls_link = Section.find_by_title("Отзывы")
   end
 
+  def file_upload  
+    require 'fileutils'
+    tmp = params[:file_upload][:my_file].tempfile
+    file = File.join("public", params[:file_upload][:my_file].original_filename)
+    FileUtils.cp tmp.path, file
+  end
+
 end

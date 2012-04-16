@@ -26,5 +26,5 @@
         %td
         %td        
         %td= link_to r.name, admin_message_path(r)
-        %td= r.created_at.strftime("%d.%m.%Y/%H:%M")
+        %td= Russian.strftime(r.created_at, "%Y/%b/%d,  %H:%M")
         %td= link_to "Удалить", [:admin,r], :class => :del, :method => :delete
