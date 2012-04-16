@@ -62,25 +62,45 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $(".expand_movies").click(function(){
-        $(".movies").slideToggle("slow");
-        $(this).toggleClass("active");
-        if ($(this).text()=="Развернуть")
-            {
-               $(this).text("Свернуть")
-            }
-            else if ($(this).text()=="Roll up")
-            {
-               $(this).text("Expand")
-            }
-            else if ($(this).text()=="Expand")
-            {
-               $(this).text("Roll up")
-            }
-            else    
-            {
-               $(this).text("Развернуть")
-            };
+    $(".expand_movies").click(function(e){
+        var b,
+        	link = $(this);
+        
+        if ($(this).data("expand")) {
+			
+			b = $(this).data("expand");	        
+			
+        } else {
+        	
+	        b = {};
+	        b.me = $(".movies");
+	        b.h1 = b.me.height();
+	        b.text1 = $(this).text();
+	        
+	        var items = b.me.children("li");
+	        if (items.filter(":hidden").length == 0) b.me.addClass("open");
+	        items.show();
+			b.h2 = b.me.height();
+			b.text2 = $(this).data("text");
+			$(this).data("expand",b);
+			b.me.height(b.h1);
+			
+        };
+        
+        if (b.me.hasClass("open")) {
+	        b.me.stop(true,true).animate({height: b.h1},function(){
+	        	b.me.removeClass("open");
+	        	link.text(b.text1);
+	        });
+        } else {
+	        b.me.stop(true,true).animate({height: b.h2},function(){
+	        	b.me.addClass("open");
+	        	link.text(b.text2);
+	        });
+        };
+                
+        e.preventDefault();	
+	
     });
 });
 

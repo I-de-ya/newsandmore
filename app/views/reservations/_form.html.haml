@@ -16,7 +16,7 @@
         .wr-txta= f.text_area :comment, :rows => 5
         
         %p.rememb
-          = label_tag "Запомнить меня"
+          = label_tag :remember_me, "Запомнить меня"
           = check_box_tag :remember_me
         
         - if @reservation.errors.any?

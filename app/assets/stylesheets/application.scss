@@ -26,6 +26,30 @@
 
 }
 
+@font-face {
+    font-family: 'CoridaLight';
+    src: url('corida-light-webfont.eot');
+    src: url('corida-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('corida-light-webfont.woff') format('woff'),
+         url('corida-light-webfont.ttf') format('truetype'),
+         url('corida-light-webfont.svg#CoridaLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MyriadProBoldCondensed';
+    src: url('myriadpro-boldcond-webfont.eot');
+    src: url('myriadpro-boldcond-webfont.eot?#iefix') format('embedded-opentype'),
+         url('myriadpro-boldcond-webfont.woff') format('woff'),
+         url('myriadpro-boldcond-webfont.ttf') format('truetype'),
+         url('myriadpro-boldcond-webfont.svg#MyriadProBoldCondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .clear {height:0; clear:both; overflow:hidden; font-size:0; line-height:0;}
 
 
@@ -40,6 +64,7 @@ $margin:1em;
 $height:125px;
 $textsize:14px;
 $menu_color:#9eaf19;
+$MyriadBold: "MyriadProBoldCondensed";
 
 @mixin main-style {
   padding: 10px $padding;
@@ -51,7 +76,7 @@ html, body {width:100%; height:100%;}
 
 html {
 //  background: url(for_fake/index_slider/index4.png) no-repeat top;
-  font-family: "PicardiRegular", Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -78,19 +103,33 @@ body { font-size:11px; color:#301310; }
 
 
 .wr {
-  min-height: 100%; position:relative; width:1000px; margin:0 auto; overflow:hidden;  
+  min-height: 100%; position:relative; overflow:hidden;
+  .wr-in {width:1000px; margin:0 auto;}  
 }
 
 .h-wr {position:fixed; top:0; left:0; width:100%; height:60px; background:#fff; z-index:100;}
 
 .mainpage {
   .h-wr {height:auto; background:none;}
+  .wr {width:100%;}
+  .index_left {left:50%; margin-left:-500px;}
+  .slider {
+    height:800px; width:100%;
+    #slbox {overflow:hidden; width:200%; height:100%; position:relative;}
+    #slcenter, #slnext {
+      text-align:center; width:50%; position:absolute; height:100%;
+      div {margin:0 -500px; height:100%;}
+    }
+    #slcenter {left:0; top:0;}
+    #slnext {left:50%; top:0;}
+    img {height:100%;}
+  }
 }
 
 
 
 .h {
-  font-size:10px; width:1000px; padding:18px 0 0 0; overflow:hidden; margin:0 auto;
+  font-size:9px; width:1000px; padding:18px 0 0 0; overflow:hidden; margin:0 auto;
   
   img, span {display:inline-block; vertical-align:middle;}
     
@@ -110,7 +149,7 @@ body { font-size:11px; color:#301310; }
 }
 
 a {text-decoration:none;color:black;}
-a img {}
+a img { border:none;}
 
 .f {
   width:1000px; margin:-184px auto 0; overflow:hidden; height:184px; position:relative; z-index:100;
@@ -190,7 +229,7 @@ ul{
   font-weight:bold;
   border:none;
   background:$menu_color;
-  font-size:10px; display:inline-block; padding:0 5px; font-family:"PicardiRegular";
+  font-size:10px; display:inline-block; padding:0 5px; font-family:"Arial";
 }
 input {
   border:solid 1px $lighttext;
@@ -216,7 +255,7 @@ h4 {
 }
 
 #dark_text, .dark-text {
-  color:$darktext;font-size: 15px; line-height:18px; font-weight: normal;font-family:"PicardiBlack"; border-bottom:1px dotted #9c7f6f; padding-bottom:5px; margin-bottom:10px;
+  color:$darktext;font-size: 20px; line-height:18px; font-weight: normal;font-family:"MyriadProBoldCondensed"; border-bottom:1px dotted #9c7f6f; padding-bottom:5px; margin-bottom:10px;
     a {
       color:$darktext;
     }
@@ -239,14 +278,6 @@ h4, h3, h2 {
   padding:0;
   margin:0;
 }
-.slider {
-  li{
-    position:absolute;
-    top: 50px;
-    margin-left:-50px;
-  }
-}
-
 
 .index_left{
   background:$background;
@@ -257,7 +288,7 @@ h4, h3, h2 {
 
 .enter_button {
   position:absolute; text-align:right; font-size:20px; color:$lighttext; width:545px;
-  right:0; top:50%; margin-top:-250px;
+  right:50%; top:50%; margin-top:-250px; margin-right:-500px;
   span{
     display:none;
   }
@@ -278,12 +309,8 @@ h4, h3, h2 {
 }
 
 .slider_title {
-  position:absolute; bottom:135px; right:0; text-align:right;
-  li{
-    font-size:35px; color:$lighttext; width:545px;
-    display:none;
-    &:first-child {display:block;}
-  }
+  position:absolute; bottom:135px; right:50%; margin-right:-500px; text-align:right; font-family:"CoridaLight";
+  font-size:35px; color:$lighttext; width:545px;
 }
 
 .left_column {
@@ -300,10 +327,10 @@ h4, h3, h2 {
   }
   .main_menu{
     @include main-style;
-    width:169px; float:right; font-family:"PicardiBlack";
+    width:169px; float:right; font-family:"MyriadProBoldCondensed";
     ul {margin-bottom:-5px;}
     li {
-      font-size: 15px;font-weight: normal; border-top:1px dotted #9c7f6f; padding:5px 0;
+      font-size: 20px; line-height:18px; font-weight: normal; border-top:1px dotted #9c7f6f; padding:5px 0;
       &:first-child {border-top:none; padding-top:0; margin-top:0;}
       a {color:$darktext; text-transform:uppercase;}
     }
@@ -339,7 +366,7 @@ h4, h3, h2 {
     }
     
     .date {
-      color:$darktext;font-size: 12px; line-height:15px; font-weight: normal;font-family:"PicardiBlack"; border-bottom:1px dotted #9c7f6f; padding-bottom:2px; margin-bottom:3px;
+      color:$darktext;font-size: 12px; line-height:15px; font-weight: normal; font-family:"MyriadProBoldCondensed"; border-bottom:1px dotted #9c7f6f; padding-bottom:2px; margin-bottom:3px;
       a {color:$darktext;}
     }
     a.title {
@@ -379,18 +406,20 @@ h4, h3, h2 {
     margin-bottom:1em;
     a {
       font-size:10px;
+      line-height:10px;
+      height:10px;
+      padding:1px 4px 0 4px;
       color:white;
-    }
-    span#back {
+      font-weight:bold;
+      display:inline-block; position:relative;
+      vertical-align:top;
       img {
         display:none;
       }
     }
-    span#back:hover {
+    a:hover {
       img {
-        display:block;
-        position:absolute;
-        margin-left:-30px;
+        display:block; position:absolute; top:50%; left:0; margin-left:-30px; margin-top:-7px;
       }
     }
     .current{
@@ -398,10 +427,8 @@ h4, h3, h2 {
       }
     ul {
       li {
-        display: inline-block;
-        margin:auto;
-        padding:0 0.4em 0 0.4em;
-        margin-bottom:0.5em;
+        display:inline-block;
+        margin-bottom:5px;
         background:$menu_color;}}}
   .content {
     @include main-style;
@@ -441,7 +468,9 @@ h4, h3, h2 {
     }
 
     .movies{
-      margin-top:-10px;
+      margin-top:-10px; overflow:hidden;
+      li {display:none;}
+      li:first-child {display:block;}
       .movie_main {
         overflow:hidden; border-bottom:1px dotted $lighttext; padding:3px 0 4px;
       }
@@ -555,7 +584,7 @@ table.sports {
 
 .event-i {
   color:$darktext;
-  h5.date {font-size:12px; }
+  h5.date {font-size:14px; font-weight:bold; }
   h4 {font-size:15px; color:$lighttext; text-transform:none; margin:8px 0;}
   .text {
     font-size:12px; line-height:125%;
@@ -565,6 +594,10 @@ table.sports {
 .movie-i {
   @extend .event-i;
   h5.date {text-transform:uppercase;}
+}
+
+.post-i {
+  @extend .event-i;
 }
 
 .fform {
@@ -608,13 +641,13 @@ form.freservation {
   .last {padding-left:36px;}
   .wr-txta {width:244px;}
   .actions {
-    text-align:right;
+    text-align:right; margin-top:5px;
     input {float:none;}
   }
   .rememb {
     margin:25px 0 10px;
-    * {display:inline-block;}
-    label {font-size:15px; color:$darktext;}
+    * {display:inline-block; vertical-align:middle;}
+    label {font-size:15px; color:$darktext; margin-right:5px;}
     
   }
 }

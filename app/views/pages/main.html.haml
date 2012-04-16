@@ -2,7 +2,7 @@
 
   .about.r1-r2-r4
     %h3.dark-text= t(:about_restaurant)
-    = raw truncate(@about.body, :length => 270)
+    = raw truncate(@about.body, :length => 350)
     %p= link_to t(:more), section_path(@about)
   .main_menu.r1-r3
     %ul
@@ -55,7 +55,7 @@
 
 
   .block.r1-r3
-    = link_to t(:expand), '#', :class => 'expand_movies'
+    = link_to t(:expand), '#', :class => 'expand_movies', "data-text" => t(:roll_up)
     %h3.dark-text= t(:afisha) 
     %ul.movies
       - @movies.each do |movie|

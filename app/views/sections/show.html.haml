@@ -12,7 +12,7 @@
       - else
         %p= raw(@text_thanks.body)
     - elsif @section.title == "Отзывы" || @section.title == "Recalls"
-      = render :partial => "recall", :collection => @recalls
+      = render :partial => "sections/recall", :collection => @recalls
 
     - elsif @section.title == "Контакты и обратная связь" || @section.title == "Contacts and feedback"
       = render "contacts"

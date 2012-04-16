@@ -1,15 +1,14 @@
 .left_column
-	.content
-		%h3#dark_text= t(:news_and_special)
-		%hr
-		= render 'layouts/menu'
-		%p#notice= notice
-		%p#dark_text= @post.created_at.strftime("%d/%m/%Y")
-		%p#light_text= @post.title
-		%p= raw(@post.body)
-	= render "shared/footer"
+  .content.r1-r2-r4
+    %h3.dark-text= t(:news_and_special)
+    = render 'layouts/menu'
+    .post-i
+      %h5.date= @post.created_at.strftime("%d/%m/%Y")
+      %h4= @post.title
+      .text= raw(@post.body)
+    
 .right_column
-	.image
-		=  @post.image? ? (image_tag @post.image_url) : image_tag("empty_image(415x300).png")
-		= @post.image_title if (@post.image_title? && @post.image?)
-	=render 'events/archive'
+  .image
+    =  @post.image? ? (image_tag @post.image_url) : image_tag("empty_image(415x300).png")
+    = @post.image_title if (@post.image_title? && @post.image?)
+  =render 'events/archive'

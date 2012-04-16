@@ -1,14 +1,11 @@
--#
-  .slider
-    %ul
-      - @sliders.each do |image|
-        %li= image_tag image.slider_image_url if image.slider_image?
+.slider
+  #slbox
+    - unless @sliders.empty?
+      #slcenter
+        %div= image_tag @sliders.first.slider_image_url if @sliders.first.slider_image?
 
-
-  
+= content_for(:js, render("slider"))
 .index_left
-
-
 
 .enter_button
   #new
@@ -16,5 +13,5 @@
     = link_to image_tag("index_point.png"), main_path
 
 .slider_title
-  - @sliders.each do |image|
-    %li= image.title
+  - unless @sliders.empty?
+    = @sliders.first.title

@@ -8,5 +8,5 @@
   %body{:class => ["c-#{controller.controller_name}","a-#{controller.action_name}"]}
     = render 'layouts/header_in'
     .wr
-      = yield
+      .wr-in= yield
     = render 'shared/footer'
