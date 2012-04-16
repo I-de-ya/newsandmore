@@ -27,5 +27,3 @@
       %td= link_to image.title, edit_admin_image_path(image)
       %td= image.section.title unless image.section.nil?
       %td= link_to "Удалить", [:admin, image], :class => :del, :method => :delete
-
-

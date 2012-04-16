@@ -24,7 +24,7 @@
     %tr
       %td.show= link_to "", [:toggleshow, :admin, broadcast], :class => broadcast.visible ? nil : "not-show"
       %td= link_to broadcast.title, edit_admin_broadcast_path(broadcast)
-      %td= broadcast.showtime.strftime("%d.%m.%Y/%H:%M")
+      %td= Russian.strftime(broadcast.showtime, "%Y/%b/%d,  %H:%M")
       %td= broadcast.sport.title
       %td= link_to "Удалить", [:admin, broadcast], :class => :del, :method => :delete
 
