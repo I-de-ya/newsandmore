@@ -41,6 +41,10 @@
       %th{:colspan => 2}
         = f.check_box :visible
         = f.label :visible
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :important
+        = f.label :important
   .actions
     = f.submit "Сохранить"
     = f.submit "Применить"

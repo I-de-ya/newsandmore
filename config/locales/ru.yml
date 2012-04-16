@@ -87,6 +87,7 @@ ru:
         image_title: "Подпись для картинки"
         visible: "Показывать на сайте"
         body: "Текст"
+        important: "Особо важная новость"
       movie:
         title: "Название"
         genre: "Жанр"

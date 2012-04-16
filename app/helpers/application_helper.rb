@@ -13,15 +13,15 @@ module ApplicationHelper
     link_to_function(name, ("add_fields(this, '#{association}', '#{escape_javascript(fields)}')"))
   end
   
-	def current_path(path)
-  	"current" if current_page?(path)
-	end
+  def current_path(path)
+    "current" if current_page?(path)
+  end
 
   def russian_upcase(string)
     string.mb_chars.upcase.to_s
   end
 
-	def sortable(url)
+  def sortable(url)
     html = %Q{
       <script type="text/javascript">
         $(document).ready(function() {

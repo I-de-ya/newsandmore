@@ -9,7 +9,7 @@ class Admin::EventsController < Admin::ApplicationController
 
   def index
     @page_title = "Мероприятия"
-    @events = Event.all
+    @events = Event.order("date DESC")
   end
 
   def new

@@ -6,6 +6,7 @@ class Section < ActiveRecord::Base
 	
 	belongs_to :note
   before_update :check_title
+  before_destroy :standard_sections
 	validates :title, :presence => true
   validates :title, :uniqueness => true  
 
@@ -21,6 +22,13 @@ class Section < ActiveRecord::Base
         false
       end
     end
+  end
+
+  def standard_sections
+      if title == "On-line бронирование" || title == "Отзывы" || title == "Контакты и обратная связь" || title == "Банкетное предложение" || title == "Концепция и интерьер" || title == "Основные блюда" || title == "Завтраки" || title == "Детское меню" || title == "Барная карта"
+        errors.add(:base, "Невозможно удалить стандартную секцию")
+      end
+      errors.blank?
   end
 
 end

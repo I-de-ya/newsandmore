@@ -1,13 +1,13 @@
 .left_column
-	.content.r1-r2-r4
-		%h3.dark-text= t(:events_gallery)
-		= render "layouts/menu"
-		.event-i
-			%h5.date= @event.date.strftime("%d/%m/%Y")
-			%h4= @event.title
-			.text= raw(@event.body)
+  .content.r1-r2-r4
+    %h3.dark-text= t(:events_gallery)
+    = render "layouts/menu"
+    .event-i
+      %h5.date= @event.date.strftime("%d/%m/%Y")
+      %h4= @event.title
+      .text= raw(@event.body)
 .right_column
-	.image
-		= @event.image? ? (image_tag @event.image_url) : image_tag("empty_image(415x300).png")
-		= @event.image_title if (@event.image_title? && @event.image?)
-	= render "archive"
+  .image
+    = @event.image? ? (image_tag @event.image_url) : image_tag("empty_image(415x300).png")
+    = @event.image_title if (@event.image_title? && @event.image?)
+  = render "archive"

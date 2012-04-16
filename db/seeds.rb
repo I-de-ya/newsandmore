@@ -16,7 +16,7 @@ sections = [{:ru => "Концепция и интерьер", :en => "Concept an
             {:ru => "Детское меню", :en => "Kids menu"},
             {:ru => "Барная карта", :en => "Bar list"},
             {:ru => "Банкетное предложение", :en => "Banquet proposal"},
-            {:ru => "On-line бронирование", :en => "On-line reservation"},
+            {:ru => "On-line бронирование", :en => "On-line reservation"}],
             {:ru => "Отзывы", :en => "Recalls"},
             {:ru => "Контакты и обратная связь", :en => "Contacts and feedback"}]
 
