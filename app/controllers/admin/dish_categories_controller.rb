@@ -2,9 +2,12 @@
 class Admin::DishCategoriesController < Admin::ApplicationController
   # GET /categories
   # GET /categories.json
+  before_filter :get_section
+
   def index
     @page_title = "Категории блюд"
-    @categories = Section.find(params[:section_id]).dish_categories
+    @categories = @section.dish_categories
+    @images = @section.images
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +17,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
 
   def sort
     params[:pos].each_with_index do |id, idx|
-      p = DishCategory.find(id)
+      p = @section.dish_categories.find(id)
       p.position = idx
       p.save
     end
@@ -22,7 +25,7 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   end 
 
   def toggleshow
-    @category = DishCategory.find(params[:id])
+    @category = @section.dish_categories.find(params[:id])
     @category.toggle(:visible)
     @category.save
     redirect_to :back, notice: 'Категория обновлена.'
@@ -31,8 +34,8 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   # GET /categories/new
   # GET /categories/new.json
   def new
-    @category = DishCategory.new
-    @section = Section.find(params[:section_id])
+    @category = @section.dish_categories.build
+
 
     respond_to do |format|
       format.html { render "edit"}
@@ -43,18 +46,15 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   # GET /categories/1/edit
   def edit
     @page_title = "Редактирование категории блюд"
-    @category = DishCategory.find(params[:id])
-    @section = Section.find(params[:section_id])
+    @category = @section.dish_categories.find(params[:id])
   end
 
   # POST /categories
   # POST /categories.json
   def create
-    @category = DishCategory.new(params[:dish_category])
-    @category.section_id = params[:section_id].to_i
-    
+    @category = @section.dish_categories.build(params[:dish_category])
       if @category.save
-        redirect_to (params[:commit] == "Сохранить" ? [:admin,@category.section,:dish_categories] : [:edit,:admin,@category.section,@category]), notice: 'Категория успешно добавлена.'
+        redirect_to (params[:commit] == "Сохранить" ? [:admin, @section, :dish_categories] : [:edit, :admin, @section, @category]), notice: 'Категория успешно добавлена.'
       else
         render action: "edit"
       end
@@ -64,11 +64,9 @@ class Admin::DishCategoriesController < Admin::ApplicationController
   # PUT /categories/1
   # PUT /categories/1.json
   def update
-    @category = DishCategory.find(params[:id])
-
-
+    @category = @section.dish_categories.find(params[:id])
       if @category.update_attributes(params[:dish_category])
-        redirect_to (params[:commit] == "Сохранить" ? [:admin,@category.section,:dish_categories] : [:edit,:admin,@category.section,@category]), notice: 'Категория успешно обновлена.'
+        redirect_to (params[:commit] == "Сохранить" ? [:admin, @section, :dish_categories] : [:edit, :admin, @section, @category]), notice: 'Категория успешно обновлена.'
       else
         render action: "edit"
 
@@ -86,5 +84,9 @@ class Admin::DishCategoriesController < Admin::ApplicationController
       format.html { redirect_to :back, notice: 'Категория удалена.' }
       format.json { head :no_content }
     end
+  end
+
+  def get_section
+    @section = Section.find(params[:section_id])
   end
 end

@@ -1,7 +1,18 @@
 #coding: utf-8
 class Admin::ImagesController < Admin::ApplicationController
+  before_filter :get_section
+  
+  def sort
+    params[:photo].each_with_index do |id, idx|
+      p = @section.images.find(id)
+      p.position = idx
+      p.save
+    end
+    render :nothing => true
+  end
+  
   def toggleshow
-    @image = Image.find(params[:id])
+    @image = @section.image.find(params[:id])
     @image.toggle(:visible)
     @image.save
     redirect_to :back, notice: 'Картинка обновлена'
@@ -13,21 +24,15 @@ class Admin::ImagesController < Admin::ApplicationController
   end
 
   def new
-    @image = Image.new
+    @image = @section.images.build
     render "edit"
   end
 
   def create
-    @image = Image.new(params[:image])
-
-    respond_to do |format|
-      if @image.save
-        format.html { redirect_to (params[:commit] == "Сохранить" ? [:admin,:images] : [:edit,:admin,@image]), notice: 'Картинка успешно добавлена.' }
-        format.json { render json: @image, status: :created, location: @image }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
+    @parent = @section
+    @photo = @parent.images.build(params[:photo])
+    if @photo.save
+      render 'admin/photos/create'
     end
   end
 
@@ -55,12 +60,13 @@ class Admin::ImagesController < Admin::ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
-    @image.destroy
+    @photo = Image.find(params[:id])
+    @photo.destroy
+    render 'admin/photos/destroy'
+  end
 
-    respond_to do |format|
-      format.html { redirect_to [:admin,:images], notice: "Новость удалена" }
-      format.json { head :no_content }
-    end
+  private
+  def get_section
+    @section = Section.find(params[:section_id])
   end
 end

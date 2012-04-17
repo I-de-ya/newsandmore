@@ -1,6 +1,6 @@
 # coding: utf-8
 class Section < ActiveRecord::Base
-	has_many :images
+	has_many :images, :order => :position
 	has_many :dish_categories
 	has_many :dishes, :through => :dish_categories
 	

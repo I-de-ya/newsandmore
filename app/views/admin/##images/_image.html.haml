@@ -1,0 +1,4 @@
+%li{class: "handle", :id => "image_#{image.id}"}
+  = link_to image.src.url, style: "background-image:url(#{image.src.admin})" do
+    %em= image.src.to_s.gsub(/.*\/(.*)\z/,'\1')
+  = link_to "удалить", admin_slaider_image_path(image.slaider, image), :method => :delete, :confirm => "Точно удалить?", :remote => true, :title => "Удалить", :class => "del"

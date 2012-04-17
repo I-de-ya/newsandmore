@@ -3,7 +3,8 @@
     - if @category.new_record?
       Добавить категорию
     - else
-      Редактирование категории
+      Редактирование категории  
+      
 
 = render "admin/shared/globalize_switcher"
 = form_for [:admin,@section,@category] do |f|

@@ -4,6 +4,11 @@
     .indexlocale
       #{link_to image_tag('russian.png'), url_for(:locale => 'ru')}#{link_to image_tag('english.png'), url_for(:locale => 'en')}#{image_tag("logo_text.png")}
   .enter
-    = link_to t(:site_enter), main_path
-    #info
-      = t(:work_hours_info)
+    .social
+      = link_to nil, :class => :fb do
+        = image_tag(asset_path "fb.png")+content_tag(:span,"News&more")
+      = render "shared/facebook"
+    .enter-in
+      = link_to t(:site_enter), main_path
+      #info
+        = t(:work_hours_info)

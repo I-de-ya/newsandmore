@@ -1,8 +1,8 @@
 .left_column
 
   .about.r1-r2-r4
-    %h3.dark-text= t(:about_restaurant)
-    = raw truncate(@about.body, :length => 350)
+    %h3.dark-text= link_to t(:about_restaurant), section_path(@about)
+    %p= raw truncate(strip_tags(@about.body), :length => 180)
     %p= link_to t(:more), section_path(@about)
   .main_menu.r1-r3
     %ul
@@ -32,6 +32,8 @@
       %a.next{:href => "#"}
       %a.prev{:href => "#"}
     .clear
+    #scroll-styled-flexcroll-hscroller
+      .flexcroll-scrollbar
   = paginate @posts
   .clear
   

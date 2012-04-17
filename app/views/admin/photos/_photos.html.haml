@@ -1,0 +1,13 @@
+- unless parent.new_record?
+  =content_for(:page_sidebar) do
+    %h5 
+      Фотографии
+      - if editable ||= false
+        = link_to "ред.", [:admin,parent]
+    .product-photos
+      %ul.photos#photo-list
+        = render :partial => "admin/photos/photo", :collection => eval("parent.#{photos.to_s}"), :as => :photo, :locals => {:parent => parent}
+      .queue
+        #photo_upload
+          = photo_uploadify url_for([:admin,parent,photos]), parent
+      = photo_sortable url_for([:sort,:admin,parent,photos])
