@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fill => [415, 300]
+  
 
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -24,10 +24,22 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  version :thumb do
-    process :resize_to_fill => [170, 170]
+  version :display do
+    process :resize_to_limit => [800, 600]
   end
 
+  version :slide do
+    process :resize_to_fill => [424, 282]
+  end
+
+  version :thumb do
+    process :resize_to_fill => [156, 142]
+  end
+  
+  version :admin do
+    process :resize_to_fit => [119, 119]
+  end
+  
   version :small_movie do
     process :resize_to_fill => [60, 60] 
   end

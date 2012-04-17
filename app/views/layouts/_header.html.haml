@@ -4,13 +4,13 @@
       %li
         = link_to image_tag(asset_path "reservation.png")+content_tag(:span,t(:on_line_reservation)), section_path(@on_line_reservation_link)
       %li
-        = link_to image_tag(asset_path "phone.png")+content_tag(:span,"#{t(:contacts)}: +7(495)605-17-84, +7(499)255-66-55"), '#'
+        = link_to image_tag(asset_path "phone.png")+content_tag(:span,"#{t(:contacts)}: +7(495)605-17-84, +7(499)255-66-55"), section_path(@contacts_link)
     %ul.right
       %li
         = link_to image_tag(asset_path "adress.png")+content_tag(:span,t(:novinskiy)), section_path(@contacts_link)
       %li
-        = link_to image_tag(asset_path "contacts.png")+content_tag(:span,t(:how_to_find)), section_path(@contacts_link)
+        = link_to image_tag(asset_path "contacts.png")+content_tag(:span,t(:how_to_find)), "http://maps.google.ru/maps?hl=ru&amp;q=%D0%BD%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80+11&amp;ie=UTF8&amp;hq=&amp;hnear=%D0%9D%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9+%D0%B1%D1%83%D0%BB.,+11,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0&amp;ll=55.753215,37.582248&amp;spn=0.007028,0.021136&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed", class: "lightbox-one"
       %li
-        = link_to image_tag(asset_path "email.png")+content_tag(:span,"INFO@NEWSANDMORE.RU"), section_path(@contacts_link)
+        = link_to image_tag(asset_path "email.png")+content_tag(:span,"INFO@NEWSANDMORE.RU"), "mailto:info@newsandmore.ru"
       %li
         = link_to image_tag(asset_path "recalls.png")+content_tag(:span,russian_upcase(t(:recalls))), section_path(@recalls_link)

@@ -3,7 +3,7 @@
     %h3.dark-text= t(:about_restaurant)
     = render 'layouts/menu'
     - unless @section.title == "On-line бронирование" || @section.title == "On-line reservation"
-      = raw(@section.body)
+      .content-text= raw(@section.body)
     
     - if @section.title == "On-line бронирование" || @section.title == "On-line reservation"
       - if notice == nil
@@ -21,7 +21,7 @@
       = render :partial => "category", :collection => @section.dish_categories.visible
 
 .right_column
-  .section_images
+  .section_images#scroll-styled
     - if @section.images.empty?
       = image_tag("empty_image(415x300).png")
     - else
@@ -30,8 +30,10 @@
           - @section.images.each do |image|
             - if image.image?
               %td
-                = link_to image.image_url, :title => image.title do
+                = link_to image.image.url(:display), :title => image.title do
                   = image_tag image.image_url
+  #scroll-styled-flexcroll-hscroller
+    .flexcroll-scrollbar
   %p.title-text Подпись
   
   .bottom.r2-r3

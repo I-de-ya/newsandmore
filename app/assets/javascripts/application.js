@@ -11,7 +11,121 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
+//= require "reddebox/jquery.reddebox"
+//= require flexcroll
+
+$(function(){
+	$("table.section_images a").reddeBox();
+	$("a.lightbox-one").each(function(){
+		$(this).reddeBox();
+	});
+	
+	(function(){
+		var sc = $("#scroll-styled");
+		
+		if (sc.length) {
+			
+			if (sc.closest("div.news").length) {
+				// новости и специальные предложения
+				sc.scrollLeft(0);
+				var w = sc.find("table").width(),
+					wScroll = 538*568/w,
+					k = w/568,
+					elems = sc.find("a.post"),
+					elemsLength = elems.length,
+					k1 = (568-wScroll)/(w-538),
+					pages = $.map(elems,function(n,i){
+						var cell = $(n).position().left;
+						return {
+							cell: cell,
+							slider: Math.round(cell*k1)
+						};
+					});
+					
+				var slider = $("#scroll-styled-flexcroll-hscroller div");
+				
+				slider.width(Math.round(wScroll)).draggable({
+					axis: "x",
+					containment: 'parent',
+					drag: function(event, ui) {
+						sc.scrollLeft(k*ui.position.left);
+					},
+					stop: function(event, ui){
+						var pageIndex = Math.round(sc.scrollLeft()/190),
+							rest = sc.scrollLeft()%190;					
+						sc.animate({scrollLeft: pages[pageIndex].cell},rest);
+						slider.animate({left:pages[pageIndex].slider},rest);
+						setTimeout(function(){slide()},3000);
+					}
+				});
+				
+				function slide() {
+					var pageIndex = Math.round(sc.scrollLeft()/190),
+						rest = sc.scrollLeft()%190;
+					(pageIndex < (elemsLength-3)) ? pageIndex++ : pageIndex = 0;
+					if (!slider.hasClass("ui-draggable-dragging")) {
+						sc.animate({scrollLeft: pages[pageIndex].cell},600,"easeInOutExpo",function(){
+							setTimeout(function(){slide()},3000);
+						});
+						slider.animate({left:pages[pageIndex].slider},600);
+					};
+				};
+				
+			} else {
+				// Фотографии
+				sc.scrollLeft(0);
+				var w = sc.find("table").width(),
+					wScroll = 424*424/w,
+					k = w/424,
+					elems = sc.find("td"),
+					elemsLength = elems.length,
+					pages = $.map(elems,function(n,i){
+						return {
+							cell: $(n).position().left,
+							slider: Math.round(wScroll*i)
+						};
+					});
+				var slider = $("#scroll-styled-flexcroll-hscroller div");
+				
+				slider.width(Math.round(wScroll)).draggable({
+					axis: "x",
+					containment: 'parent',
+					drag: function(event, ui) {
+						sc.scrollLeft(k*ui.position.left);
+					},
+					stop: function(event, ui){
+						var pageIndex = Math.round(sc.scrollLeft()/424),
+							rest = sc.scrollLeft()%424;					
+						sc.animate({scrollLeft: pages[pageIndex].cell},rest);
+						slider.animate({left:pages[pageIndex].slider},rest);
+						setTimeout(function(){slide()},3000);
+					}
+				});	
+				
+				function slide() {
+					var pageIndex = Math.round(sc.scrollLeft()/424),
+						rest = sc.scrollLeft()%424;
+					(pageIndex < (elemsLength-1)) ? pageIndex++ : pageIndex = 0;
+					if (!slider.hasClass("ui-draggable-dragging")) {
+						sc.animate({scrollLeft: pages[pageIndex].cell},600,"easeInOutExpo",function(){
+							setTimeout(function(){slide()},3000);
+						});
+						slider.animate({left:pages[pageIndex].slider},600);
+					};
+				};
+							
+			};
+			
+
+			
+			setTimeout(function(){slide()},3000);
+		};
+		
+
+	})();
+});
 
 //РазвернутьСвернуть на страницу main
 $(document).ready(function(){

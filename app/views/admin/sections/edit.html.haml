@@ -4,6 +4,8 @@
       Добавить раздел
     - else
       Редактирование раздела
+      
+      = render "admin/photos/photos", {:parent => @section, :photos => :images}
 
 = render "admin/shared/globalize_switcher"
 

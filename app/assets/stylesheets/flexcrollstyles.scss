@@ -1,0 +1,23 @@
+/* Scroll Bar Master Styling Starts Here */
+/* All comments can be freely removed from the css */
+
+
+.scrollgeneric {line-height: 1px;font-size: 1px;position: absolute;top: 0; left: 0;}
+
+.hscrollerbase {height: 8px;background-color: white;}
+.hscrollerbar {height: 8px;background-color: #49201d;}
+
+.hscrollerbar {padding: 0;z-index: 2;}
+
+
+.hscrollerbarbeg {height: 15px;width: 15px !important;}
+.hscrollerbarend {height: 15px;width: 15px;}
+.scrollerjogbox {width: 15px;height: 15px;top: auto; left: auto;bottom: 0px; right: 0px;background: #4E727C;}
+
+.hscrollerbase {background:image-url("flexcroll.png") repeat-x 0 0;}
+.hscrollerbasebeg {height: 15px;width: 15px !important;}
+.hscrollerbaseend {height: 15px;width: 15px;}
+.scrollerjogbox:hover {background: #5E828C;}
+
+#scroll-styled-flexcroll-hscroller {height:8px; background:image-url("flexcroll.png") repeat-x 0 0; position:relative; overflow:hidden;}
+.flexcroll-scrollbar {height:8px; background:#49201d; position:absolute; width:100px;}

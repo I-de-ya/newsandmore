@@ -18,7 +18,7 @@
 				$("<img />").attr("src",sinfo[index].img).load(function(){
 					slnext.html(this);
 					slnext.find("img").wrap("<div />");
-					s.animate({"margin-left": -width},1000,"linear",function(){
+					s.animate({"margin-left": -width},1000,"easeInOutExpo",function(){
 						slcenter.remove();
 						slnext.attr("id","slcenter");
 						s.removeAttr("style");
@@ -28,11 +28,11 @@
 							i++;
 							if (i > 50) {
 								clearInterval(intDeg);
-								setTimeout(function(){slideDish()},3000);
+								setTimeout(function(){slideDish()},5000);
 								return false;
 							};
 							stitle.get(0).setAttribute("style", "right: "+i+"%; " + transform + ": matrix(1, 0, "+(i/25-2).toFixed(2)+", 1, 0, 0);");
-						},15);
+						},9);
 						
 					});
 					stitle.fadeOut(600);

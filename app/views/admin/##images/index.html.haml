@@ -1,0 +1,31 @@
+= content_for :page_header do
+  %h1 Картинки
+  %p= link_to "Добавить", new_admin_image_path
+
+- if @images.empty?
+  %h2 Вы еще не добавили ни одной картинки. 
+  %p
+    Хотите
+    = link_to "добавить?", new_admin_image_path
+%table.list
+  %colgroup
+    %col.w1
+    %col.w1
+    %col
+    %col
+    %col.w1
+  %tr
+    %th 
+    %th
+    %th Подпись
+    %th Раздел
+    %th
+  - @images.each do |image|
+    %tr
+      %td
+      %td.show= link_to "", [:toggleshow, :admin, image], :class => image.visible ? nil : "not-show"
+      %td= link_to image.title, edit_admin_image_path(image)
+      %td= image.section.title unless image.section.nil?
+      %td= link_to "Удалить", [:admin, image], :class => :del, :method => :delete
+
+

@@ -32,10 +32,6 @@ end
       get 'toggleshow', :on => :member
     end
 
-    resources :images do
-      get 'toggleshow', :on => :member
-    end
-
     resources :posts do
       get 'toggleshow', :on => :member
     end
@@ -69,6 +65,10 @@ end
     resources :sections do
       get 'toggleshow', :on => :member
       post 'sort', :on => :collection
+      resources :images do
+        get 'toggleshow', :on => :member
+        post 'sort', :on => :collection
+      end
       resources :dish_categories do
         get 'toggleshow', :on => :member
         resources :dishes do
