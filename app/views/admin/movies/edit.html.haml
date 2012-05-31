@@ -8,57 +8,57 @@
 
 = render "admin/shared/globalize_switcher"
 = form_for [:admin, @movie] do |f|
-  %table#russian_table
-    %tr
-      %th= f.label :title
-      %td= f.text_field :title
-    %tr
-      %th= f.label :origin
-      %td= f.text_field :origin
-    %tr
-      %th= f.label :genre
-      %td= f.text_field :genre
-    %tr
-      %td{:colspan => "2"}
-        = f.label :description
-        %br
-        = f.text_area :description
-    %tr
-      %th= f.label :director
-      %td= f.text_field :director
-    %tr
-      %th= f.label :starring
-      %td= f.text_field :starring
-    %tr
-      %th= f.label :country
-      %td= f.text_field :country
-
-  = f.globalize_fields_for :en do |g|
-    %table#english_table
+  %table
+    %tbody#russian_table
       %tr
-        %th= g.label :title
-        %td= g.text_field :title
+        %th= f.label :title
+        %td= f.text_field :title
       %tr
-        %th= g.label :origin
-        %td= g.text_field :origin
+        %th= f.label :origin
+        %td= f.text_field :origin
       %tr
-        %th= g.label :genre
-        %td= g.text_field :genre
+        %th= f.label :genre
+        %td= f.text_field :genre
       %tr
         %td{:colspan => "2"}
-          = g.label :description
+          = f.label :description
           %br
-          = g.text_area :description
+          = f.text_area :description
       %tr
-        %th= g.label :director
-        %td= g.text_field :director
+        %th= f.label :director
+        %td= f.text_field :director
       %tr
-        %th= g.label :starring
-        %td= g.text_field :starring
+        %th= f.label :starring
+        %td= f.text_field :starring
       %tr
-        %th= g.label :country
-        %td= g.text_field :country
-  %table
+        %th= f.label :country
+        %td= f.text_field :country
+
+    = f.globalize_fields_for :en do |g|
+      %tbody#english_table
+        %tr
+          %th= g.label :title
+          %td= g.text_field :title
+        %tr
+          %th= g.label :origin
+          %td= g.text_field :origin
+        %tr
+          %th= g.label :genre
+          %td= g.text_field :genre
+        %tr
+          %td{:colspan => "2"}
+            = g.label :description
+            %br
+            = g.text_area :description
+        %tr
+          %th= g.label :director
+          %td= g.text_field :director
+        %tr
+          %th= g.label :starring
+          %td= g.text_field :starring
+        %tr
+          %th= g.label :country
+          %td= g.text_field :country
     %tr
       %th= f.label :year
       %td= f.number_field :year
@@ -87,7 +87,6 @@
       %th{:colspan => 2}
         = f.check_box :visible
         = f.label :visible
-
       
   .actions
     = f.submit "Сохранить"

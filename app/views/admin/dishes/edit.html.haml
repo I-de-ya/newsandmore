@@ -13,34 +13,39 @@
         - @dish.errors.full_messages.each do |msg|
           %li= msg  
   = render "admin/shared/globalize_switcher"
-  %table#russian_table
-    %tr
-      %th= f.label :name
-      %td= f.text_field :name
-    %tr
-      %th= f.label :description
-      %td= f.text_area :description
-  = f.globalize_fields_for :en do |g|
-    %table#english_table
-      %tr
-        %th= g.label :name
-        %td= g.text_field :name
-      %tr
-        %th= g.label :description
-        %td= g.text_area :description
   %table
-    %tr
-      %th= label_tag :section_id, "Раздел"
-      %td
-        = select_tag :section_id, options_for_select(Section.all.collect {|p| [p.title,p.id]}, params[:section_id])
-    %tr
-      %th= f.label :dish_category_id, "Категория"
-      %td
-        = f.grouped_collection_select :dish_category_id, Section.order(:position), :dish_categories, :title, :id, :name
-    %tr
-      %th{:colspan => 2}
-        = f.check_box :visible
-        = f.label :visible      
+    %tbody#russian_table
+      %tr
+        %th= f.label :name
+        %td= f.text_field :name
+      %tr
+        %td{:colspan => "2"}
+          = f.label :description
+          %br
+          = f.text_area :description
+    = f.globalize_fields_for :en do |g|
+      %tbody#english_table
+        %tr
+          %th= g.label :name
+          %td= g.text_field :name
+        %tr
+          %td{:colspan => "2"}
+            = f.label :description
+            %br
+            = f.text_area :description
+    %tbody
+      %tr
+        %th= label_tag :section_id, "Раздел"
+        %td
+          = select_tag :section_id, options_for_select(Section.all.collect {|p| [p.title,p.id]}, params[:section_id])
+      %tr
+        %th= f.label :dish_category_id, "Категория"
+        %td
+          = f.grouped_collection_select :dish_category_id, Section.order(:position), :dish_categories, :title, :id, :name
+      %tr
+        %th{:colspan => 2}
+          = f.check_box :visible
+          = f.label :visible      
   %table
     = f.fields_for :dish_types do |builder|
       %tbody

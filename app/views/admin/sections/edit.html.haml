@@ -10,32 +10,36 @@
 = render "admin/shared/globalize_switcher"
 
 = form_for [:admin,@section] do |f|
-  
-  %table#russian_table
-    - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь" || @section.title == "Концепция и интерьер" || @section.title == "Основные блюда" || @section.title == "Завтраки" || @section.title == "Детское меню" || @section.title == "Барная карта"
-    - else
-      %tr
-        %th= f.label :title
-        %td= f.text_field :title
-    %tr
-      %th= f.label :body
-      %td= f.text_area :body
-
-  = f.globalize_fields_for :en do |g|
-    %table#english_table
-      - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь"
+  %table
+    %tbody#russian_table
+      - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь" || @section.title == "Концепция и интерьер" || @section.title == "Основные блюда" || @section.title == "Завтраки" || @section.title == "Детское меню" || @section.title == "Барная карта"
       - else
         %tr
-          %th= g.label :title
-          %td= g.text_field :title
+          %th= f.label :title
+          %td= f.text_field :title
       %tr
-        %th= g.label :body
-        %td= g.text_area :body
+        %td{:colspan => "2"}
+          = f.label :body
+          %br
+          = f.text_area :body
 
-  %tr
-    %th{:colspan => 2}
-      = f.check_box :visible
-      = f.label :visible
+    = f.globalize_fields_for :en do |g|
+      %tbody#english_table
+        - if @section.title == "On-line бронирование" || @section.title == "Отзывы" || @section.title == "Контакты и обратная связь"
+        - else
+          %tr
+            %th= g.label :title
+            %td= g.text_field :title
+        %tr
+          %td{:colspan => "2"}
+            = g.label :body
+            %br
+            = g.text_area :body
+
+    %tr
+      %th{:colspan => 2}
+        = f.check_box :visible
+        = f.label :visible
 
   .actions
     = submit_tag "Сохранить"

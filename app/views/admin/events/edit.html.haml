@@ -8,44 +8,43 @@
 
 = render "admin/shared/globalize_switcher"
 = form_for [:admin, @event] do |f|
-  %table#russian_table
-    %tr
-      %th= f.label :title
-      %td= f.text_field :title
-    %tr
-      %td{:colspan => "2"}
-        = f.label :body
-        %br
-        = f.text_area :body
-  = f.globalize_fields_for :en do |g|
-    %table#english_table
+  %table
+    %tbody#russian_table
       %tr
-        %th= g.label :title
-        %td= g.text_field :title
+        %th= f.label :title
+        %td= f.text_field :title
       %tr
         %td{:colspan => "2"}
-          = g.label :body
+          = f.label :body
           %br
-          = g.text_area :body
-  %table
-    %tr
-      %th= f.label :date
-      %td= f.datetime_select :date
-    %tr
-      %th
-      %td= image_tag @event.image_url if @event.image?
-    %tr
-      %td= f.label :image
-      %td= f.file_field :image
-    %tr
-      %th= f.label :image_title
-      %td= f.text_field :image_title 
-    %tr
-      %th{:colspan => 2}
-        = f.check_box :visible
-        = f.label :visible
-
-      
+          = f.text_area :body
+    = f.globalize_fields_for :en do |g|
+      %tbody#english_table
+        %tr
+          %th= g.label :title
+          %td= g.text_field :title
+        %tr
+          %td{:colspan => "2"}
+            = g.label :body
+            %br
+            = g.text_area :body
+    %tbody
+      %tr
+        %th= f.label :date
+        %td= f.datetime_select :date
+      %tr
+        %th
+        %td= image_tag @event.image_url if @event.image?
+      %tr
+        %td= f.label :image
+        %td= f.file_field :image
+      %tr
+        %th= f.label :image_title
+        %td= f.text_field :image_title 
+      %tr
+        %th{:colspan => 2}
+          = f.check_box :visible
+          = f.label :visible
   .actions
     = f.submit "Сохранить"
     = f.submit "Применить"

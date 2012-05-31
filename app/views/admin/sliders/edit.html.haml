@@ -8,29 +8,30 @@
 
 = render "admin/shared/globalize_switcher"
 = form_for [:admin, @slider] do |f|
-  %table#russian_table
-    %tr
-      %th= f.label :title
-      %td= f.text_field :title  
-  = f.globalize_fields_for :en do |g|
-    %table#english_table
-      %tr
-        %th= g.label :title
-        %td= g.text_field :title 
   %table
-    %tr
-      %th
-      %td= image_tag @slider.slider_image_url if @slider.slider_image?
-    %tr
-      %td= f.label :slider_image
-      %td= f.file_field :slider_image
-    %tr
-      %td= f.label :position
-      %td= f.number_field :position
-    %tr
-      %th{:colspan => 2}
-        = f.check_box :visible
-        = f.label :visible
+    %tbody#russian_table
+      %tr
+        %th= f.label :title
+        %td= f.text_field :title  
+    = f.globalize_fields_for :en do |g|
+      %tbody#english_table
+        %tr
+          %th= g.label :title
+          %td= g.text_field :title 
+    %tbody
+      %tr
+        %th
+        %td= image_tag @slider.slider_image_url if @slider.slider_image?
+      %tr
+        %td= f.label :slider_image
+        %td= f.file_field :slider_image
+      %tr
+        %td= f.label :position
+        %td= f.number_field :position
+      %tr
+        %th{:colspan => 2}
+          = f.check_box :visible
+          = f.label :visible
       
   .actions
     = f.submit "Сохранить"
